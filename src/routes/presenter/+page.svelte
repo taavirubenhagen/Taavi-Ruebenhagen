@@ -1,9 +1,11 @@
+<!--TODO: Privacy Policy, Imprint, Link to home-->
+
 <script lang='ts'>
 	import { fly } from "svelte/transition";
     import { Text } from "$lib";
 	import { TextButton } from "./components";
 
-    const totalHeightFactor = 3.125;
+    const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
 
     let windowHeight = 1080;
@@ -36,13 +38,29 @@
             Download
         </TextButton>
     </div>
-    <!--<div class="fixed z-40 bottom-0 w-full h-16 flex justify-center items-center">
-        <div class="rounded-full w-8 h-8 bg-neutral-700">
-            <Text small paragraph>
-                {( scrollY / ( totalHeightFactorOffset * windowHeight ) * 100 ).toFixed(0)}
-            </Text>
+    {#if scrollY >= totalHeightFactorOffset * windowHeight}
+        <div
+            in:fly={{delay: 3200, duration: 400, y: 32}}
+            out:fly={{duration: 400, y: 8}}
+            class="fixed z-40 bottom-0 w-full h-16 flex justify-center items-center"
+        >
+            <div class="w-[45%] flex justify-end">
+                <Text small paragraph>
+                    Imprint
+                </Text>
+            </div>
+            <div class="w-[10%] flex justify-center">
+                <Text small paragraph>
+                    |
+                </Text>
+            </div>
+            <div class="w-[45%] flex">
+                <Text small paragraph>
+                    Studio
+                </Text>
+            </div>
         </div>
-    </div>-->
+    {/if}
     <div class='fixed w-screen h-screen px-8 flex flex-col justify-center items-center'>
         {#if scrollY < windowHeight * 0.25}
             <div
@@ -83,7 +101,7 @@
         <img
             src="/presenter/screenshot_1.jpg"
             alt="Mockup of Presentation Master 2"
-            class="shadow-xl rounded-[4rem] h-[87.5vh] aspect-[0.5] border-8 border-neutral-300 bg-black p-2"
+            class="shadow-xl rounded-[4rem] h-[75vh] aspect-[0.5] border-8 border-neutral-300 bg-black p-2"
         />
     </div>
 </main>

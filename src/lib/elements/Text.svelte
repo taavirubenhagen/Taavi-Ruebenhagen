@@ -27,7 +27,7 @@
         {:else if medium}
             <p class='text-4xl md:text-5xl'><slot/></p>
         {:else if large}
-            <p class='text-6xl md:text-8xl'><slot/></p>
+            <p class='text-5xl md:text-8xl'><slot/></p>
         {/if}
     </p>
 {/if}
