@@ -9,12 +9,25 @@
 </script>
 
 
+{#if paragraph}
+    <p class='inline font-sans'>
+        {#if small}
+            <p class='text-base'><slot/></p>
+        {:else if medium}
+            <p class='hidden'><slot/></p>
+        {:else if large}
+            <p class="hidden"><slot/></p>
+        {/if}
+    </p>
+{/if}
 {#if heading}
-    {#if small}
-        <p class='font-sans font-bold text-base md:text-lg inline'><slot/></p>
-    {:else if medium}
-        <p class='font-sans font-bold text-4xl md:text-5xl inline'><slot/></p>
-    {:else if large}
-        <p class='font-sans font-bold text-6xl md:text-8xl inline'><slot/></p>
-    {/if}
+    <p class='font-sans font-bold'>
+        {#if small}
+            <p class='text-base md:text-lg'><slot/></p>
+        {:else if medium}
+            <p class='text-4xl md:text-5xl'><slot/></p>
+        {:else if large}
+            <p class='text-6xl md:text-8xl'><slot/></p>
+        {/if}
+    </p>
 {/if}
