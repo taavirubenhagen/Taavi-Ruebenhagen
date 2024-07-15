@@ -3,7 +3,10 @@
 <script lang='ts'>
 	import { fly } from "svelte/transition";
     import { Text } from "$lib";
-	import { TextButton } from "./components";
+	import {
+        InlineButton,
+        TextButton
+    } from "./components";
 
     const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
@@ -33,7 +36,7 @@
         <Text medium heading>P.</Text>
         <TextButton
             primary={scrollY >= totalHeightFactorOffset * windowHeight}
-            onClick={() => {}}
+            onClick={() => window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2&hl=en_US"}
         >
             Download
         </TextButton>
@@ -46,7 +49,9 @@
         >
             <div class="w-[45%] flex justify-end">
                 <Text small paragraph>
-                    Imprint
+                    <InlineButton invisible onClick={() => alert("Coming soon!")}>
+                        Imprint
+                    </InlineButton>
                 </Text>
             </div>
             <div class="w-[10%] flex justify-center">
@@ -55,9 +60,9 @@
                 </Text>
             </div>
             <div class="w-[45%] flex">
-                <Text small paragraph>
+                <InlineButton invisible onClick={() => alert("Coming soon!")}>
                     Studio
-                </Text>
+                </InlineButton>
             </div>
         </div>
     {/if}
@@ -95,7 +100,7 @@
         {/if}
     </div>
     <div
-        class="relative w-screen pb-[calc(100vh/3)] flex flex-col justify-center items-center"
+        class="relative w-screen pb-[calc(100vh/2)] flex flex-col justify-center items-center"
         style="height: {totalHeightFactor * 100}vh;"
     >
         <img
