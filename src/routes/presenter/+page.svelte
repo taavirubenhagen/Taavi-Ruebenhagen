@@ -28,9 +28,7 @@
     text-white selection:text-black text-center"
 >
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
-        <div>
-            <Text medium heading>P.</Text>
-        </div>
+        <Text medium heading>P.</Text>
         <TextButton
             primary={scrollY >= totalHeightFactorOffset * windowHeight}
             onClick={() => {}}
@@ -58,13 +56,23 @@
                 </Text>
             </div>
         {:else if scrollY > windowHeight * 1.75}
-            <div
-                in:fly={{duration: 400, y: 32}}
-                out:fly={{duration: 400, y: 8}}
-            >
-                <Text large heading>
-                    Now for iOS.
-                </Text>
+            <div class="flex flex-col items-center gap-4">
+                <div
+                    in:fly={{duration: 400, y: 32}}
+                    out:fly={{duration: 400, y: 8}}
+                >
+                    <Text large heading>
+                        Soon for iOS.
+                    </Text>
+                </div>
+                <div
+                    in:fly={{delay: 1600, duration: 800, y: 32}}
+                    out:fly={{duration: 400, y: 8}}
+                >
+                    <Text small paragraph>
+                        *Already available on Android.
+                    </Text>
+                </div>
             </div>
         {/if}
     </div>
