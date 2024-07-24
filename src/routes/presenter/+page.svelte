@@ -51,7 +51,7 @@
         <div
             in:fly={{delay: 1600, duration: 800, y: 16}}
             out:fly={{duration: 400, y: 16}}
-            class="fixed z-30 bottom-0 w-full h-16 flex justify-center items-center"
+            class="fixed z-30 bottom-0 w-full h-24 flex justify-center items-center"
         >
             <div class="w-[45%] flex justify-end">
                 <Text small paragraph>
@@ -63,7 +63,7 @@
                     </InlineButton>
                 </Text>
             </div>
-            <div class="w-[10%] flex justify-center">
+            <div class="w-[10%] md:w-[5%] flex justify-center">
                 <Text small paragraph>
                     |
                 </Text>
@@ -75,7 +75,7 @@
             </div>
         </div>
     {/if}
-    {#if imprintVisible}
+    {#if imprintVisible && scrollY >= totalHeightFactorOffset * windowHeight}
         <div
             in:slide={{duration: 400}}
             out:slide={{duration: 400}}
@@ -139,7 +139,7 @@
         <img
             src="/presenter/android_mockups/pixel_4_home_1.png"
             alt="Mockup of Presentation Master 2"
-            class="h-[75vh]"
+            class="h-[75vh] md:h-[87.5vh]"
         />
     </div>
 </main>
