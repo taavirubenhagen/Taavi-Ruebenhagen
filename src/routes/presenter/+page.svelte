@@ -1,12 +1,12 @@
 <!--TODO: Privacy Policy, Imprint, Link to home-->
 
 <script lang='ts'>
-	import { blur, fly, slide } from "svelte/transition";
+	import { fly, slide } from "svelte/transition";
     import { Text } from "$lib";
 	import {
         InlineButton,
         TextButton
-    } from "./components";
+    } from "./[components]";
 
     const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
@@ -30,9 +30,7 @@
 
 <main
     class=
-    "overflow-hidden min-h-screen
-    bg-black selection:bg-white
-    text-white selection:text-black text-center"
+    "overflow-hidden min-h-screen text-center"
 >
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
         <Text medium heading>P.</Text>

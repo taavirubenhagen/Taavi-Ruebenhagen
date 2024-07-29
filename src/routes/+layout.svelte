@@ -5,4 +5,10 @@
 
 
 
-<slot/>
+<div
+    class=
+    "min-h-screen bg-black selection:bg-white
+    text-white selection:text-black"
+>
+    <slot/>
+</div>

@@ -2,6 +2,7 @@
     import { Button } from "$lib";
 
     export let invisible = false;
+    export let openInNew = false;
     export let onClick;
 </script>
 

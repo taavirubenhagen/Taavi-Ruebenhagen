@@ -14,7 +14,7 @@
         {#if small}
             <p class='text-base'><slot/></p>
         {:else if medium}
-            <p class='hidden'><slot/></p>
+            <p class='text-xl'><slot/></p>
         {:else if large}
             <p class="hidden"><slot/></p>
         {/if}

@@ -2,6 +2,7 @@
     import { Button } from "$lib";
 
     export let primary = false;
+    export let download = false;
     export let onClick;
 </script>
 
