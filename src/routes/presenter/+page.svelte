@@ -135,7 +135,7 @@
         style="height: {totalHeightFactor * 100}vh;"
     >
         <img
-            src="/presenter/android_mockups/pixel_4_home_1.png"
+            src="/presenter/android_mockups/pixel_5_connecting.png"
             alt="Mockup of Presentation Master 2"
             class="h-[75vh] md:h-[87.5vh]"
         />

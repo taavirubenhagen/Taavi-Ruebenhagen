@@ -21,7 +21,7 @@
     </p>
 {/if}
 {#if heading}
-    <p class='font-sans font-bold'>
+    <p class='font-sans font-bold tracking-wider'>
         {#if small}
             <p class='text-base md:text-lg'><slot/></p>
         {:else if medium}
