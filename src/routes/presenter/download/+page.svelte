@@ -3,6 +3,7 @@
 
     import { Text } from "$lib";
 	import {
+	BottomSheet,
         InlineButton,
         TextButton
     } from "../[components]";
@@ -14,6 +15,7 @@
 
 
 <main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40">
+    <BottomSheet imprint visible={imprintVisible} changeVisibility={() => imprintVisible = false}/>
     <div class='text-center'>
         <Text medium heading>Presentation Master 2 (Desktop Companion)</Text>
     </div>
@@ -38,49 +40,25 @@
         5. If you have any questions or concerns, feel free to contact me at t.ruebenhagen@gmail.com.<br/><br/>
     </Text>
     <div class="absolute z-50 bottom-0 w-full h-24 flex justify-center items-center">
-            <div class="w-[45%] flex justify-end">
-                <Text small paragraph>
-                    <InlineButton
-                        invisible
-                        onClick={() => imprintVisible = true}
-                    >
-                        Imprint
-                    </InlineButton>
-                </Text>
-            </div>
-            <div class="w-[10%] md:w-[5%] flex justify-center">
-                <Text small paragraph>
-                    |
-                </Text>
-            </div>
-            <div class="w-[45%] flex">
-                <InlineButton invisible onClick={() => window.location.href="/presenter"}>
-                    Info
+        <div class="w-[45%] flex justify-end">
+            <Text small paragraph>
+                <InlineButton
+                    invisible
+                    onClick={() => imprintVisible = true}
+                >
+                    Imprint
                 </InlineButton>
-            </div>
+            </Text>
         </div>
-    {#if imprintVisible}
-        <div
-            in:slide={{duration: 400}}
-            out:slide={{duration: 400}}
-            class="-translate-x-16 fixed z-40 -bottom-32 w-full py-32"
-        >
-            <div class="relative bg-neutral-800">
-                <div class="translate-x-16 -translate-y-1/2 absolute z-40 top-0 w-full flex justify-center">
-                    <TextButton onClick={() => imprintVisible = false}>
-                        Close
-                    </TextButton>
-                </div>
-                <div class="p-8 text-left">
-                    <Text small paragraph>
-                        Taavi Rübenhagen<br/>
-                        Pothof 9d<br/>
-                        38122 Braunschweig, Germany<br/>
-                        <br/><br/>
-                        E-Mail: taavi.ruebenhagen@gmail.com
-                    </Text>
-                </div>
-            </div>
+        <div class="w-[10%] md:w-[5%] flex justify-center">
+            <Text small paragraph>
+                |
+            </Text>
         </div>
-    {/if}
+        <div class="w-[45%] flex">
+            <InlineButton invisible onClick={() => window.location.href="/presenter"}>
+                Info
+            </InlineButton>
+        </div>
+    </div>
 </main>

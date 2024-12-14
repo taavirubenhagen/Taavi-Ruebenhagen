@@ -5,7 +5,8 @@
     import { Text } from "$lib";
 	import {
         InlineButton,
-        TextButton
+        TextButton,
+        BottomSheet,
     } from "./[components]";
 
     const totalHeightFactor = 3;
@@ -15,6 +16,7 @@
     let scrollY = 0;
 
     let imprintVisible = false;
+    let downloadVisible = false;
 </script>
 
 
@@ -32,15 +34,25 @@
     class=
     "overflow-hidden min-h-screen text-center"
 >
+    <BottomSheet imprint visible={imprintVisible && scrollY >= totalHeightFactorOffset * windowHeight} changeVisibility={() => imprintVisible = false}/>
+    <BottomSheet visible={downloadVisible} changeVisibility={() => downloadVisible = false}>
+        <div class="flex gap-4">
+            <TextButton external onClick={() => window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2"}>
+                Android
+            </TextButton>
+            <TextButton external onClick={() => alert("Coming soon!")}>
+                iOS
+            </TextButton>
+            <TextButton external onClick={() => window.location.href = "/presenter/download"}>
+                Desktop (companion app for remote control)
+            </TextButton>
+        </div>
+    </BottomSheet>
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
         <Text medium heading>P.</Text>
         <TextButton
             primary={scrollY >= totalHeightFactorOffset * windowHeight}
-            onClick={
-                () => navigator.platform.toLowerCase().search("(android)") !== -1
-                ? window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2&hl=en_US"
-                : alert("Coming soon on iOS. For Android, visit the Play Store on your mobile device.")
-            }
+            onClick={() => downloadVisible = true}
         >
             Download
         </TextButton>
@@ -70,30 +82,6 @@
                 <InlineButton invisible onClick={() => window.location.href="/"}>
                     Studio
                 </InlineButton>
-            </div>
-        </div>
-    {/if}
-    {#if imprintVisible && scrollY >= totalHeightFactorOffset * windowHeight}
-        <div
-            in:slide={{duration: 400}}
-            out:slide={{duration: 400}}
-            class="fixed z-40 -bottom-32 w-full py-32"
-        >
-            <div class="relative bg-neutral-800">
-                <div class="-translate-y-1/2 absolute z-40 top-0 w-full flex justify-center">
-                    <TextButton onClick={() => imprintVisible = false}>
-                        Close
-                    </TextButton>
-                </div>
-                <div class="p-8 text-left">
-                    <Text small paragraph>
-                        Taavi Rübenhagen<br/>
-                        Pothof 9d<br/>
-                        38122 Braunschweig, Germany<br/>
-                        <br/><br/>
-                        E-Mail: taavi.ruebenhagen@gmail.com
-                    </Text>
-                </div>
             </div>
         </div>
     {/if}

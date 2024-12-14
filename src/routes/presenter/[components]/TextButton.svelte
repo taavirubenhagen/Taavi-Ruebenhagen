@@ -3,6 +3,7 @@
 
     export let primary = false;
     export let download = false;
+    export let external = false;
     export let onClick;
 </script>
 
