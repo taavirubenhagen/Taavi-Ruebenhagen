@@ -10,7 +10,7 @@
 
 
 {#if paragraph}
-    <p class='inline font-sans'>
+    <p class='inline'>
         {#if small}
             <p class='text-base'><slot/></p>
         {:else if medium}
@@ -21,7 +21,7 @@
     </p>
 {/if}
 {#if heading}
-    <p class='font-sans font-bold tracking-wider'>
+    <p class='font-bold tracking-wider'>
         {#if small}
             <p class='text-base md:text-lg'><slot/></p>
         {:else if medium}

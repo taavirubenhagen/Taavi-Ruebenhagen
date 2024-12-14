@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['IBM Plex Mono', 'mono'],
+        mono: ['DM Mono', 'mono'],
         sans: ['Lexend', 'Nunito', 'sans-serif'],
         serif: ['Domine', 'serif'],
       },}
