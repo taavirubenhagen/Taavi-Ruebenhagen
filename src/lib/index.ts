@@ -1,4 +1,18 @@
-import Button from './elements/Button.svelte';
-import Text from './elements/Text.svelte';
+import Button from './v1/elements/Button.svelte';
+import Text from './v1/elements/Text.svelte';
 
-export { Button, Text };
+import InlineButton from "./v1/components/clickable/buttons/InlineButton.svelte";
+import TextButton from "./v1/clickable/buttons/TextButton.svelte";
+import BottomSheet from "./v1/overlay/BottomSheet.svelte";
+
+export {
+};
+
+export {
+  Button,
+  Text,
+  
+  InlineButton,
+  TextButton,
+  BottomSheet,
+};
