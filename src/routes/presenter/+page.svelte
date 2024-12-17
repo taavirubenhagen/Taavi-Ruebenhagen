@@ -44,7 +44,7 @@
                 iOS
             </TextButton>
             <TextButton external onClick={() => window.location.href = "/presenter/download"}>
-                Desktop (companion app for remote control)
+                Desktop (companion)
             </TextButton>
         </div>
     </BottomSheet>

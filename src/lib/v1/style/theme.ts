@@ -1,3 +1,15 @@
+// z-order:
+// 100:   cursor
+// 90-99: special effects
+// 70-89: overlays
+// 60-69: clickables, selectables
+// 50-59: foreground images, foreground effects
+// 40-49: text
+// 35-39: background images, background effects
+// 30-34: background colors, background gradients
+// 0-29:  invisible helper elements
+
+
 function scale(x: number): number {
   return 2 ** x;
 }
