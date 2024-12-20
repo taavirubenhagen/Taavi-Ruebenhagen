@@ -1,7 +1,7 @@
 <script lang='ts'>
     import { Button, Text } from "$lib";
 	import { slide } from "svelte/transition";
-	import { TextButton } from ".";
+	import { TextButton } from "$lib";
 
 	export let imprint = false;
 	
