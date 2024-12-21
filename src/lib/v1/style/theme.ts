@@ -10,16 +10,16 @@
 // 0-29:  invisible helper elements
 
 
-function scale(x: number): number {
+export function scale(x: number): number {
   return 2 ** x;
 }
 
-function smoothnessScale(theme: Theme): number {
+export function smoothnessScale(theme: Theme): number {
   return theme.rectangular ? 0 : scale(theme.smoothness);
 }
 
 
-type Theme = {
+export type Theme = {
   // Colors are defined exactly like in CSS.
   // E.g. for landing page backgrounds
   background: string;

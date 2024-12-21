@@ -1,11 +1,27 @@
-<script>
-    import { Text } from "$lib";
+<script lang="ts">
+    import { type Theme, Text } from "$lib";
+    
+    const theme: Theme = {
+      background: "#FFFFFF",
+      surface: "#EEEEEE",
+      foreground: "#000000",
+      primary: "#FF0000",
+      accent: "#0000FF",
+      body: "Nunito",
+      heading: "Nunito",
+      mono: "DM Mono",
+      rectangular: false,
+      smoothness: 3,
+    };
 </script>
 
-<main class="h-screen bg-white selection:bg-black px-8 md:px-16 py-32 text-black selection:text-white font-mono">
-    <Text medium heading>
+<main
+    class="h-screen bg-white selection:bg-black px-8 md:px-16 py-32 text-black selection:text-white"
+    style="font-family: {theme.body};"
+>
+    <Text large heading>
         "Pick Me Girls" vs. "Pick Me Boys" - Zusätzliches Präsentationsmaterial
-        <br/><br/><br/>
+        <br/><br/>
     </Text>
     <Text small paragraph>
         <span class="italic">
@@ -18,8 +34,8 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
-            Definitions and key terms
+        <Text medium heading>
+            Beispiele
         </Text>
         <br/><br/>
     </Text>

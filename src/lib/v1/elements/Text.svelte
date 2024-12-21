@@ -1,33 +1,41 @@
 <script lang='ts'>
-    //import "../../tavy.postcss";
-
+    import { scale } from "$lib";
+    
     export let small = false;
     export let medium = false;
     export let large = false;
     export let heading = false;
     export let paragraph = false;
+    
+    const style = (s: number) => `
+        font-size: ${scale(s)}rem;`
+        // TODO
+        //@media (min-width: 768px) {
+        //    font-size: ${scale(s) * 125}rem;
+        //}
+    ;
 </script>
 
 
 {#if paragraph}
     <p class='inline'>
         {#if small}
-            <p class='text-base'><slot/></p>
+            <p style={style(0)}><slot/></p>
         {:else if medium}
-            <p class='text-xl'><slot/></p>
+            <p style={style(0.5)}><slot/></p>
         {:else if large}
-            <p class="hidden"><slot/></p>
+            <p style={style(1)}><slot/></p>
         {/if}
     </p>
 {/if}
 {#if heading}
     <p class='font-bold tracking-wider'>
         {#if small}
-            <p class='text-base md:text-lg'><slot/></p>
+            <p style={style(0.25)}><slot/></p>
         {:else if medium}
-            <p class='text-4xl md:text-5xl'><slot/></p>
+            <p style={style(1)}><slot/></p>
         {:else if large}
-            <p class='text-5xl md:text-8xl'><slot/></p>
+            <p style={style(1.5)}><slot/></p>
         {/if}
     </p>
 {/if}
