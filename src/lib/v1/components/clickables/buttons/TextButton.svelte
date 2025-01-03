@@ -1,20 +1,25 @@
 <script lang='ts'>
-    import { Button } from "$lib";
+    import { type Theme, Button, scale, smoothnessScale } from "$lib/v1";
 
     export let primary = false;
+    export let navigation = true;
+    export let bordered = false;
     export let download = false;
     export let external = false;
+    export let using: Theme;
     export let onClick;
 </script>
 
 
 <Button onClick={onClick}>
     <div
-        class=
-        "{primary ? "invert hover:invert-0" : "hover:invert"}
-        transition duration-200
-        rounded-full border border-white
-        bg-black px-4 py-2"
+        style="
+        border-radius: {smoothnessScale(using)}px;
+        {!navigation ? 'background-color: {primary ? using.primary : using.surface}' : ''};
+        padding: {scale(-1)}rem {scale(0)}rem {scale(-1)}rem {scale(0)}rem;
+        color: {primary ? using.background : using.foreground};
+        font-family: {using.heading};
+        "
     >
         <slot/>
     </div>

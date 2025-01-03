@@ -18,6 +18,20 @@ export function smoothnessScale(theme: Theme): number {
   return theme.rectangular ? 0 : scale(theme.smoothness);
 }
 
+function atLeast(subject: number, object: number) {
+  console.log(subject, object);
+  return subject >= object;
+}
+
+export function md(width: number): boolean {
+  return atLeast(width, context.md);
+}
+
+
+export const context = {
+  md: 768,
+}
+
 
 export type Theme = {
   // Colors are defined exactly like in CSS.
@@ -32,6 +46,7 @@ export type Theme = {
   // E.g. for  notification indicators
   accent: string;
   
+  alignment: "left" | "center" | "right";
   body: string;
   heading: string;
   mono: string;
@@ -42,7 +57,7 @@ export type Theme = {
 };
 
 
-let legalTheme: Theme = {
+/*let legalTheme: Theme = {
   background: '#FFFFFF',
   surface: 'TODO',
   foreground: '#000000',
@@ -71,4 +86,4 @@ let presenterTheme: Theme = {
   
   rectangular: false,
   smoothness: 6,
-};
+  };*/
