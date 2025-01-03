@@ -34,9 +34,7 @@
         (which are just a proof of security and don't improve it).
         If you are concerned about getting malware, just keep in mind that my contact info is public
         and I could therefore be made fully responsible for any security risks.<br/><br/>
-        3. Refer to the <span class="text-blue-500 hover:text-blue-700"><InlineButton openInNew onClick={() => window.location.href = 'https://youtu.be/zjYiOR03C8M'}>video tutorial</InlineButton></span> if you don't know how to dismiss the warning.
-        <span class="text-blue-500">If prompted, allow "Communication in private networks".</span> This is necessary since the communication between the devices uses WiFi.<br/><br/>
-        4. Whenever you want to present, open this app and follow the instructions.
+        3. Whenever you want to present, open this app and follow the instructions.
         <br/><br/>
     </Text>
     <div class="absolute z-50 bottom-0 w-full h-24 flex justify-center items-center">
