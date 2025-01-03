@@ -14,8 +14,8 @@
 
 
 
+<BottomSheet imprint visible={imprintVisible} changeVisibility={() => imprintVisible = false}/>
 <main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40">
-    <BottomSheet imprint visible={imprintVisible} changeVisibility={() => imprintVisible = false}/>
     <div class='text-center'>
         <Text medium heading>Presentation Master 2 (Desktop Companion)</Text>
     </div>
