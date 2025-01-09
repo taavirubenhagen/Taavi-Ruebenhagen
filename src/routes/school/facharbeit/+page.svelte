@@ -64,7 +64,7 @@
     <div class="h-32"></div>
     <TextButton
         bind:this={mainDownloadButton} primary
-        download={'/school/facharbeit/"Pick Me Girls" vs. "Pick Me Boys" - Geschlechterstereotype in geschlechtsspezifischen Social-Media-Trends'}
+        download={'/school/facharbeit/Pick Me Girls vs. Pick Me Boys.pdf'}
         using={theme} onClick={() => console.log("Clicked")}>
         Facharbeit herunterladen
     </TextButton>
