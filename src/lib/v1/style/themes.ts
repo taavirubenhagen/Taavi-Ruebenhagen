@@ -48,7 +48,8 @@ export type Theme = {
   
   alignment: "left" | "center" | "right";
   body: string;
-  heading: string;
+  fontHeading: string;
+  fontWeightButton: "normal" | "bold";
   mono: string;
   
   rectangular: boolean;

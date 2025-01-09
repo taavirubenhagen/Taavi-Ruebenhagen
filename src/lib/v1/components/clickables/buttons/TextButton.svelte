@@ -1,10 +1,10 @@
 <script lang='ts'>
-    import { type Theme, Button, scale, smoothnessScale } from "$lib/v1";
+    import { type Theme, Text, Button, scale, smoothnessScale } from "$lib/v1";
 
     export let primary = false;
-    export let navigation = true;
+    export let navigation = false;
     export let bordered = false;
-    export let download = false;
+    export let download: String | null = null;
     export let external = false;
     export let using: Theme;
     export let onClick;
@@ -14,13 +14,22 @@
 <Button onClick={onClick}>
     <div
         style="
-        border-radius: {smoothnessScale(using)}px;
-        {!navigation ? 'background-color: {primary ? using.primary : using.surface}' : ''};
-        padding: {scale(-1)}rem {scale(0)}rem {scale(-1)}rem {scale(0)}rem;
-        color: {primary ? using.background : using.foreground};
-        font-family: {using.heading};
+            border-radius: {smoothnessScale(using)}px;
+            {navigation ? `` : `background-color: ${primary ? using.primary : using.surface}`};
+            padding: {scale(-1)}rem {scale(0)}rem {scale(-1)}rem {scale(0)}rem;
+            color: {primary ? using.background : using.foreground};
+            font-family: {using.fontHeading};
+            font-weight: {using.fontWeightButton};
         "
     >
-        <slot/>
+        <Text small paragraph using={using}>
+            {#if download}
+                <a download={download}>
+                    <slot/>
+                </a>
+            {:else}
+                <slot/>
+            {/if}
+        </Text>
     </div>
 </Button>

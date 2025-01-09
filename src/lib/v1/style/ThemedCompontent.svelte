@@ -1,20 +1,9 @@
 <!-- TODO: R -->
 
 <script lang='ts'>
-    //import { Button } from "$lib";
+    import { type Theme } from "$lib/v1";
 
-    export let theme: {
-        background: string;
-        surface: string;
-        foreground: string;
-        primary: string;
-        accent: string;
-        body: string;
-        heading: string;
-        mono: string;
-        rectangular: number;
-        smoothness: number;
-    };
+    export let theme: Theme;
 </script>
 
 

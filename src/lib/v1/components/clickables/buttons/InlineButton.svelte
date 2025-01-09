@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import { Button } from "$lib";
+    import { Button } from "$lib/v1";
 
     export let invisible = false;
     export let openInNew = false;

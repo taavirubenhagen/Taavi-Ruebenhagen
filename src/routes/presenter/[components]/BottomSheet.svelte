@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import { Button, Text } from "$lib";
+    import { Button, Text } from "$lib/v1";
 	import { slide } from "svelte/transition";
 	import { TextButton } from ".";
 

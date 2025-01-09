@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { slide } from "svelte/transition";
 
-    import { Text } from "$lib";
+    import { Text } from "$lib/v1";
 	import {
 	BottomSheet,
         InlineButton,
