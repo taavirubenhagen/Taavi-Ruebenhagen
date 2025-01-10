@@ -14,7 +14,7 @@
         "{primary ? "invert hover:invert-0" : "hover:invert"}
         transition duration-200
         rounded-full border border-white
-        bg-black px-4 py-2"
+        bg-black px-4 py-2 text-white"
     >
         <slot/>
     </div>

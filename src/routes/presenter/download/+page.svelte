@@ -5,7 +5,7 @@
 	import {
 	BottomSheet,
         InlineButton,
-        TextButton
+        TextButton,
     } from "../[components]";
 
     let imprintVisible = false;
