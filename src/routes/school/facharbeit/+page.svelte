@@ -44,7 +44,7 @@
         <Text small heading using={theme}>Zusätzliches Präsentationsmaterial</Text>
     </div>
     <div class="h-24"></div>
-    <div class="flex gap-4">
+    <div class="flex justify-center items-center gap-4">
         <TextButton
             bind:this={mainDownloadButton} primary download
             href={'/school/facharbeit/Pick Me Girls vs. Pick Me Boys.pdf'}
