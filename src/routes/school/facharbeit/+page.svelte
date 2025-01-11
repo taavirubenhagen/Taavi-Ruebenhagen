@@ -4,9 +4,9 @@
     
     const theme: Theme = {
       background: "#FFFFFF",
-      surface: "#7777FF",
+      surface: "#6666FF",
       foreground: "#000000",
-      primary: "#FF7777",
+      primary: "#FF6666",
       accent: "#0000FF",
       alignment: "left",
       body: "Nunito",
