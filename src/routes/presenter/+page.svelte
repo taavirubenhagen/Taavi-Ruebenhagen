@@ -57,7 +57,7 @@
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
         <Text medium heading>P.</Text>
         <TextButton
-            primary={scrollY >= totalHeightFactorOffset * windowHeight}
+            primary={scrollY < totalHeightFactorOffset * windowHeight}
             onClick={() => downloadVisible = true}
         >
             Download
