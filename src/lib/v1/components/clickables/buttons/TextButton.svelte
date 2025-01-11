@@ -4,7 +4,8 @@
     export let primary = false;
     export let navigation = false;
     export let bordered = false;
-    export let download: string | null = null;
+    export let download = false;
+    export let href: string | null = null;
     export let external = false;
     export let using: Theme;
     export let onClick;
@@ -23,10 +24,16 @@
         "
     >
         <Text small paragraph using={using}>
-            {#if download}
-                <a download href={download}>
-                    <slot/>
-                </a>
+            {#if href}
+                {#if download}
+                    <a download href={href}>
+                        <slot/>
+                    </a>
+                {:else}
+                    <a href={href}>
+                        <slot/>
+                    </a>
+                {/if}
             {:else}
                 <slot/>
             {/if}
