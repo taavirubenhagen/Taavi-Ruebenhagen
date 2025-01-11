@@ -37,10 +37,16 @@
     <BottomSheet imprint visible={imprintVisible && scrollY >= totalHeightFactorOffset * windowHeight} changeVisibility={() => imprintVisible = false}/>
     <BottomSheet visible={downloadVisible} changeVisibility={() => downloadVisible = false}>
         <div class="flex gap-4">
-            <TextButton external onClick={() => window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2"}>
+            <TextButton
+                external
+                onClick={() => window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2"}
+            >
                 Android
             </TextButton>
-            <TextButton external onClick={() => alert("Coming soon!")}>
+            <TextButton
+                external
+                onClick={() => window.location.href = "https://apps.apple.com/us/app/presentation-master-2/id6739542508"}
+            >
                 iOS
             </TextButton>
             <TextButton external onClick={() => window.location.href = "/presenter/download"}>
@@ -104,7 +110,7 @@
                     out:fly={{duration: 400, y: 16}}
                 >
                     <Text large heading>
-                        Soon for iOS.
+                        Now for iOS.
                     </Text>
                 </div>
                 <div
