@@ -56,7 +56,7 @@
             href={'https://www.tiktok.com/@imlucastho/video/7132145422826523909?is_from_webapp=1&sender_device=pc&web_id=7458694460530443798'}
             using={theme} onClick={() => console.log("Clicked")}>
             <div class="text-white">
-                Beispiel-TikTok
+                Beispiel-TikTok ansehen
             </div>
         </TextButton>
     </div>
