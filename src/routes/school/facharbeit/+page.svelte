@@ -4,9 +4,9 @@
     
     const theme: Theme = {
       background: "#FFFFFF",
-      surface: "#EEEEEE",
+      surface: "#5555FF",
       foreground: "#000000",
-      primary: "#FF00FF",
+      primary: "#FF5555",
       accent: "#0000FF",
       alignment: "left",
       body: "Nunito",
@@ -55,7 +55,9 @@
             bind:this={mainDownloadButton}
             href={'https://www.tiktok.com/@imlucastho/video/7132145422826523909?is_from_webapp=1&sender_device=pc&web_id=7458694460530443798'}
             using={theme} onClick={() => console.log("Clicked")}>
-            Beispiel-TikTok
+            <div class="text-white">
+                Beispiel-TikTok
+            </div>
         </TextButton>
     </div>
     <div class="h-24"></div>
