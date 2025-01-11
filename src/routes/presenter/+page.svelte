@@ -97,7 +97,7 @@
                 in:fly={{duration: 400, y: 32}}
                 out:fly={{duration: 400, y: -16}}
             >
-                <Text large heading inside={windowHeight}>
+                <Text medium heading inside={windowHeight}>
                     Presentation
                     <br/>
                     Remote Control.
@@ -109,7 +109,7 @@
                     in:fly={{duration: 400, y: 32}}
                     out:fly={{duration: 400, y: 16}}
                 >
-                    <Text large heading>
+                    <Text medium heading>
                         Now for iOS.
                     </Text>
                 </div>
