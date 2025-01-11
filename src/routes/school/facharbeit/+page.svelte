@@ -43,24 +43,27 @@
     <div class="pt-4">
         <Text small heading using={theme}>Zusätzliches Präsentationsmaterial</Text>
     </div>
-    <div class="h-32"></div>
+    <div class="h-24"></div>
     <TextButton
         bind:this={mainDownloadButton} primary download
         href={'/school/facharbeit/Pick Me Girls vs. Pick Me Boys.pdf'}
         using={theme} onClick={() => console.log("Clicked")}>
         Facharbeit herunterladen
     </TextButton>
-    <div class="h-32"></div>
+    <div class="h-24"></div>
     <div class="md:w-1/3 px-8 text-justify">
         <Text small paragraph>
-            Ich habe TikTok-Videos wie das Beispiel unten, die sich mit dem "Pick Me"-Konzept befassen,
-            statistisch analysiert (ohne Anspruch auf statistische Verwendbarkeit im eigentlichen Sinn; siehe Facharbeit),
-            um dessen Bezug zu den Geschlechterstereotypen der Video-Ersteller zu untersuchen.
-            Links zu allen untersuchten Videos und detailliertere Auswertungen sind in der Facharbeit zu finden.
+            In der Facharbeit wurden TikTok-Videos wie das Beispiel unten, die sich mit dem "Pick Me"-Konzept befassen,
+            statistisch analysiert
+            und in Bezug zu verbreiteten Geschlechterstereotypen gesetzt.
+            Die Ergebnisse sind in der Grafik vorgestellt.
+            Die roten und blauen Balken stellen jeweils dar,
+            in wie vielen der untersuchten Videos eine Eigenschaft der jeweiligen "Pick Me"-Variante zugesprochen wurde.
             <br/><br/>
             Da Plakat und Website nur Platz für einen groben Überblick geben,
-            bitte ich inständig um das Lesen der Arbeit selbst.
-            Wichtige thematische und methodische Feinheiten werden dort im Detail erläutert.
+            wird inständig um das Lesen der Arbeit selbst gebeten.
+            Wichtige thematische und methodische Feinheiten werden dort im Detail erläutert
+            und Links zu allen untersuchten Videos bereitgestellt.
         </Text>
     </div>
     <div class="h-16"></div>
@@ -78,4 +81,5 @@
             Grafik herunterladen
         </TextButton>
     </div>
+    <div class="h-16"></div>
 </main>
