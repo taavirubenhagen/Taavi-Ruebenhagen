@@ -44,19 +44,28 @@
         <Text small heading using={theme}>Zusätzliches Präsentationsmaterial</Text>
     </div>
     <div class="h-24"></div>
-    <TextButton
-        bind:this={mainDownloadButton} primary download
-        href={'/school/facharbeit/Pick Me Girls vs. Pick Me Boys.pdf'}
-        using={theme} onClick={() => console.log("Clicked")}>
-        Facharbeit herunterladen
-    </TextButton>
+    <div class="flex gap-4">
+        <TextButton
+            bind:this={mainDownloadButton} primary download
+            href={'/school/facharbeit/Pick Me Girls vs. Pick Me Boys.pdf'}
+            using={theme} onClick={() => console.log("Clicked")}>
+            Facharbeit herunterladen
+        </TextButton>
+        <TextButton
+            bind:this={mainDownloadButton}
+            href={'https://www.tiktok.com/@imlucastho/video/7132145422826523909?is_from_webapp=1&sender_device=pc&web_id=7458694460530443798'}
+            using={theme} onClick={() => console.log("Clicked")}>
+            Beispiel-TikTok
+        </TextButton>
+    </div>
     <div class="h-24"></div>
     <div class="md:w-1/3 px-8 text-justify">
         <Text small paragraph>
-            In der Facharbeit wurden TikTok-Videos wie das Beispiel unten, die sich mit dem "Pick Me"-Konzept befassen,
+            In der Facharbeit wurden TikTok-Videos wie das Beispiel oben, die sich mit dem "Pick Me"-Konzept befassen,
             statistisch analysiert
             und in Bezug zu verbreiteten Geschlechterstereotypen gesetzt.
-            Die Ergebnisse sind in der Grafik vorgestellt.
+            <br/><br/>
+            Die Ergebnisse sind in der Grafik auf dem Plakat vorgestellt.
             Die roten und blauen Balken stellen jeweils dar,
             in wie vielen der untersuchten Videos eine Eigenschaft der jeweiligen "Pick Me"-Variante zugesprochen wurde.
             <br/><br/>
@@ -65,21 +74,6 @@
             Wichtige thematische und methodische Feinheiten werden dort im Detail erläutert
             und Links zu allen untersuchten Videos bereitgestellt.
         </Text>
-    </div>
-    <div class="h-16"></div>
-    <div class="flex gap-4">
-        <TextButton
-            bind:this={mainDownloadButton}
-            href={'https://www.tiktok.com/@imlucastho/video/7132145422826523909?is_from_webapp=1&sender_device=pc&web_id=7458694460530443798'}
-            using={theme} onClick={() => console.log("Clicked")}>
-            Beispiel-TikTok
-        </TextButton>
-        <TextButton
-            bind:this={mainDownloadButton} download
-            href={'/school/facharbeit/Grafik.pdf'}
-            using={theme} onClick={() => console.log("Clicked")}>
-            Grafik herunterladen
-        </TextButton>
     </div>
     <div class="h-16"></div>
 </main>
