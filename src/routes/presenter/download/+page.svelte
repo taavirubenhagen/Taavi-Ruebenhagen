@@ -21,7 +21,7 @@
     </div>
     <div class="h-32"></div>
     <Text medium paragraph>
-        1. Click the button to download the file, then open it to start the installation (A MacOS version is coming soon):
+        Click the button to download the file, then open it to start the installation:
         <br/><br/><br/>
         <a download href="/presenter/Presentation Master 2 - Desktop Companion.msi">
             <TextButton download onClick={() => {}}>
@@ -30,11 +30,12 @@
         </a>
         <br/><br/>
         <br/><br/>
-        2. You might get antivirus warnings since I don't have the money to buy expensive security certificates
+        You might get antivirus warnings since I don't have the money to buy expensive security certificates
         (which are just a proof of security and don't improve it).
         If you are concerned about getting malware, just keep in mind that my contact info is public
-        and I could therefore be made fully responsible for any security risks.<br/><br/>
-        3. Whenever you want to present, open this app and follow the instructions.
+        and I could therefore be made fully responsible for any security risks.
+        <br/><br/>
+        Whenever you want to present, open this app and follow the instructions.
         <br/><br/>
     </Text>
     <div class="absolute z-50 bottom-0 w-full h-24 flex justify-center items-center">
