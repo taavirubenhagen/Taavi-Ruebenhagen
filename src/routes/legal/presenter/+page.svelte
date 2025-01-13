@@ -3,7 +3,7 @@
 </script>
 
 <main class="h-screen bg-white selection:bg-black px-8 md:px-16 py-32 text-black selection:text-white font-mono">
-    <Text large heading>
+    <Text medium heading>
         Privacy Policy
         <br/><br/>
     </Text>
