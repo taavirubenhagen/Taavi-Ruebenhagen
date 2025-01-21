@@ -35,7 +35,7 @@
         If you are concerned about getting malware, just keep in mind that my contact info is public
         and I could therefore be made fully responsible for any security risks.
         <br/><br/>
-        Whenever you want to present, open this app and follow the instructions.
+        Whenever you want to present, open the app and follow the instructions.
         <br/><br/>
     </Text>
     <div class="absolute z-50 bottom-0 w-full h-24 flex justify-center items-center">
