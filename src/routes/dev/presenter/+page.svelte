@@ -2,12 +2,7 @@
 
 <script lang='ts'>
 	import { fly, slide } from "svelte/transition";
-    import { Text } from "$lib/v1";
-	import {
-        InlineButton,
-        TextButton,
-        BottomSheet,
-    } from "./[components]";
+    import { Text } from "$lib/v2";
 
     const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
