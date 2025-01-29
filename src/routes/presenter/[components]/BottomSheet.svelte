@@ -16,7 +16,7 @@
         out:slide={{duration: 400}}
         class="fixed z-40 -bottom-32 w-full py-32"
     >
-        <div class="relative bg-neutral-800">
+        <div class="relative bg-neutral-200">
             <div class="-translate-y-1/2 absolute z-40 top-0 w-full flex justify-center">
                 <TextButton onClick={changeVisibility}>
                     Close
