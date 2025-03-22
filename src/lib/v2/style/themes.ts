@@ -15,21 +15,21 @@ export type Theme = {
   // E.g. for landing page backgrounds
   background: string;
   // E.g. for dashboards and dialogs
-  surface: string;
+  //surface: string;
   // E.g. for  text and borders
-  foreground: string;
+  //foreground: string;
   // E.g. for button hover effects
-  primary: string;
+  //primary: string;
   // E.g. for  notification indicators
-  accent: string;
+  //accent: string;
   
-  alignment: "left" | "center" | "right";
-  body: string;
-  fontHeading: string;
-  fontWeightButton: "normal" | "bold";
-  mono: string;
+  //alignment: "left" | "center" | "right";
+  //body: string;
+  //fontHeading: string;
+  //fontWeightButton: "normal" | "bold";
+  //mono: string;
   
-  rectangular: boolean;
+  //rectangular: boolean;
   // smoothnessScale(this) * 8 = default button border radius
-  smoothness: number;
+  //smoothness: number;
 };
