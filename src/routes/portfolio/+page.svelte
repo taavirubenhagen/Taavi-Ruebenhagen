@@ -58,7 +58,7 @@
                     Presentation Master 2
                 </Text>
             </div>
-            <img src="/presenter/Advertisement/Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-90 hover:brightness-100 object-cover">
+            <img src="/presenter/Advertisement/Square Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-100 md:brightness-90 hover:brightness-100 object-cover">
         </a>
         <a href="https://hoffmanns-schuppen.com" class="relative w-full h-full bg-green-950">
             <div class="absolute z-30 md:bottom-0 w-full p-8 md:p-16 text-right font-serif">
@@ -66,7 +66,11 @@
                     Hoffmann's Schuppen
                 </Text>
             </div>
-            <img src="/hoffmanns/Foto.jpg" alt="Hoffmann's Schuppen" class="w-full h-full brightness-[60%] hover:brightness-[65%] object-cover"/>
+            <img
+                src="/hoffmanns/Logo.jpg"
+                alt="Hoffmann's Schuppen"
+                class="w-full h-full brightness-90 md:brightness-80 hover:brightness-80 object-cover"
+            />
         </a>
     </div>
 </main>
