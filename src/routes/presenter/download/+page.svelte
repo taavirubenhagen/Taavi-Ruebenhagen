@@ -7,6 +7,10 @@
 </script>
 
 
+<svelte:head>
+    <title>Download 𐄁 Presentation Master 2</title>
+    <meta name="description" content="Upgraded Presentation Companion"/>
+</svelte:head>
 
 
 <main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40 flex flex-col justify-center items-center text-center font-mono">
@@ -24,5 +28,5 @@
             Any questions?
         </InlineButton>
     </Text>
-    <Footer href="/presenter"/>
+    <Footer center href="/presenter"/>
 </main>

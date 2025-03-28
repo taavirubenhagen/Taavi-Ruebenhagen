@@ -3,7 +3,13 @@
 </script>
 
 
-<main class="min-h-screen bg-white text-black flex flex-col justify-center items-center">
+<svelte:head>
+    <title>Not Found 𐄁 Taavi Rübenhagen</title>
+    <meta name="description" content="Taavi Rübenhagen"/>
+</svelte:head>
+
+
+<main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center">
     <Text large heading>404</Text>
     <div class="h-4"></div>
     <Text small heading>Page not found.</Text>

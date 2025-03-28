@@ -12,14 +12,16 @@
 </script>
 
 
+<svelte:head>
+    <title>Presentation Master 2</title>
+    <meta name="description" content="Upgraded Presentation Companion"/>
+</svelte:head>
 
 
 <svelte:window
     bind:innerHeight={windowHeight}
     bind:scrollY={scrollY}
 />
-
-
 
 
 <main class="overflow-x-hidden overflow-y-scroll min-h-screen bg-black text-center text-white font-sans">
@@ -104,7 +106,7 @@
             out:fly={{duration: 400, y: 16}}
             class="fixed z-30 bottom-0 w-full h-24 flex justify-center items-center"
         >
-            <Footer/>
+            <Footer center/>
         </div>
     {/if}
 </main>

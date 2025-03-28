@@ -6,14 +6,16 @@
 </script>
 
 
+<svelte:head>
+    <title>Home 𐄁 Taavi Rübenhagen</title>
+    <meta name="description" content="Taavi Rübenhagen"/>
+</svelte:head>
 
 
 <svelte:window
     bind:innerHeight={windowHeight}
     bind:scrollY={scrollY}
 />
-
-
 
 
 <main class="min-h-screen flex flex-col justify-center p-8 sm:p-16">
@@ -29,5 +31,5 @@
             Contact
         </TextButton>
     </div>
-    <Footer left home title="GitHub" href="https://github.com/taavirubenhagen"/>
+    <Footer home title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>
