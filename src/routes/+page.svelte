@@ -1,1 +1,1 @@
-<meta http-equiv="Refresh" content="0; url='/portfolio'" />
+<meta http-equiv="Refresh" content="0; url='/presenter'" />
