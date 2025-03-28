@@ -14,14 +14,12 @@
         <Text medium heading>Presentation Master 2 (Desktop Companion)</Text>
     </div>
     <div class="h-32"></div>
-    <Text medium paragraph>
+    <Text large paragraph>
         Click the button to download the file, then open it to start the installation:
         <br/><br/><br/>
-        <a download href="/presenter/Presentation Master 2 - Desktop Companion.msi">
-            <TextButton download onClick={() => {}}>
-                Download for Windows
-            </TextButton>
-        </a>
+        <TextButton download href="/presenter/Presentation Master 2 - Desktop Companion.msi">
+            Download for Windows
+        </TextButton>
         <br/><br/>
         <br/><br/>
         You might get antivirus warnings since I don't have the money to buy expensive security certificates

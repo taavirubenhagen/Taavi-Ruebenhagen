@@ -1,5 +1,5 @@
 <script>
-    import { Text } from "$lib/v1";
+    import { Text } from "$lib/v2";
 </script>
 
 <main class="h-screen bg-white selection:bg-black px-4 sm:px-8 md:px-16 py-16 text-black selection:text-white font-mono">

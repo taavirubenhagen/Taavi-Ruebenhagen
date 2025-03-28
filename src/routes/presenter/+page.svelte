@@ -26,20 +26,19 @@
 
 <main class="overflow-x-hidden overflow-y-scroll min-h-screen text-center">
     {#if downloadVisible}
-        <div in:fly={{duration: 400, y: 0}} out:fly={{duration: 400, y: 0}}>
-            <Text huge paragraph>
-                <div class="fixed z-40 w-screen h-screen bg-black flex flex-col lg:flex-row justify-center items-center gap-16 lg:gap-32">
-                    <a href="https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2">
-                        <img class="w-32" src="/presenter/icons/temp/android.svg" alt="Download for Android">
-                    </a>
-                    <a href="https://apps.apple.com/us/app/presentation-master-2/id6739542508">
-                        <img class="w-32" src="/presenter/icons/temp/ios.svg" alt="Download for iOS">
-                    </a>
-                    <a href="/presenter/download">
-                        <img class="w-32" src="/presenter/icons/temp/windows.svg" alt="Download desktop companion">
-                    </a>
-                </div>
-            </Text>
+        <div
+            class="fixed z-40 w-screen h-screen bg-black flex flex-col lg:flex-row justify-center items-center gap-16 lg:gap-32"
+            in:fly={{duration: 400, y: 0}} out:fly={{duration: 400, y: 0}}
+        >
+            <a href="https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2">
+                <img class="w-32" src="/presenter/icons/temp/android.svg" alt="Download for Android">
+            </a>
+            <a href="https://apps.apple.com/us/app/presentation-master-2/id6739542508">
+                <img class="w-32" src="/presenter/icons/temp/ios.svg" alt="Download for iOS">
+            </a>
+            <a href="/presenter/download">
+                <img class="w-32" src="/presenter/icons/temp/windows.svg" alt="Download desktop companion">
+            </a>
         </div>
     {/if}
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
