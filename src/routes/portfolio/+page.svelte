@@ -18,7 +18,7 @@
 />
 
 
-<main class="min-h-screen flex flex-col justify-center p-8 sm:p-16">
+<main class="overflow-hidden min-h-screen flex flex-col justify-center p-8 sm:p-16">
     <Text large heading>
         taavi ruebenhagen.
     </Text>

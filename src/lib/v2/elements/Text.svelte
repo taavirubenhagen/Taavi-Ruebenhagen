@@ -29,6 +29,8 @@
         {:else if medium}
             <p class="text-[2rem] md:text-[2.5rem]"><slot/></p>
         {:else if large}
+            <p class="text-[2.5rem] md:text-[3.5rem]"><slot/></p>
+        {:else if huge}
             <p class="text-[3rem] md:text-[3.5rem]"><slot/></p>
         {/if}
     </p>

@@ -10,7 +10,7 @@
 
 
 <main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center">
-    <Text large heading>404</Text>
+    <Text huge heading>404</Text>
     <div class="h-4"></div>
     <Text small heading>Page not found.</Text>
     <div class="h-16"></div>
