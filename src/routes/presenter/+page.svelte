@@ -1,7 +1,7 @@
 <!--TODO: Privacy Policy, Imprint, Link to home-->
 
 <script lang='ts'>
-	import { fly } from "svelte/transition";
+	import { fade, fly } from "svelte/transition";
     import { Text, TextButton, InlineButton } from "$lib/v2";
 
     const totalHeightFactor = 3;
@@ -9,7 +9,9 @@
 
     let windowHeight = 1080;
     let scrollY = 0;
-
+    let firstHeadingFree = true;
+    let secondHeadingFree = true;
+    
     let downloadVisible = false;
 </script>
 
@@ -26,9 +28,12 @@
 
 <main class="overflow-x-hidden overflow-y-scroll min-h-screen text-center">
     {#if downloadVisible}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div
             class="fixed z-40 w-screen h-screen bg-black flex flex-col lg:flex-row justify-center items-center gap-16 lg:gap-32"
-            in:fly={{duration: 400, y: 0}} out:fly={{duration: 400, y: 0}}
+            in:fade={{duration: 400}} out:fade={{duration: 400}}
+            on:click={() => downloadVisible = !downloadVisible}
         >
             <a href="https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2">
                 <img class="w-32" src="/presenter/icons/temp/android.svg" alt="Download for Android">
@@ -54,10 +59,10 @@
             {/if}
         </TextButton>
     </div>
-    {#if scrollY >= totalHeightFactorOffset * windowHeight}
-        <Text small paragraph>
+    <Text small paragraph>
+        {#if scrollY >= totalHeightFactorOffset * windowHeight}
             <div
-                in:fly={{delay: 1600, duration: 800, y: 16}}
+                in:fly={{delay: 1200, duration: 800, y: 16}}
                 out:fly={{duration: 400, y: 16}}
                 class="fixed z-30 bottom-0 w-full h-24 flex justify-center items-center"
             >
@@ -80,12 +85,12 @@
                     </InlineButton>
                 </div>
             </div>
-        </Text>
-    {/if}
+        {/if}
+    </Text>
     <div class='fixed w-screen h-screen px-8 flex flex-col justify-center items-center'>
-        {#if scrollY < windowHeight * 0.1875}
+        {#if firstHeadingFree && scrollY < windowHeight * 0.1875}
             <div
-                in:fly={{duration: 400, y: 32}}
+                in:fly={{delay: 400, duration: 400, y: 16}}
                 out:fly={{duration: 400, y: -16}}
             >
                 <Text large heading>
@@ -94,10 +99,10 @@
                     Remote Control.
                 </Text>
             </div>
-        {:else if scrollY > windowHeight * 1.25}
+        {:else if secondHeadingFree && scrollY > windowHeight * 1.25}
             <div class="flex flex-col items-center gap-4">
                 <div
-                    in:fly={{duration: 400, y: 32}}
+                    in:fly={{delay: 400, duration: 400, y: 16}}
                     out:fly={{duration: 400, y: 16}}
                 >
                     <Text large heading>
@@ -105,7 +110,7 @@
                     </Text>
                 </div>
                 <div
-                    in:fly={{delay: 800, duration: 800, y: 32}}
+                    in:fly={{delay: 800, duration: 800, y: 16}}
                     out:fly={{duration: 400, y: 16}}
                 >
                     <Text small paragraph>
