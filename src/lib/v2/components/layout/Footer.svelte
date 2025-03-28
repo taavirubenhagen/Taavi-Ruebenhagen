@@ -3,6 +3,7 @@
 
     export let left = false
     export let home = false
+    export let title = "Info";
     export let href: string | null = null;
 </script>
 
@@ -23,7 +24,7 @@
         {#if href != null}
             <div class="flex justify-end">
                 <InlineButton invisible href={href}>
-                    Info
+                    {title}
                 </InlineButton>
             </div>
             <div class="flex justify-center">
