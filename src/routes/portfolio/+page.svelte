@@ -53,7 +53,7 @@
     </div>
     <div class="w-screen h-screen grid grid-rows-2 md:grid-rows-none md:grid-cols-2">
         <a href="/presenter" class="relative w-full h-full bg-black">
-            <div class="absolute z-30 bottom-0 w-full p-8 md:p-16 text-left">
+            <div class="absolute z-30 bottom-0 w-full p-4 md:p-16 text-left">
                 <Text medium heading>
                     Presentation Master 2
                 </Text>
@@ -61,7 +61,7 @@
             <img src="/presenter/Advertisement/Square Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-100 md:brightness-90 hover:brightness-100 object-cover">
         </a>
         <a href="https://hoffmanns-schuppen.com" class="relative w-full h-full bg-green-950">
-            <div class="absolute z-30 md:bottom-0 w-full p-8 md:p-16 text-right font-serif">
+            <div class="absolute z-30 md:bottom-0 w-full p-4 md:p-16 text-right font-serif">
                 <Text medium heading>
                     Hoffmann's Schuppen
                 </Text>
