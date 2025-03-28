@@ -5,6 +5,6 @@
 
 
 
-<div class="min-h-screen bg-black text-white">
+<div class="min-h-screen">
     <slot/>
 </div>

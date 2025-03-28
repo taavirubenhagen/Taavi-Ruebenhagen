@@ -1,7 +1,7 @@
 <!--TODO: Privacy Policy, Imprint, Link to home-->
 
 <script lang='ts'>
-    import { Text } from "$lib/v2";
+    import { InlineButton, Text, TextButton } from "$lib/v2";
 
     let windowHeight = 1080;
     let scrollY = 0;
@@ -20,48 +20,26 @@
 
 <main
     class=
-    "overflow-hidden min-h-screen text-center"
+    "overflow-hidden min-h-screen flex flex-col justify-center items-center
+    selection:bg-black p-16 selection:text-white font-mono"
 >
-    <!--<BottomSheet imprint visible={imprintVisible && scrollY >= totalHeightFactorOffset * windowHeight} changeVisibility={() => imprintVisible = false}/>
-    <BottomSheet visible={downloadVisible} changeVisibility={() => downloadVisible = false}>
-        <div class="flex gap-4">
-            <TextButton
-                external
-                onClick={() => window.location.href = "https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2"}
+    <div class="absolute bottom-16">
+        <Text small paragraph>
+            <InlineButton
+                invisible
+                href="/legal/imprint"
             >
-                Android
-            </TextButton>
-            <TextButton
-                external
-                onClick={() => window.location.href = "https://apps.apple.com/us/app/presentation-master-2/id6739542508"}
-            >
-                iOS
-            </TextButton>
-            <TextButton external onClick={() => window.location.href = "/presenter/download"}>
-                Desktop (companion)
-            </TextButton>
-        </div>
-    </BottomSheet>-->
-    <div class="w-screen h-screen grid grid-rows-2 md:grid-rows-none md:grid-cols-2">
-        <a href="/presenter" class="relative w-full h-full bg-black">
-            <div class="absolute z-30 bottom-0 w-full p-4 md:p-16 text-left">
-                <Text medium heading>
-                    Presentation Master 2
-                </Text>
-            </div>
-            <img src="/presenter/images/Advertisement/Square Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-100 md:brightness-90 hover:brightness-100 object-cover">
-        </a>
-        <a href="https://hoffmanns-schuppen.com" class="relative w-full h-full bg-green-950">
-            <div class="absolute z-30 md:bottom-0 w-full p-4 md:p-16 text-right font-serif">
-                <Text medium heading>
-                    Hoffmann's Schuppen
-                </Text>
-            </div>
-            <img
-                src="/hoffmanns/Logo.jpg"
-                alt="Hoffmann's Schuppen"
-                class="w-full h-full brightness-90 md:brightness-80 hover:brightness-80 object-cover"
-            />
-        </a>
+                Imprint
+            </InlineButton>
+        </Text>
+    </div>
+    <Text large heading>
+        taavi ruebenhagen.
+    </Text>
+    <div class="h-16"></div>
+    <div class="flex gap-8">
+        <TextButton href="/presenter">
+            Presentation Master 2
+        </TextButton>
     </div>
 </main>

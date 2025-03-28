@@ -9,8 +9,6 @@
 
     let windowHeight = 1080;
     let scrollY = 0;
-    let firstHeadingFree = true;
-    let secondHeadingFree = true;
     
     let downloadVisible = false;
 </script>
@@ -26,7 +24,7 @@
 
 
 
-<main class="overflow-x-hidden overflow-y-scroll min-h-screen text-center">
+<main class="overflow-x-hidden overflow-y-scroll min-h-screen bg-black text-center text-white">
     {#if downloadVisible}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -88,18 +86,18 @@
         {/if}
     </Text>
     <div class='fixed w-screen h-screen px-8 flex flex-col justify-center items-center'>
-        {#if firstHeadingFree && scrollY < windowHeight * 0.1875}
+        {#if scrollY < windowHeight * 0.1875}
             <div
                 in:fly={{delay: 400, duration: 400, y: 16}}
                 out:fly={{duration: 400, y: -16}}
             >
                 <Text large heading>
-                    Presentation
+                    Upgraded
                     <br/>
-                    Remote Control.
+                    Presentation Companion.
                 </Text>
             </div>
-        {:else if secondHeadingFree && scrollY > windowHeight * 1.25}
+        {:else if scrollY > windowHeight * 1.25}
             <div class="flex flex-col items-center gap-4">
                 <div
                     in:fly={{delay: 400, duration: 400, y: 16}}
@@ -121,11 +119,11 @@
         {/if}
     </div>
     <div
-        class="relative w-screen pb-[calc(100vh/2)] flex flex-col justify-center items-center"
+        class="relative w-screen pb-[calc(100vh/3)] flex flex-col justify-center items-center"
         style="height: {totalHeightFactor * 100}vh;"
     >
         <img
-            src="/presenter/images/android_mockups/pixel_5_connecting.png"
+            src="/presenter/images/pixel8_connecting.png"
             alt="Mockup of Presentation Master 2"
             class="h-[75vh] md:h-[87.5vh]"
         />
