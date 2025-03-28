@@ -10,7 +10,7 @@
 
 
 <Text small paragraph>
-    <div class="absolute z-35 left-0 bottom-16 w-full px-16 flex {left ? "justify-start" : "justify-center"} items-center">
+    <div class="absolute z-35 left-0 bottom-16 w-full px-8 md:px-16 flex {left ? "justify-start" : "justify-center"} items-center">
         {#if !home}
             <div class="flex justify-end">
                 <InlineButton invisible href="/">

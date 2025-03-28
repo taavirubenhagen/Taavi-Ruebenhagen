@@ -1,5 +1,3 @@
-<!--TODO: Privacy Policy, Imprint, Link to home-->
-
 <script lang='ts'>
 	import { fade, fly } from "svelte/transition";
     import { Text, TextButton, InlineButton, Footer } from "$lib/v2";

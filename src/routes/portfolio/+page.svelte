@@ -1,5 +1,3 @@
-<!--TODO: Privacy Policy, Imprint, Link to home-->
-
 <script lang='ts'>
     import { Footer, Text, TextButton } from "$lib/v2";
 
@@ -18,11 +16,7 @@
 
 
 
-<main
-    class=
-    "overflow-hidden min-h-screen flex flex-col justify-center
-    selection:bg-black p-8 sm:p-16 selection:text-white font-mono"
->
+<main class="min-h-screen flex flex-col justify-center p-8 sm:p-16">
     <Text large heading>
         taavi ruebenhagen.
     </Text>
