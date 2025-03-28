@@ -1,9 +1,5 @@
 <script lang='ts'>
     import "../style/style.postcss";
-    /*import {
-      type Theme,
-      Themed,
-    } from "$lib/v2";*/
     
     export let small = false;
     export let medium = false;
@@ -11,10 +7,6 @@
     export let huge = false;
     export let heading = false;
     export let paragraph = false;
-    //export let inside = context.md;
-    /*export let using: Theme|null = {
-      "background": "#000000",
-    };*/
 </script>
 
 

@@ -2,7 +2,7 @@
 
 <script lang='ts'>
 	import { fade, fly } from "svelte/transition";
-    import { Text, TextButton, InlineButton } from "$lib/v2";
+    import { Text, TextButton, InlineButton, Footer } from "$lib/v2";
 
     const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
@@ -24,7 +24,7 @@
 
 
 
-<main class="overflow-x-hidden overflow-y-scroll min-h-screen bg-black text-center text-white">
+<main class="overflow-x-hidden overflow-y-scroll min-h-screen bg-black text-center text-white font-sans">
     {#if downloadVisible}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -57,34 +57,6 @@
             {/if}
         </TextButton>
     </div>
-    <Text small paragraph>
-        {#if scrollY >= totalHeightFactorOffset * windowHeight}
-            <div
-                in:fly={{delay: 1200, duration: 800, y: 16}}
-                out:fly={{duration: 400, y: 16}}
-                class="fixed z-30 bottom-0 w-full h-24 flex justify-center items-center"
-            >
-                <div class="w-[45%] flex justify-end">
-                    <InlineButton
-                        invisible
-                        href="/legal/imprint"
-                    >
-                        Imprint
-                    </InlineButton>
-                </div>
-                <div class="w-[10%] md:w-[5%] flex justify-center">
-                    <Text small paragraph>
-                        |
-                    </Text>
-                </div>
-                <div class="w-[45%] flex">
-                    <InlineButton invisible href="/">
-                        Studio
-                    </InlineButton>
-                </div>
-            </div>
-        {/if}
-    </Text>
     <div class='fixed w-screen h-screen px-8 flex flex-col justify-center items-center'>
         {#if scrollY < windowHeight * 0.1875}
             <div
@@ -123,9 +95,18 @@
         style="height: {totalHeightFactor * 100}vh;"
     >
         <img
-            src="/presenter/images/pixel8_connecting.png"
+            src="/presenter/images/Mockup.png"
             alt="Mockup of Presentation Master 2"
             class="h-[75vh] md:h-[87.5vh]"
         />
     </div>
+    {#if scrollY >= totalHeightFactorOffset * windowHeight}
+        <div
+            in:fly={{delay: 1200, duration: 800, y: 16}}
+            out:fly={{duration: 400, y: 16}}
+            class="fixed z-30 bottom-0 w-full h-24 flex justify-center items-center"
+        >
+            <Footer/>
+        </div>
+    {/if}
 </main>

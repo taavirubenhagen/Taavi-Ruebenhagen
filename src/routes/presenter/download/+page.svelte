@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { slide } from "svelte/transition";
 
-    import { Text, InlineButton, TextButton } from "$lib/v2";
+    import { Text, InlineButton, TextButton, Footer } from "$lib/v2";
 
     let imprintVisible = false;
 </script>
@@ -9,47 +9,20 @@
 
 
 
-<main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40">
-    <div class='text-center'>
-        <Text medium heading>Presentation Master 2 (Desktop Companion)</Text>
-    </div>
-    <div class="h-32"></div>
+<main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40 flex flex-col justify-center items-center text-center font-mono">
     <Text large paragraph>
-        Click the button to download the file, then open it to start the installation:
-        <br/><br/><br/>
         <TextButton download href="/presenter/Presentation Master 2 - Desktop Companion.msi">
-            Download for Windows
+            Download PM2 for Windows
         </TextButton>
         <br/><br/>
         <br/><br/>
-        You might get antivirus warnings since I don't have the money to buy expensive security certificates
-        (which are just a proof of security and don't improve it).
-        If you are concerned about getting malware, just keep in mind that my contact info is public
-        and I could therefore be made fully responsible for any security risks.
+        Requires network access and simulates key presses,
+        <br/>
+        which can result in false-positive antivirus warnings.
         <br/><br/>
-        Whenever you want to present, open the app and follow the instructions.
-        <br/><br/>
+        <InlineButton href="mailto:t.ruebenhagen@gmail.com">
+            Any questions?
+        </InlineButton>
     </Text>
-    <div class="absolute z-50 bottom-0 w-full h-24 flex justify-center items-center">
-        <div class="w-[45%] flex justify-end">
-            <Text small paragraph>
-                <InlineButton
-                    invisible
-                    href="/legal/imprint"
-                >
-                    Imprint
-                </InlineButton>
-            </Text>
-        </div>
-        <div class="w-[10%] md:w-[5%] flex justify-center">
-            <Text small paragraph>
-                |
-            </Text>
-        </div>
-        <div class="w-[45%] flex">
-            <InlineButton invisible href="/presenter">
-                Info
-            </InlineButton>
-        </div>
-    </div>
+    <Footer href="/presenter"/>
 </main>
