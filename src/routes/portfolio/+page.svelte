@@ -42,15 +42,6 @@
             </TextButton>
         </div>
     </BottomSheet>-->
-    <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
-        <Text medium heading>P.</Text>
-        <!--<TextButton
-            primary={scrollY >= totalHeightFactorOffset * windowHeight}
-            onClick={() => downloadVisible = true}
-        >
-            Download
-        </TextButton>-->
-    </div>
     <div class="w-screen h-screen grid grid-rows-2 md:grid-rows-none md:grid-cols-2">
         <a href="/presenter" class="relative w-full h-full bg-black">
             <div class="absolute z-30 bottom-0 w-full p-4 md:p-16 text-left">
@@ -58,7 +49,7 @@
                     Presentation Master 2
                 </Text>
             </div>
-            <img src="/presenter/Advertisement/Square Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-100 md:brightness-90 hover:brightness-100 object-cover">
+            <img src="/presenter/images/Advertisement/Square Banner.png" alt="Presentation Master 2" class="w-full h-full brightness-100 md:brightness-90 hover:brightness-100 object-cover">
         </a>
         <a href="https://hoffmanns-schuppen.com" class="relative w-full h-full bg-green-950">
             <div class="absolute z-30 md:bottom-0 w-full p-4 md:p-16 text-right font-serif">
