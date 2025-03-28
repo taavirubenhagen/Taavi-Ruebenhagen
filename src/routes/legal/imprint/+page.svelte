@@ -9,7 +9,7 @@
 </svelte:head>
 
 
-<main class="min-h-screen px-4 sm:px-8 md:px-16 py-16 flex flex-col justify-center">
+<main class="min-h-screen px-8 md:px-16 py-16 flex flex-col justify-center">
     <Text medium paragraph>
         Taavi Rübenhagen<br/>
         Pothof 9d<br/>
