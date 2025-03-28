@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { slide } from "svelte/transition";
 
-    import { Text } from "$lib/v1";
-	import {
-	BottomSheet,
-        InlineButton,
-        TextButton,
-    } from "../[components]";
+    import { Text, InlineButton, TextButton } from "$lib/v2";
 
     let imprintVisible = false;
 </script>
@@ -14,7 +9,6 @@
 
 
 
-<BottomSheet imprint visible={imprintVisible} changeVisibility={() => imprintVisible = false}/>
 <main class="relative overflow-x-hidden min-h-screen p-16 pt-32 pb-40">
     <div class='text-center'>
         <Text medium heading>Presentation Master 2 (Desktop Companion)</Text>
@@ -43,7 +37,7 @@
             <Text small paragraph>
                 <InlineButton
                     invisible
-                    onClick={() => imprintVisible = true}
+                    href="/legal/imprint"
                 >
                     Imprint
                 </InlineButton>
@@ -55,7 +49,7 @@
             </Text>
         </div>
         <div class="w-[45%] flex">
-            <InlineButton invisible onClick={() => window.location.href="/presenter"}>
+            <InlineButton invisible href="/presenter">
                 Info
             </InlineButton>
         </div>
