@@ -21,7 +21,7 @@
 <main
     class=
     "overflow-hidden min-h-screen flex flex-col justify-center
-    selection:bg-black p-16 selection:text-white font-mono"
+    selection:bg-black p-8 sm:p-16 selection:text-white font-mono"
 >
     <Text large heading>
         taavi ruebenhagen.
