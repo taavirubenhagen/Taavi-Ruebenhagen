@@ -95,6 +95,6 @@
             </div>
         </div>
     {/if}
-    <div class="h-64"></div>
+    <div class="h-32"></div>
     <Footer/>
 </main>

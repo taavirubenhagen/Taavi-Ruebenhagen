@@ -52,6 +52,6 @@
             </span>
         </TextButton>-.->
     </div>-->
-    <div class="h-64"></div>
+    <div class="h-32"></div>
     <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>
