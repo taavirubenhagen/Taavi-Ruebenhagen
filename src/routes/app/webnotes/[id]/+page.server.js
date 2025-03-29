@@ -1,10 +1,17 @@
-import { supabase, insertNote } from "$lib/db/supabase";
+import { error as e } from '@sveltejs/kit';
+import {
+  supabase,
+  selectNote,
+  insertNote,
+} from "$lib/db/supabase";
 
 
 // @ts-ignore
 export async function load({ params }) {
-  const { data, error } = await supabase.from("notes").select().eq("id", params.id);
-  const note = data?.at(0);
+  if (params.id == "undefined") {
+    e(404);
+  }
+  const note = await selectNote(params.id);
   if (note == null) {
     return await insertNote(params.id);
   }

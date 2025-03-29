@@ -10,9 +10,9 @@
 
 
 <main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center">
-    <Text huge heading>:(</Text>
+    <Text huge heading>Error.</Text>
     <div class="h-4"></div>
-    <Text small heading>Web Note not found.</Text>
+    <Text small heading>Make sure you entered a valid, non-empty ID.</Text>
     <div class="h-16"></div>
     <TextButton href="/app/webnotes">back</TextButton>
 </main>

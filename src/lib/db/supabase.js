@@ -7,6 +7,19 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
 
 
 // @ts-ignore
+export async function selectAllNotes() {
+  const { data, error } = await supabase.from("notes").select();
+  return data;
+}
+
+// @ts-ignore
+export async function selectNote(id) {
+  const { data, error } = await supabase.from("notes").select().eq("id", id);
+  const note = data?.at(0);
+  return note;
+}
+
+// @ts-ignore
 export async function insertNote(id) {
   const newNote = {
     id: id,
@@ -21,4 +34,9 @@ export async function insertNote(id) {
 // @ts-ignore
 export async function updateNote(id, text) {
   await supabase.from("notes").update({ text: text }).eq("id", id).select();
+}
+
+// @ts-ignore
+export async function deleteNote(id) {
+  await supabase.from("notes").delete().eq("id", id)
 }

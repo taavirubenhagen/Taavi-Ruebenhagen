@@ -1,8 +1,9 @@
 <script lang='ts'>
+    import { copy } from 'svelte-copy';
+    import { onMount } from "svelte";
 	import { page } from "$app/stores";
-	import { updateNote } from "$lib/db/supabase";
+	import { updateNote, deleteNote } from "$lib/db/supabase";
     import { Footer, InlineButton, Text, TextButton } from "$lib/v2";
-	import { onMount } from "svelte";
     
     $: id = $page.data.id;
     $: hash = $page.data.hash;
@@ -11,6 +12,7 @@
     
     let text = dbText;
     let saved = true;
+    let deleteDialog = false;
     
     onMount(() => text = dbText);
 </script>
@@ -23,39 +25,52 @@
 
 
 <main class="relative overflow-scroll w-screen h-screen">
+    <div class="fixed right-8 top-8">
+        <Text small heading>
+            {#if saved}
+                <TextButton onClick={() => window.location.href = "/app/webnotes"}>
+                    Close
+                </TextButton>
+            {:else}
+                <TextButton onClick={() => {
+                  updateNote(id, text);
+                  saved = true;
+                }}>
+                    Save
+                </TextButton>
+            {/if}
+        </Text>
+    </div>
+    <div class="cursor-pointer fixed left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
+        <Text small heading>
+            View: Public
+            <br/>
+            Edit: Private
+            <br/>
+            <span class="text-[#999999]">
+                Click to Copy URL
+            </span>
+        </Text>
+    </div>
+    <div class="fixed z-50 right-8 bottom-8">
+        <InlineButton onClick={() => deleteDialog = !deleteDialog}>
+            {deleteDialog ? "Cancel" : "Delete"}
+        </InlineButton>
+    </div>
+    {#if deleteDialog}
+        <div class="fixed z-40 w-full h-full bg-white flex justify-center items-center">
+            <TextButton onClick={() => {
+              deleteNote(id);
+              window.location.href = "/app/webnotes";
+            }}>
+                Delete Note
+            </TextButton>
+        </div>
+    {/if}
     <textarea
         bind:value={text}
         on:input={() => saved = false}
         placeholder={id}
         class="w-screen min-h-screen outline-none p-8 text-black"
     />
-    <div class="fixed left-8 bottom-8">
-        <Text small heading>
-            <br/>
-            View: Public
-            <br/>
-            Edit: Private
-        </Text>
-    </div>
-    <div class="fixed right-8 bottom-8">
-        <Text small heading>
-            <InlineButton onClick={() => saved = true}>
-                Copy URL
-            </InlineButton>
-        </Text>
-    </div>
-    <div class="fixed right-8 top-8">
-        <Text small heading>
-            {#if saved}
-                Saved
-            {:else}
-                <InlineButton onClick={() => {
-                  updateNote(id, text);
-                  saved = true;
-                }}>
-                    Save
-                </InlineButton>
-            {/if}
-        </Text>
-    </div>
 </main>
