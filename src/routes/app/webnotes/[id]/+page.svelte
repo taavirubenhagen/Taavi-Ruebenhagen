@@ -11,7 +11,6 @@
     $: dbText = $page.data.text;
     
     let text = dbText;
-    let saved = true;
     let deleteDialog = false;
     
     onMount(() => text = dbText);
@@ -25,22 +24,6 @@
 
 
 <main class="relative overflow-scroll w-screen h-screen">
-    <div class="fixed right-8 top-8">
-        <Text small heading>
-            {#if saved}
-                <TextButton onClick={() => window.location.href = "/app/webnotes"}>
-                    Close
-                </TextButton>
-            {:else}
-                <TextButton onClick={() => {
-                  updateNote(id, text);
-                  saved = true;
-                }}>
-                    Save
-                </TextButton>
-            {/if}
-        </Text>
-    </div>
     <div class="cursor-pointer fixed left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
         <Text small heading>
             View: Public
@@ -69,7 +52,7 @@
     {/if}
     <textarea
         bind:value={text}
-        on:input={() => saved = false}
+        on:input={() => updateNote(id, text)}
         placeholder={id}
         class="w-screen min-h-screen outline-none p-8 text-black"
     />
