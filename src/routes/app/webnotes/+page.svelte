@@ -15,7 +15,7 @@
 </svelte:head>
 
 
-<main class="overflow-y-scroll min-h-screen flex flex-col items-start p-8 sm:p-16">
+<main class="min-h-screen flex flex-col items-start p-8 sm:p-16">
     <Text medium heading>
         Web Notes
     </Text>
