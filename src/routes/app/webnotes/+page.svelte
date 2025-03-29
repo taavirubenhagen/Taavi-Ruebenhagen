@@ -55,8 +55,8 @@
                 </span>
             </Text>
         </div>
+        <!--
         <div class="md:pl-16 pt-32 md:pt-0">
-            <!--
             <Text small heading>
                 Notes in the database
             </Text>
@@ -70,9 +70,9 @@
                     </Text>
                 {/each}
             </div>
-            -->
         </div>
+        -->
     </div>
-    <div class="h-56"></div>
+    <!--<div class="h-56"></div>-->
     <Footer/>
 </main>
