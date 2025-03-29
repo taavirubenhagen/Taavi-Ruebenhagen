@@ -11,9 +11,13 @@
 <button on:click={onClick}>
     <div
         class=
-        "{dark ? "invert" : ""}
-        border border-black rounded-full
-        px-4 py-2 bg-white hover:bg-black text-black hover:text-white capitalize"
+        "border border-black rounded-full
+        {
+          dark
+          ? "bg-black hover:bg-white text-white hover:text-black"
+          : "bg-white hover:bg-black text-black hover:text-white"
+        }
+        px-4 py-2 capitalize"
     >
         <Text medium paragraph>
             {#if href}

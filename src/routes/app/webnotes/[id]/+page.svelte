@@ -42,7 +42,7 @@
     </div>
     {#if deleteDialog}
         <div class="fixed z-40 w-full h-full bg-white flex justify-center items-center">
-            <TextButton onClick={() => {
+            <TextButton dark onClick={() => {
               deleteNote(id);
               window.location.href = "/app/webnotes";
             }}>

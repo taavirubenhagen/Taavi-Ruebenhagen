@@ -15,7 +15,7 @@
 </svelte:head>
 
 
-<main class="min-h-screen flex flex-col items-start p-8 sm:p-16">
+<main class="min-h-screen flex flex-col items-start p-8 md:p-16">
     <Text medium heading>
         Web Notes
     </Text>
@@ -23,7 +23,7 @@
     <Text small heading>
         by Taavi Rübenhagen
     </Text>
-    <div class="h24 md:h-32"></div>
+    <div class="h-24 md:h-32"></div>
     <div class="flex">
         <Text small heading>
             <Switch bind:value={create} trueTitle="Create" falseTitle="Open"/>
@@ -40,7 +40,7 @@
             <TextButton href="/app/webnotes/test">
                 Public
             </TextButton>-->
-            <TextButton href="/app/webnotes/{idInput}">
+            <TextButton dark href="/app/webnotes/{idInput}">
                 Collaborative
             </TextButton>
             <div></div>
@@ -64,11 +64,12 @@
     {:else}
         <div class="grid md:grid-cols-2">
             <div class="md:pr-8">
-                <TextField bind:value={idInput} placeholder="Type an ID"/>
-                <div class="h-8"></div>
-                <TextButton href="/app/webnotes/{idInput}">
-                    Open
-                </TextButton>
+                <div class="flex gap-4">
+                    <TextField bind:value={idInput} placeholder="Type an ID"/>
+                    <TextButton dark href="/app/webnotes/{idInput}">
+                        Open
+                    </TextButton>
+                </div>
                 <div class="h-16"></div>
                 <Text small paragraph>  
                     <span class="text-[#999999]">
