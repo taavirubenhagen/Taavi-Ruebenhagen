@@ -23,7 +23,7 @@
     <Text small heading>
         by Taavi Rübenhagen
     </Text>
-    <div class="h-32"></div>
+    <div class="h24 md:h-32"></div>
     <div class="flex">
         <Text small heading>
             <Switch bind:value={create} trueTitle="Create" falseTitle="Open"/>
