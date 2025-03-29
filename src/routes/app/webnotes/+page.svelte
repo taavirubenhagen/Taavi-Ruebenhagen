@@ -32,8 +32,8 @@
     <div class="h-16"></div>
     {#if create}
         <TextField bind:value={idInput} placeholder="Choose an ID"/>
-        <div class="h-8"></div>
-        <div class="w-full flex justify-start items-center flex-wrap gap-2 md:gap-4">
+        <div class="h-4 md:h-8"></div>
+        <div class="w-full flex justify-start items-center flex-wrap gap-4">
             <!--<TextButton href="/app/webnotes/{idInput}">
                 Private
             </TextButton>
@@ -64,7 +64,7 @@
     {:else}
         <div class="grid md:grid-cols-2">
             <div class="md:pr-8">
-                <div class="flex gap-2 md:gap-4">
+                <div class="flex gap-4">
                     <TextField bind:value={idInput} placeholder="Type an ID"/>
                     <TextButton dark href="/app/webnotes/{idInput}">
                         Open
