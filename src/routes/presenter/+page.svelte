@@ -45,7 +45,11 @@
         </div>
     {/if}
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
-        <Text medium heading>P.</Text>
+        <a href="/" style="font-family: 'DM Mono';">
+            <Text medium heading>
+                tr.
+            </Text>
+        </a>
         <TextButton
             dark={scrollY < totalHeightFactorOffset * windowHeight}
             onClick={() => downloadVisible = !downloadVisible}

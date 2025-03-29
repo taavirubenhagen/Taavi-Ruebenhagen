@@ -11,10 +11,19 @@
 
 <Text small paragraph>
     <div class="absolute z-35 left-0 bottom-16 w-full px-8 md:px-16 flex {center ? "justify-center" : "justify-start"} items-center">
-        {#if !home}
+        {#if home}
+            <div class="flex justify-end">
+                <InlineButton invisible href="/portfolio/projects">
+                    Projects
+                </InlineButton>
+            </div>
+            <div class="flex justify-center">
+                &nbsp;𐄁&nbsp;
+            </div>
+        {:else}
             <div class="flex justify-end">
                 <InlineButton invisible href="/">
-                    Home
+                    Studio
                 </InlineButton>
             </div>
             <div class="flex justify-center">
