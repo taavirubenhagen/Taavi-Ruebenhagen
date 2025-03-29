@@ -27,10 +27,10 @@
         in development;
     </Text>
     <div class="h-16"></div>
-    <InlineButton href="/:)">
+    <!--<InlineButton href="/:)">
         404
         <br/><br/>
-    </InlineButton>
+    </InlineButton>-->
     <InlineButton href="https://fenni.me">
         fenni.me
         <br/><br/>
@@ -43,10 +43,10 @@
         rubenhagen.com
         <br/><br/>
     </InlineButton>
-    <InlineButton href="https://github.com/taavirubenhagen/Just-Notes">
+    <!--<InlineButton href="https://github.com/taavirubenhagen/Just-Notes">
         Just Notes
         <br/><br/>
-    </InlineButton>
+    </InlineButton>-->
     <InlineButton href="/presenter">
         Presentation Master
         <br/><br/>
