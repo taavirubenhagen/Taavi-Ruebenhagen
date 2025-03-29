@@ -28,7 +28,7 @@
         <div class="md:pr-16">
             <div class="flex">
                 <Text p heading>
-                    <MultiSwitch bind:value={mode} options={["Collaborative", "Public", "Private"]}/>
+                    <MultiSwitch bind:value={mode} options={["Open", "Public", "Private"]}/>
                 </Text>
             </div>
             <div class="h-12 md:h-16"></div>
@@ -42,11 +42,11 @@
             <Text small paragraph>  
                 <span class="text-[#999999]">
                     {#if mode == 0}
-                        A collaborative note can be edited by any user.
+                        A open note can be edited by any user.<br/>
                     {:else if mode == 1}
                         A public note can be viewed by any user, but it can only be edited from the device it was created on.
                     {:else if mode == 2}
-                        A private note can only be seen on the device it was created on.
+                        A private note can only be seen on the device it was created on.<br/>
                     {/if}
                     <!--
                     <br/><br/>
@@ -56,6 +56,7 @@
             </Text>
         </div>
         <div class="md:pl-16 pt-32 md:pt-0">
+            <!--
             <Text small heading>
                 Notes in the database
             </Text>
@@ -69,6 +70,7 @@
                     </Text>
                 {/each}
             </div>
+            -->
         </div>
     </div>
     <div class="h-56"></div>
