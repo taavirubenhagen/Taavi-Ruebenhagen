@@ -23,7 +23,7 @@
     <Text small heading>
         by Taavi Rübenhagen
     </Text>
-    <div class="h-24 md:h-32"></div>
+    <div class="h-24"></div>
     <div class="flex">
         <Text small heading>
             <Switch bind:value={create} trueTitle="Create" falseTitle="Open"/>
@@ -33,7 +33,7 @@
     {#if create}
         <TextField bind:value={idInput} placeholder="Choose an ID"/>
         <div class="h-8"></div>
-        <div class="w-full flex justify-start items-center flex-wrap gap-4">
+        <div class="w-full flex justify-start items-center flex-wrap gap-2 md:gap-4">
             <!--<TextButton href="/app/webnotes/{idInput}">
                 Private
             </TextButton>
@@ -64,7 +64,7 @@
     {:else}
         <div class="grid md:grid-cols-2">
             <div class="md:pr-8">
-                <div class="flex gap-4">
+                <div class="flex gap-2 md:gap-4">
                     <TextField bind:value={idInput} placeholder="Type an ID"/>
                     <TextButton dark href="/app/webnotes/{idInput}">
                         Open
