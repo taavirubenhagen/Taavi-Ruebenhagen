@@ -18,18 +18,13 @@
 />
 
 
-<main class="overflow-hidden min-h-screen flex flex-col justify-center p-8 sm:p-16">
+<main class="overflow-hidden min-h-screen flex flex-col justify-center items-center p-8 sm:p-16 text-center">
     <Text large heading>
         Hi, ich bin Fenni.
     </Text>
     <div class="h-16"></div>
-    <div class="w-full flex justify-start gap-4">
         <TextButton href="/presenter">
-            Explore
+            Meine Arbeit
         </TextButton>
-        <TextButton href="mailto:t.ruebenhagen@gmail.com">
-            Contact
-        </TextButton>
-    </div>
     <Footer home title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>
