@@ -1,6 +1,8 @@
 <script lang='ts'>
 	import { page } from "$app/stores";
+	import { updateNote } from "$lib/db/supabase";
     import { Footer, InlineButton, Text, TextButton } from "$lib/v2";
+	import { onMount } from "svelte";
     
     $: id = $page.data.id;
     $: hash = $page.data.hash;
@@ -9,6 +11,8 @@
     
     let text = dbText;
     let saved = true;
+    
+    onMount(() => text = dbText);
 </script>
 
 
@@ -45,7 +49,10 @@
             {#if saved}
                 Saved
             {:else}
-                <InlineButton onClick={() => saved = true}>
+                <InlineButton onClick={() => {
+                  updateNote(id, text);
+                  saved = true;
+                }}>
                     Save
                 </InlineButton>
             {/if}

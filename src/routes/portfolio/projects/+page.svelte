@@ -23,9 +23,11 @@
         projects.
     </Text>
     <div class="h-4"></div>
-    <Text small heading>
-        more on the way.
-    </Text>
+    <InlineButton invisible href="/portfolio/projects/unfinished">
+        <Text small heading>
+            more on the way.
+        </Text>
+    </InlineButton>
     <div class="h-16"></div>
     <div class="w-full flex flex-wrap justify-start gap-4">
         <TextButton href="/presenter">
@@ -50,9 +52,5 @@
             </span>
         </TextButton>-.->
     </div>-->
-    <div class="h-8"></div>
-    <InlineButton href="/app/webnotes">
-        [unfinished]
-    </InlineButton>
     <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>

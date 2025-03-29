@@ -37,6 +37,6 @@
                 </Text>
             </a>
         </div>
-        <Footer center home/>
+        <Footer center fenni/>
     </div>
 </main>
