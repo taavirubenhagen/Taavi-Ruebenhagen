@@ -23,7 +23,7 @@
         all projects.
     </Text>
     <div class="h-4"></div>
-    <Text small heading>
+    <Text p heading>
         in development;
     </Text>
     <div class="h-16"></div>
@@ -55,6 +55,6 @@
         Web Notes
         <br/><br/>
     </InlineButton>
-    <div class="h-32"></div>
+    <div class="h-56"></div>
     <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>

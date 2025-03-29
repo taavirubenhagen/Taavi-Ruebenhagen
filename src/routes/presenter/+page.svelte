@@ -51,7 +51,8 @@
             </Text>
         </a>
         <TextButton
-            dark={scrollY < totalHeightFactorOffset * windowHeight}
+            dark
+            primary={scrollY < totalHeightFactorOffset * windowHeight}
             onClick={() => downloadVisible = !downloadVisible}
         >
             {#if downloadVisible}

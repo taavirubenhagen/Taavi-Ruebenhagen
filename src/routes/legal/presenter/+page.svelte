@@ -18,7 +18,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Definitions and key terms
         </Text>
         <br/><br/>
@@ -41,7 +41,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Information automatically collected
         </Text>
         <br/><br/>
@@ -51,7 +51,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Sale of Business
         </Text>
         <br/><br/>
@@ -59,7 +59,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Affiliates
         </Text>
         <br/><br/>
@@ -67,7 +67,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Governing Law
         </Text>
         <br/><br/>
@@ -79,7 +79,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Your Consent
         </Text>
         <br/><br/>
@@ -87,7 +87,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Links to Other Websites
         </Text>
         <br/><br/>
@@ -95,7 +95,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Cookies
         </Text>
         <br/><br/>
@@ -103,7 +103,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Blocking and disabling cookies and similar technologies
         </Text>
         <br/><br/>
@@ -111,7 +111,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Kids' Privacy
         </Text>
         <br/><br/>
@@ -119,7 +119,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Changes To Our Privacy Policy
         </Text>
         <br/><br/>
@@ -127,7 +127,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Third-Party Services
         </Text>
         <br/><br/>
@@ -137,7 +137,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Tracking Technologies
         </Text>
         <br/><br/>
@@ -147,7 +147,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Information about General Data Protection Regulation (GDPR)
         </Text>
         <br/><br/>
@@ -155,7 +155,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             What is GDPR?
         </Text>
         <br/><br/>
@@ -165,7 +165,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             What is personal data?
         </Text>
         <br/><br/>
@@ -173,7 +173,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             The Data Protection Principles include requirements such as:
         </Text>
         <br/><br/>
@@ -187,7 +187,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Why is GDPR important?
         </Text>
         <br/><br/>
@@ -195,7 +195,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Individual Data Subject's Rights - Data Access, Portability and Deletion
         </Text>
         <br/><br/>
@@ -205,7 +205,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             California Residents
         </Text>
         <br/><br/>
@@ -227,7 +227,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             California Online Privacy Protection Act (CalOPPA)
         </Text>
         <br/><br/>
@@ -251,7 +251,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Contact Us
         </Text>
         <br/><br/>
@@ -263,7 +263,7 @@
         <br/>
         <br/><br/>
         <br/><br/>
-        <Text small heading>
+        <Text p heading>
             Imprint
         </Text>
         <br/><br/>

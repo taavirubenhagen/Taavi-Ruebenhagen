@@ -18,13 +18,13 @@
 />
 
 
-<main class="min-h-screen flex flex-col justify-center items-start p-8 sm:p-16">
+<main class="relative min-h-screen flex flex-col justify-center items-start p-8 sm:p-16">
     <Text large heading>
         projects.
     </Text>
     <div class="h-4"></div>
     <InlineButton invisible href="/portfolio/projects/unfinished">
-        <Text small heading>
+        <Text p heading>
             more on the way.
         </Text>
     </InlineButton>
@@ -39,7 +39,8 @@
             </span>
         </TextButton>
     </div>
-    <!--<div class="h-4"></div>
+    <!--
+    <div class="h-4"></div>
     <div class="w-full flex flex-wrap justify-start gap-4">
         <TextButton href="https://rubenhagen.com">
             <span class="normal-case">

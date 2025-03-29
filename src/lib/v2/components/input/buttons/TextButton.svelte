@@ -2,6 +2,7 @@
     import { Text } from "$lib/v2";
 
     export let dark = false;
+    export let primary = false;
     export let download = false;
     export let href: string | null = null;
     export let onClick = () => {};
@@ -11,9 +12,9 @@
 <button on:click={onClick}>
     <div
         class=
-        "border border-black rounded-full
+        "border {dark ? "border-white" : "border-black"} rounded-full
         {
-          dark
+          primary
           ? "bg-black hover:bg-white text-white hover:text-black"
           : "bg-white hover:bg-black text-black hover:text-white"
         }

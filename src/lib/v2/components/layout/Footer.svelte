@@ -10,7 +10,7 @@
 
 
 <Text small paragraph>
-    <div class="absolute z-35 left-0 bottom-16 w-full px-8 md:px-16 flex {center ? "justify-center" : "justify-start"} items-center">
+    <div class="absolute z-50 left-0 bottom-0 w-full h-24 px-8 md:px-16 flex {center ? "justify-center" : "justify-start"} items-start">
         {#if fenni}
             <InlineButton
                 invisible

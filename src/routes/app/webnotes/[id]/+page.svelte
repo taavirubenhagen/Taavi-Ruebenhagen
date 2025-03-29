@@ -25,7 +25,7 @@
 
 <main class="relative overflow-scroll w-screen h-screen">
     <div class="cursor-pointer fixed left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
-        <Text small heading>
+        <Text p heading>
             View: Public
             <br/>
             Edit: Private
@@ -42,7 +42,7 @@
     </div>
     {#if deleteDialog}
         <div class="fixed z-40 w-full h-full bg-white flex justify-center items-center">
-            <TextButton dark onClick={() => {
+            <TextButton primary onClick={() => {
               deleteNote(id);
               window.location.href = "/app/webnotes";
             }}>
