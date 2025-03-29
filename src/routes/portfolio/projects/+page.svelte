@@ -18,7 +18,7 @@
 />
 
 
-<main class="min-h-full flex flex-col justify-center items-start p-8 sm:p-16">
+<main class="overflow-y-scroll min-h-screen flex flex-col justify-center items-start p-8 sm:p-16">
     <Text large heading>
         projects.
     </Text>
