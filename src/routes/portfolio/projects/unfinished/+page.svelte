@@ -18,7 +18,7 @@
 />
 
 
-<main class="overflow-hidden min-h-screen flex flex-col items-start p-8 sm:p-16 pt-48 md:pt-48">
+<main class="min-h-full flex flex-col items-start p-8 sm:p-16 pt-48 md:pt-48">
     <Text large heading>
         all projects.
     </Text>
