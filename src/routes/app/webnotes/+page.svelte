@@ -25,7 +25,7 @@
     </div>
     <div class="h-16"></div>
     {#if create}
-        <div class="w-full flex justify-start gap-4">
+        <div class="w-full flex justify-start flex-wrap gap-4">
             <TextButton href="/app/webnotes/test">
                 Private
             </TextButton>
@@ -36,17 +36,29 @@
                 Collaborative
             </TextButton>
         </div>
+        <div class="h-16"></div>
+        <Text small paragraph>  
+            <span class="text-[#999999]">
+                Depending on what you select above, notes can be viewed or edited either by anyone or only from this device.
+                <br/>
+                You can share a notes unique URL to collaborate with others or show them your thoughts.
+                It's like Google Drive without the clutter.
+                <br/><br/>
+            </span>
+        </Text>
     {:else}
         <TextField bind:value={idInput} placeholder="Type an ID"/>
         <div class="h-8"></div>
         <TextButton href="/app/webnotes/test">
             Open
         </TextButton>
+        <div class="h-16"></div>
     {/if}
-    <div class="h-16"></div>
     <Text small paragraph>  
         <span class="text-[#999999]">
-            Even Private Web Notes are not secure. Do not store any sensitive data here.
+            Even Private Web Notes can be hacked or accidentally deleted from the database at any time.
+            <br/>
+            Do not store any sensitive data here.
         </span>
     </Text>
     <Footer/>

@@ -25,12 +25,19 @@
         placeholder={id}
         class="w-screen min-h-screen outline-none p-8 text-black"
     />
-    <div class="fixed right-16 bottom-16">
+    <div class="fixed left-8 bottom-8">
         <Text small heading>
             <br/>
             View: Public
             <br/>
             Edit: Private
+        </Text>
+    </div>
+    <div class="fixed right-8 bottom-8">
+        <Text small heading>
+            <InlineButton onClick={() => saved = true}>
+                Copy URL
+            </InlineButton>
         </Text>
     </div>
     <div class="fixed right-8 top-8">
