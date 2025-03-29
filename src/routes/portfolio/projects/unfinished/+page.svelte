@@ -55,6 +55,6 @@
         Web Notes
         <br/><br/>
     </InlineButton>
-    <div class="h-56"></div>
+    <div class="h-48"></div>
     <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>

@@ -16,7 +16,7 @@
 
 
 <main class="relative min-h-screen flex flex-col items-start p-8 md:p-16">
-    <Text large heading>
+    <Text medium heading>
         Web Notes
     </Text>
     <div class="h-4"></div>
