@@ -8,7 +8,8 @@
 <button on:click={href == null ? onClick : () => window.location.href = href}>
     <div
         class=
-        "{invisible ? "" : "underline underline-offset-8"}
+        "transition-all duration-[200ms] hover:text-[#999999]
+        {invisible ? "" : "underline underline-offset-8"}
         transition duration-200"
     >
         <slot/>

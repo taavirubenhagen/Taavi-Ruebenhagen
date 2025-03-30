@@ -23,7 +23,7 @@
 </svelte:head>
 
 
-<main class="relative overflow-scroll w-screen h-screen">
+<main class="relative overflow-scroll w-screen h-screen pt-8">
     <div class="cursor-pointer fixed left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
         <Text p heading>
             View: Public

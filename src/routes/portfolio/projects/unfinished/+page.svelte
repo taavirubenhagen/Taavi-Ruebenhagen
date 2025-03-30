@@ -18,19 +18,11 @@
 />
 
 
-<main class="relative min-h-screen flex flex-col items-start p-8 sm:p-16 pt-32 md:pt-48">
+<main class="relative min-h-screen flex flex-col justify-center items-start p-8 sm:p-16 pt-32 md:pt-48">
     <Text large heading>
-        all projects.
-    </Text>
-    <div class="h-4"></div>
-    <Text p heading>
-        in development;
+        projects.
     </Text>
     <div class="h-16"></div>
-    <!--<InlineButton href="/:)">
-        404
-        <br/><br/>
-    </InlineButton>-->
     <InlineButton href="https://fenni.me">
         fenni.me
         <br/><br/>
@@ -43,18 +35,13 @@
         rubenhagen.com
         <br/><br/>
     </InlineButton>
-    <!--<InlineButton href="https://github.com/taavirubenhagen/Just-Notes">
-        Just Notes
-        <br/><br/>
-    </InlineButton>-->
     <InlineButton href="/presenter">
         Presentation Master
         <br/><br/>
     </InlineButton>
     <InlineButton href="/app/webnotes">
-        Web Notes
+        Web Notes [Unfinished]
         <br/><br/>
     </InlineButton>
-    <div class="h-48"></div>
     <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
 </main>

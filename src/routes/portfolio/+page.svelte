@@ -31,5 +31,5 @@
             Contact
         </TextButton>
     </div>
-    <Footer home title="GitHub" href="https://github.com/taavirubenhagen"/>
+    <Footer home/>
 </main>

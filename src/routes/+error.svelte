@@ -14,5 +14,5 @@
     <div class="h-4"></div>
     <Text p heading>Page not found.</Text>
     <div class="h-16"></div>
-    <TextButton onClick={() => {}} href="/">take me home</TextButton>
+    <TextButton primary onClick={() => {}} href="/">take me home</TextButton>
 </main>

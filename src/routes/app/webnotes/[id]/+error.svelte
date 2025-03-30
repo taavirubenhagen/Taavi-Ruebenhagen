@@ -9,10 +9,10 @@
 </svelte:head>
 
 
-<main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center">
+<main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center text-center">
     <Text huge heading>Error.</Text>
     <div class="h-4"></div>
     <Text p heading>Make sure you entered a valid, non-empty ID.</Text>
     <div class="h-16"></div>
-    <TextButton href="/app/webnotes">back</TextButton>
+    <TextButton primary href="/app/webnotes">Back</TextButton>
 </main>

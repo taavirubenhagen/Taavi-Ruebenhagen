@@ -2,6 +2,7 @@
     import { Text } from "$lib/v2";
 
     export let dark = false;
+    export let expanded = false;
     export let primary = false;
     export let download = false;
     export let href: string | null = null;
@@ -9,10 +10,11 @@
 </script>
 
 
-<button on:click={onClick}>
+<button class={expanded ? "w-full" : ""} on:click={onClick}>
     <div
         class=
-        "border {dark ? "border-white" : "border-black"} rounded-full
+        "transition-all duration-[100ms]
+        border {dark ? "border-white" : "border-black"} rounded-full
         {
           primary
           ? "bg-black hover:bg-white text-white hover:text-black"
