@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../tavy.postcss";
+  import "../tavy.postcss";
 </script>
 
 

@@ -4,13 +4,12 @@
     export let dark = false;
     export let expanded = false;
     export let primary = false;
-    export let download = false;
     export let href: string | null = null;
     export let onClick = () => {};
 </script>
 
 
-<button class={expanded ? "w-full" : ""} on:click={onClick}>
+<button class={expanded ? "w-full" : ""} on:click={href == null ? onClick : () => window.location.href = href}>
     <div
         class=
         "transition-all duration-[100ms]
@@ -23,19 +22,7 @@
         px-4 py-2 capitalize"
     >
         <Text medium paragraph>
-            {#if href}
-                {#if download}
-                    <a download href={href}>
-                        <slot/>
-                    </a>
-                {:else}
-                    <a href={href}>
-                        <slot/>
-                    </a>
-                {/if}
-            {:else}
-                <slot/>
-            {/if}
+            <slot/>
         </Text>
     </div>
 </button>

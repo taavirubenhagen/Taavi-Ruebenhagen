@@ -18,7 +18,7 @@
 
 
 <svelte:head>
-    <title>Test 𐄁 Web Notes</title>
+    <title>{id} 𐄁 Web Notes</title>
     <meta name="description" content="test 𐄁 Web Notes"/>
 </svelte:head>
 

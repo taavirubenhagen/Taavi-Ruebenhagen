@@ -14,7 +14,7 @@
 {#if paragraph}
     <p class='inline'>
         {#if small}
-            <p class="text-[0.875rem] md:text-[1rem]"><slot/></p>
+            <p class="text-[0.875rem] sm:text-[1rem]"><slot/></p>
         {:else if medium}
             <p class="text-md"><slot/></p>
         {:else if large}
@@ -26,7 +26,7 @@
 {#if heading}
     <p class='font-bold tracking-wider'>
         {#if p}
-            <p class="text-[0.875rem] md:text-[1rem]"><slot/></p>
+            <p class="text-[0.875rem] sm:text-[1rem]"><slot/></p>
         {:else if small}
             <p class="text-[1.25rem] md:text-[1.625rem]"><slot/></p>
         {:else if medium}
