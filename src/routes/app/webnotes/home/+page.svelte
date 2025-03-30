@@ -22,7 +22,7 @@
 
 <main class="relative min-h-screen flex flex-col items-start p-8 md:p-16 pt-40 md:pt-48">
     {#if login}
-        <div class="fixed z-40 left-0 top-0 w-full h-full bg-white p-16 flex flex-col justify-center items-center">
+        <div class="fixed z-40 left-0 top-0 w-full h-full bg-white p-8 md:p-16 flex flex-col justify-center items-center">
             <div class="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 2xl:w-1/4 flex flex-col justify-center gap-4">
                 <TextField bind:value={usernameInput} placeholder="Username"/>
                 <TextField bind:value={passwordInput} placeholder="Password"/>
@@ -85,8 +85,8 @@
                 </div>
             {/if}
         </div>
-        {#if mode > 0 && loggedIn}
-            <div class="md:pl-16 pt-16 pb-56">
+        <div class="md:pl-16 pt-16 pb-56">
+            {#if mode > 0 && loggedIn}
                 <div class="flx items-start flex-wrap gap-4">
                     {#each notes as note}
                         <Text small paragraph>
@@ -96,14 +96,14 @@
                         </Text>
                     {/each}
                 </div>
-            </div>
-        {:else if mode > 0}
-            <span class="text-[#999999]">
-                <Text small paragraph>
-                    When you are logged in, your notes will appear here.
-                </Text>
-            </span>
-        {/if}
+            {:else if mode > 0}
+                <span class="text-[#999999]">
+                    <Text small paragraph>
+                        When you are logged in, your notes will appear here.
+                    </Text>
+                </span>
+            {/if}
+        </div>
     </div>
     <Footer/>
 </main>

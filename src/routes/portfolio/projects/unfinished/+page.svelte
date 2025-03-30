@@ -23,10 +23,6 @@
         projects.
     </Text>
     <div class="h-16"></div>
-    <InlineButton href="https://fenni.me">
-        fenni.me
-        <br/><br/>
-    </InlineButton>
     <InlineButton href="https://hoffmanns-schuppen.com">
         hoffmanns-schuppen.com
         <br/><br/>
