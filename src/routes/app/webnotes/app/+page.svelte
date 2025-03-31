@@ -73,7 +73,7 @@
         {/if}
     {/await}
 </Dialog>
-<div class="fixed w-full md:px-[25%] bottom-32 px-8">
+<div class="absolute w-full md:px-[25%] bottom-32 px-8">
     <TextButton expanded primary onClick={async () => create = true}>
         Write new
     </TextButton>
@@ -96,7 +96,7 @@
             {#each notes as note}
                 <a
                     href="/app/webnotes/note/{note.id}"
-                    class="mb-4 rounded-lg border border-[#999999] hover:border-black max-w-full p-4 flex flex-col gap-4 text-wrap"
+                    class="mb-4 rounded-lg border border-[#999999] hover:border-black overflow-hidden max-w-full p-4 flex flex-col gap-4 text-wrap"
                 >
                     <Text p heading>
                         {note.id}
