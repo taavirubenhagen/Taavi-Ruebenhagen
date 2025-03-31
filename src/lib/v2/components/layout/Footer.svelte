@@ -9,6 +9,7 @@
 </script>
 
 
+<div class="h-16 md:h-20"/>
 <Text small paragraph>
     <div class="absolute z-35 left-0 bottom-0 w-full h-16 md:h-20 px-8 md:px-16 flex {center ? "justify-center" : "justify-start"} items-start">
         {#if fenni}

@@ -1,1 +1,1 @@
-<meta http-equiv="Refresh" content="0; url='/app/webnotes/app/open'" />
+<meta http-equiv="Refresh" content="0; url='/app/webnotes/app'" />

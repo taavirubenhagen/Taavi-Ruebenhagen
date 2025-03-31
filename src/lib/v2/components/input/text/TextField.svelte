@@ -24,12 +24,12 @@
             placeholder={placeholder}
             class=
             "{active ? "border-black bg-white" : "border-transparent bg-[#F0F0F0]"} {dark ? "invert" : ""}
-            border w-full
+            border w-full h-10
             outline-none rounded-full
-            px-4 py-2 text-black"
+            px-4 text-black"
         />
         {#if action}
-            <div class="absolute right-0 top-0 h-full flex items-end">
+            <div class="absolute right-0 top-0 flex items-end">
                 {#if active}
                     <div class="bg-black rounded-r-full">
                         <TextButton primary href={href} onClick={onSubmit}>

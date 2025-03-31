@@ -57,5 +57,4 @@
             </span>
         {/if}
     </div>
-    <Footer/>
 </main>

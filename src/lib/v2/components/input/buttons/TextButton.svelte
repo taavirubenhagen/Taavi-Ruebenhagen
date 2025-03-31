@@ -13,13 +13,13 @@
     <div
         class=
         "transition-all duration-[100ms]
-        border {dark ? "border-white" : "border-black"} rounded-full
+        border {dark ? "border-white" : "border-black"} rounded-full h-10
         {
           primary
-          ? "bg-black hover:bg-whte text-white hover:text-blck"
-          : "bg-white hover:bg-back text-black hover:text-wite"
+          ? "bg-black hover:bg-white text-white hover:text-black"
+          : "bg-white hover:bg-black text-black hover:text-white"
         }
-        px-4 py-2 capitalize"
+        px-4 flex justify-center items-center capitalize"
     >
         <Text medium paragraph>
             <slot/>
