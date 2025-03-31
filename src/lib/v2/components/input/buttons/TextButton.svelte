@@ -3,6 +3,7 @@
 
     export let dark = false;
     export let expanded = false;
+    export let unresponsive = false;
     export let primary = false;
     export let href: string | null = null;
     export let onClick = () => {};
@@ -13,11 +14,11 @@
     <div
         class=
         "transition-all duration-[100ms]
-        border {dark ? "border-white" : "border-black"} rounded-full h-10
+        border {dark ? "border-white" : "border-black"} rounded-full h-11 sm:h-10
         {
           primary
-          ? "bg-black hover:bg-white text-white hover:text-black"
-          : "bg-white hover:bg-black text-black hover:text-white"
+          ? ( "bg-black text-white " + ( unresponsive ? "" : "hover:bg-white hover:text-black" ) )
+          : ( "bg-white text-black " + ( unresponsive ? "" : "hover:bg-black hover:text-white" ) )
         }
         px-4 flex justify-center items-center capitalize"
     >

@@ -32,7 +32,7 @@
             <div class="absolute right-0 top-0 flex items-end">
                 {#if active}
                     <div class="bg-black rounded-r-full">
-                        <TextButton primary href={href} onClick={onSubmit}>
+                        <TextButton unresponsive primary href={href} onClick={onSubmit}>
                             {action}
                         </TextButton>
                     </div>

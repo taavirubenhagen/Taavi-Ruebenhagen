@@ -81,7 +81,7 @@
     {/await}
 </Dialog>
 <main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:p-16 flex justify-center items-center">
-    <TextButton primary onClick={() => create = true}>
+    <TextButton onClick={() => create = true}>
         Write a note.
     </TextButton>
     <!--
