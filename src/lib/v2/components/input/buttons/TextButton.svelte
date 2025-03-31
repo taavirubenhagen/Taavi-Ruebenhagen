@@ -14,7 +14,7 @@
     <div
         class=
         "transition-all duration-[100ms]
-        border {dark ? "border-white" : "border-black"} rounded-full h-11 sm:h-10
+        border {dark ? "border-white" : "border-black"} rounded-full h-10
         {
           primary
           ? ( "bg-black text-white " + ( unresponsive ? "" : "hover:bg-white hover:text-black" ) )

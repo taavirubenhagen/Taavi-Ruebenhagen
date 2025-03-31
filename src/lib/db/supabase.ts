@@ -15,6 +15,7 @@ export async function usernameFromEmail(email: string | undefined) {
 
 export async function currentUsername() {
   const { data } = await supabase.auth.getUser();
+  console.log(data.user);
   return await usernameFromEmail(data.user?.email);
 }
 

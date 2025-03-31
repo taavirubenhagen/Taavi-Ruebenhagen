@@ -29,7 +29,7 @@
 
 
 <Dialog visible={visible}>
-    <TextField autofocus bind:value={usernameInput} placeholder="Username (a-z)"/>
+    <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
     <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
     <div class="flex gap-4">
         <TextButton expanded primary onClick={login}>

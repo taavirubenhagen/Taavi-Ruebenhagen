@@ -11,7 +11,6 @@
   let create = false;
   let mode = "open";
   let idInput: string;
-  let submitted = false;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
@@ -25,7 +24,7 @@
 </svelte:head>
 
 
-<Dialog visible={create}>
+<Dialog bind:visible={create}>
     <Text p heading>
         <MultiSwitch bind:value={mode} options={["Open", "Public", "Private"]}/>
     </Text>
@@ -44,13 +43,10 @@
             </div>
             <div/>
             <Text medium paragraph>
-                <InlineButton onClick={() => create = false}>
-                    Cancel
-                </InlineButton>
+                &nbsp;
             </Text>
         {:else}
             <TextField
-                autofocus
                 bind:value={idInput}
                 placeholder="Note ID"
                 action={ids.includes(idInput) ? "Open" : "Create"}
@@ -72,18 +68,48 @@
                     {:else}
                         Valid ID :)
                     {/if}
-                    <InlineButton onClick={() => create = false}>
-                        Cancel
-                    </InlineButton>
                 </Text>
             </span>
         {/if}
     {/await}
 </Dialog>
-<main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:p-16 flex justify-center items-center">
-    <TextButton onClick={() => create = true}>
-        Write a note.
+<div class="fixed w-full md:px-[25%] bottom-32 px-8">
+    <TextButton expanded primary onClick={async () => create = true}>
+        Write new
     </TextButton>
+</div>
+<main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
+    {#await currentUsername()}
+        <Text medium paragraph>
+            Loading...
+        </Text>
+    {:then username}
+        {#if !username}
+            <TextButton onClick={() => create = true}>
+                Write a note
+            </TextButton>
+        {:else}
+            <Text small heading>
+                Web Notes
+            </Text>
+            <div class="h-4"></div>
+            {#each notes as note}
+                <a
+                    href="/app/webnotes/note/{note.id}"
+                    class="mb-4 rounded-lg border border-[#999999] hover:border-black p-4 flex flex-col gap-4"
+                >
+                    <Text p heading>
+                        {note.id}
+                    </Text>
+                    <span class="text-[#999999]">
+                        <Text medium paragraph>
+                            {note.text}
+                        </Text>
+                    </span>
+                </a>
+            {/each}
+        {/if}
+    {/await}
     <!--
     <div>
         <div class="md:pl-16 pt-16 md:pt-0 pb-32">
