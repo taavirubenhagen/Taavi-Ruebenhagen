@@ -1,8 +1,5 @@
-import {
-  currentUsername,
-  selectAllNotes,
-  supabase,
-} from "$lib/db/supabase";
+import { currentUsername } from "$lib/db/auth";
+import { selectAllNotes } from "$lib/db/notes";
 
 
 // @ts-ignore

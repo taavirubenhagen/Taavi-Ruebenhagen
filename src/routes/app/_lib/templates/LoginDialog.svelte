@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import { logIn, signUp } from "$lib/db/supabase";
+  import { logIn, signUp } from "$lib/db/auth";
   import { Dialog, Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
   
   export let signup = false;

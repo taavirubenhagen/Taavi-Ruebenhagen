@@ -1,7 +1,6 @@
 <script lang='ts'>
-    import { InlineButton, Text } from "$lib/v2";
+    import { Text } from "$lib/v2";
 
-    export let big = false;
     export let abbreviation = "tr";
     export let href = "/";
     export let message: string | null = null;

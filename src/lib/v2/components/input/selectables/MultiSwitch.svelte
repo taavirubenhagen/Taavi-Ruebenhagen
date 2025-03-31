@@ -15,10 +15,10 @@
     {/if}
     <InlineButton invisible onClick={
       () => route
-      ? window.location.href = route + "/" + v.toLowerCase().replaceAll(" ", "")
+      ? window.location.href = route + "/" + v.replaceAll(" ", "")
       : value = v
     }>
-        <span class="{v.toLowerCase() == value.toLowerCase() ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
+        <span class="{v == value ? 'text-black underline underline-offset-8' : 'text-[#999999]' } capitalize">
             {v}
         </span>
     </InlineButton>

@@ -1,6 +1,6 @@
 <script lang='ts'>
-	import { currentUsername, logOut } from "$lib/db/supabase";
-    import { Text, TextButton, TextField, Header, Dialog } from "$lib/v2";
+	import { currentUsername, logOut } from "$lib/db/auth";
+    import { TextButton, TextField, Header, Dialog } from "$lib/v2";
 	import { LoginDialog } from "../../_lib";
     
     let menu = false;

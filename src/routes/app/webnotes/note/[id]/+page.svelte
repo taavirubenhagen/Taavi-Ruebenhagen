@@ -2,12 +2,12 @@
     import { copy } from 'svelte-copy';
     import { onMount } from "svelte";
 	import { page } from "$app/state";
-	import { updateNote, deleteNote } from "$lib/db/supabase";
-    import { Footer, InlineButton, Text, TextButton } from "$lib/v2";
+	import { updateNote, deleteNote } from "$lib/db/notes";
+    import { InlineButton, Text, TextButton } from "$lib/v2";
     
     $: id = page.data.id;
-    $: hash = page.data.hash;
-    $: isPublic = page.data.public;
+    $: user = page.data.user;
+    $: isPrivate = page.data.private;
     $: dbText = page.data.text;
     
     let text = dbText;
@@ -26,7 +26,7 @@
 <main class="relative overflow-scroll w-screen h-screen">
     <div class="cursor-pointer absolute left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
         <Text p heading>
-            View: Public
+            View: {isPrivate ? "Private" : "Public"}
             <br/>
             Edit: Private
             <br/>

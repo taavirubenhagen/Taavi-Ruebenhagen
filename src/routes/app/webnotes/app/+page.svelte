@@ -1,6 +1,7 @@
 <script lang='ts'>
   import { page } from "$app/state";
-  import { currentUsername } from "$lib/db/supabase";
+  import { openNotePage } from "$lib/db/notes";
+  import { currentUsername } from "$lib/db/auth";
   import { Dialog, Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
   
   
@@ -26,7 +27,7 @@
 
 <Dialog bind:visible={create}>
     <Text p heading>
-        <MultiSwitch bind:value={mode} options={["Open", "Public", "Private"]}/>
+        <MultiSwitch bind:value={mode} options={["open", "public", "private"]}/>
     </Text>
     <div/>
     {#await currentUsername()}
@@ -50,7 +51,7 @@
                 bind:value={idInput}
                 placeholder="Note ID"
                 action={ids.includes(idInput) ? "Open" : "Create"}
-                href="/app/webnotes/note/{idInput}"
+                onSubmit={() => openNotePage(window, validId, mode == "private", mode == "open")}
             />
             <div/>
             <span class={
@@ -75,7 +76,7 @@
 </Dialog>
 <div class="absolute w-full md:px-[25%] bottom-32 px-8">
     <TextButton expanded primary onClick={async () => create = true}>
-        Write a note
+        Write
     </TextButton>
 </div>
 <main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
@@ -89,10 +90,6 @@
                 Write a note
             </TextButton>
         {:else}
-            <!--<Text small heading>
-                Notes
-            </Text>
-            <div class="h-8"></div>-->
             {#each notes as note}
                 <a
                     href="/app/webnotes/note/{note.id}"
@@ -110,38 +107,5 @@
             {/each}
         {/if}
     {/await}
-    <!--
-    <div>
-        <div class="md:pl-16 pt-16 md:pt-0 pb-32">
-            {#if mode != "open"}
-                {#await currentUsername()}
-                    <span class="text-[#999999]">
-                        <Text small paragraph>
-                            When you are logged in, your notes will appear here.
-                        </Text>
-                    </span>
-                {:then data}
-                    {#if data}
-                        <div class="flx items-start flex-wrap gap-4">
-                            {#each notes as note}
-                                <Text small paragraph>
-                                    <InlineButton href="/app/webnotes/note/{note.id}">
-                                        {note.id}<br/><br/>
-                                    </InlineButton>
-                                </Text>
-                            {/each}
-                        </div>
-                    {:else}
-                        <span class="text-[#999999]">
-                            <Text small paragraph>
-                                When you are logged in, your notes will appear here.
-                            </Text>
-                        </span>
-                    {/if}
-                {/await}
-            {/if}
-        </div>
-    </div>
-    -->
     <Footer/>
 </main>

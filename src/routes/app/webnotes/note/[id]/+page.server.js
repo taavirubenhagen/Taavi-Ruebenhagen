@@ -1,26 +1,17 @@
 import { error as e } from '@sveltejs/kit';
-import {
-  supabase,
-  selectNote,
-  insertNote,
-} from "$lib/db/supabase";
+import { insertNote, selectNote } from "$lib/db/notes";
 
 
 // @ts-ignore
 export async function load({ params }) {
-  console.log("note");
   if (params.id == "undefined") {
     e(404);
   }
-  const note = await selectNote(params.id);
-  console.log(note);
-  if (note == null) {
-    return await insertNote(params.id);
-  }
+  let note = await selectNote(params.id);
   return {
     id: note.id,
-    hash: note.hash,
-    public: note.public,
+    user: note.user,
+    private: note.private,
     text: note.text,
   };
 }
