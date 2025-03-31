@@ -11,8 +11,8 @@
   
   async function login() {
     const { success } = signup 
-    ? await signUp(usernameInput, passwordInput)
-    : await logIn(usernameInput, passwordInput);
+    ? await signUp(usernameInput.toLowerCase(), passwordInput)
+    : await logIn(usernameInput.toLowerCase(), passwordInput);
     loginError = !success;
     if (success) {
       visible = false;
@@ -29,7 +29,9 @@
 
 
 <Dialog visible={visible}>
-    <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
+    <div class="lowercase">
+        <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
+    </div>
     <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
     <div class="flex gap-4">
         <TextButton expanded primary onClick={login}>

@@ -8,10 +8,13 @@ export async function load({ params }) {
     e(404);
   }
   let note = await selectNote(params.id);
+  if (!note) {
+    note = await insertNote(params.id, params.user, params.access ?? "collaborative");
+  }
   return {
     id: note.id,
     user: note.user,
-    private: note.private,
+    access: note.access,
     text: note.text,
   };
 }

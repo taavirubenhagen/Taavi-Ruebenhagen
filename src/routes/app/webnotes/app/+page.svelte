@@ -1,17 +1,20 @@
 <script lang='ts'>
   import { page } from "$app/state";
-  import { openNotePage } from "$lib/db/notes";
   import { currentUsername } from "$lib/db/auth";
   import { Dialog, Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
   
   
   $: ids = page.data.ids;
   $: notes = page.data.notes;
+  $: username = currentUsername();
   $: validId = validateId(idInput);
   
   let create = false;
-  let mode = "open";
+  let mode = "collaborative";
   let idInput: string;
+  
+  let login = false;
+  let signup = false;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
@@ -27,18 +30,21 @@
 
 <Dialog bind:visible={create}>
     <Text p heading>
-        <MultiSwitch bind:value={mode} options={["open", "public", "private"]}/>
+        <MultiSwitch bind:value={mode} options={["collaborative", "public", "private"]}/>
     </Text>
     <div/>
-    {#await currentUsername()}
+    {#await username}
         Loading...
-    {:then data}
-        {#if mode.toLowerCase() != "open" && !data}
+    {:then un}
+        {#if mode.toLowerCase() != "collaborative" && !un}
             <div class="flex gap-4">
-                <TextButton expanded primary href="/app/auth/login">
+                <TextButton expanded primary onClick={() => {
+                  login = true;
+                  signup = true;
+                }}>
                     Log in
                 </TextButton>
-                <TextButton expanded href="/app/auth/signup">
+                <TextButton expanded onClick={() => login = true}>
                     Sign Up
                 </TextButton>
             </div>
@@ -51,7 +57,7 @@
                 bind:value={idInput}
                 placeholder="Note ID"
                 action={ids.includes(idInput) ? "Open" : "Create"}
-                onSubmit={() => openNotePage(window, validId, mode == "private", mode == "open")}
+                href="/app/webnotes/note/{validId}/{username}/{mode}"
             />
             <div/>
             <span class={

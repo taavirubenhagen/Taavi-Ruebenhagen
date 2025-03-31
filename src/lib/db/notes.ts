@@ -2,34 +2,21 @@ import { currentUsername } from "./auth";
 import { supabase } from "./supabase";
 
 
-export async function openNotePage(window: Window, id: string, isPrivate: boolean, isCollaborative: boolean) {
-  let note = await selectNote(id);
-  if (!note) {
-    await insertNote(id, isPrivate, isCollaborative);
-  }
-  window.location.href = "/app/webnotes/note/" + id;
-}
-
-// @ts-ignore
 export async function selectAllNotes() {
   const { data } = await supabase.from("notes").select();
   return data;
 }
 
-// @ts-ignore
-export async function selectNote(id) {
+export async function selectNote(id: string) {
   const { data } = await supabase.from("notes").select().eq("id", id);
-  const note = data?.at(0);
-  return note;
+  return data?.at(0);
 }
 
-// @ts-ignore
-export async function insertNote(id: string, isPrivate: boolean, isCollaborative: boolean) {
+export async function insertNote(id: string, user: string, access: string) {
   const newNote = {
     id: id,
-    user: await currentUsername(),
-    private: isPrivate,
-    collaborative: isCollaborative,
+    user: user,
+    access: access,
     text: "",
   };
   await supabase.from("notes").insert(newNote);
@@ -41,7 +28,6 @@ export async function updateNote(id, text) {
   await supabase.from("notes").update({ text: text }).eq("id", id).select();
 }
 
-// @ts-ignore
-export async function deleteNote(id) {
+export async function deleteNote(id: string) {
   await supabase.from("notes").delete().eq("id", id)
 }
