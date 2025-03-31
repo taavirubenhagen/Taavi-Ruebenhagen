@@ -30,7 +30,7 @@
     {/await}
     <Header abbreviation="wn" href="/app/webnotes" messageHref="/app/webnotes/app/faq">
         <div class="w-full sm:w-[50vw]">
-            <TextField bind:value={searchExp} placeholder="Find by ID" action="Find" onSubmit={() => searchExp = ""}></TextField>
+            <TextField bind:value={searchExp} placeholder="Search" action="Find" onSubmit={() => searchExp = ""}></TextField>
         </div>
           {#await currentUsername()}
               <div></div>

@@ -75,7 +75,7 @@
 </Dialog>
 <div class="absolute w-full md:px-[25%] bottom-32 px-8">
     <TextButton expanded primary onClick={async () => create = true}>
-        Write new
+        Write a note
     </TextButton>
 </div>
 <main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
@@ -89,10 +89,10 @@
                 Write a note
             </TextButton>
         {:else}
-            <Text small heading>
-                Web Notes
+            <!--<Text small heading>
+                Notes
             </Text>
-            <div class="h-4"></div>
+            <div class="h-8"></div>-->
             {#each notes as note}
                 <a
                     href="/app/webnotes/note/{note.id}"

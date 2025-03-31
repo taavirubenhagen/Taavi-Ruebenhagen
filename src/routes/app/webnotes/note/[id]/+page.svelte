@@ -23,8 +23,8 @@
 </svelte:head>
 
 
-<main class="relative overflow-scroll w-screen h-screen pt-8">
-    <div class="cursor-pointer fixed left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
+<main class="relative overflow-scroll w-screen h-screen">
+    <div class="cursor-pointer absolute left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
         <Text p heading>
             View: Public
             <br/>
@@ -35,7 +35,7 @@
             </span>
         </Text>
     </div>
-    <div class="fixed z-50 right-8 bottom-8">
+    <div class="absolute z-50 right-8 bottom-8">
         <InlineButton onClick={() => deleteDialog = !deleteDialog}>
             {deleteDialog ? "Cancel" : "Delete"}
         </InlineButton>
