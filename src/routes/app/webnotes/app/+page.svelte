@@ -96,7 +96,7 @@
             {#each notes as note}
                 <a
                     href="/app/webnotes/note/{note.id}"
-                    class="mb-4 rounded-lg border border-[#999999] hover:border-black p-4 flex flex-col gap-4"
+                    class="mb-4 rounded-lg border border-[#999999] hover:border-black max-w-full p-4 flex flex-col gap-4 text-wrap"
                 >
                     <Text p heading>
                         {note.id}
