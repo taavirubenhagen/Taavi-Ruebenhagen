@@ -1,7 +1,8 @@
 <script lang='ts'>
 	import { InlineButton } from "$lib/v2";
 
-	export let value = 0;
+	export let value: string;
+	export let route: string | undefined;
     export let options: string[];
 </script>
 
@@ -12,8 +13,12 @@
             &nbsp;𐄁
         </span>
     {/if}
-    <InlineButton invisible onClick={() => value = i}>
-        <span class="{i == value ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
+    <InlineButton invisible onClick={
+      () => route
+      ? window.location.href = route + "/" + v.toLowerCase().replaceAll(" ", "")
+      : value = v
+    }>
+        <span class="{v.toLowerCase() == value ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
             {v}
         </span>
     </InlineButton>

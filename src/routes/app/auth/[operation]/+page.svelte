@@ -31,7 +31,7 @@
 
 <main class="w-full h-screen bg-white p-8 md:p-16 flex flex-col justify-center items-center">
     <div class="w-full h-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 2xl:w-1/4 flex flex-col justify-center gap-4">
-        <TextField bind:value={usernameInput} placeholder="Username (A-z, 0-9)"/>
+        <TextField autofocus bind:value={usernameInput} placeholder="Username (a-z)"/>
         <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
         <div class="flex gap-4">
             <TextButton expanded primary onClick={login}>

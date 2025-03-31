@@ -1,14 +1,14 @@
 <script lang='ts'>
     import { copy } from 'svelte-copy';
     import { onMount } from "svelte";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import { updateNote, deleteNote } from "$lib/db/supabase";
     import { Footer, InlineButton, Text, TextButton } from "$lib/v2";
     
-    $: id = $page.data.id;
-    $: hash = $page.data.hash;
-    $: isPublic = $page.data.public;
-    $: dbText = $page.data.text;
+    $: id = page.data.id;
+    $: hash = page.data.hash;
+    $: isPublic = page.data.public;
+    $: dbText = page.data.text;
     
     let text = dbText;
     let deleteDialog = false;

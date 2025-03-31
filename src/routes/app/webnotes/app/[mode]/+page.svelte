@@ -4,10 +4,17 @@
   import { Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
   
   
+  $: ids = page.data.ids;
   $: notes = page.data.notes;
+  $: mode = page.params.mode;
   
-  let mode = 1;
+  $: validId = validateId(idInput);
+  
   let idInput: string;
+  
+  function validateId(input: string) {
+    return input?.replaceAll(" ", "");
+  }
 </script>
 
 
@@ -17,39 +24,17 @@
 </svelte:head>
 
 
-<main class="min-h-full flex flex-col items-start p-8 md:p-16 pt-32 md:pt-32">
+<main class="min-h-full flex flex-col items-start p-8 md:p-16">
     <div class="w-full grid md:grid-cols-2">
         <div class="md:pr-16">
-            <div class="flex">
-                <Text p heading>
-                    <MultiSwitch bind:value={mode} options={["Open", "Public", "Private"]}/>
-                </Text>
-            </div>
-            <!--
-            <div class="h-8"></div>
-            <Text small paragraph>  
-                <span class="text-[#999999]">
-                    {#if mode == 0}
-                        View access: Public
-                        <br/>
-                        Edit access: Public
-                    {:else if mode == 1}
-                        View access: Public
-                        <br/>
-                        Edit access: Private
-                    {:else if mode == 2}
-                        View access: Private
-                        <br/>
-                        Edit access: Private
-                    {/if}
-                </span>
+            <Text p heading>
+                <MultiSwitch value={mode}  options={["Open", "Public", "Private"]} route="/app/webnotes/app"/>
             </Text>
-            -->
             <div class="h-16"></div>
             {#await currentUsername()}
                 Loading...
             {:then data}
-                {#if mode > 0 && !data}
+                {#if mode != "open" && !data}
                     <div class="flex gap-4">
                         <TextButton expanded primary href="/app/auth/login">
                             Log in
@@ -59,17 +44,41 @@
                         </TextButton>
                     </div>
                 {:else}
-                    <div class="flex gap-4">
-                        <TextField bind:value={idInput} placeholder="Type an ID"/>
-                        <TextButton primary href="/app/webnotes/note/{idInput}">
-                            Open
-                        </TextButton>
-                    </div>
+                    <TextField
+                        autofocus
+                        bind:value={idInput}
+                        placeholder="Note ID"
+                        action={ids.includes(idInput) ? "Open" : "Create"}
+                        href="/app/webnotes/note/{idInput}"
+                    />
+                    <div class="h-8"></div>
+                    <span class={
+                        ids.includes(idInput) || !validId
+                        ? "text-red-500"
+                        : "text-green-500"
+                    }>
+                        <Text medium paragraph>
+                            {#if ids.includes(idInput)}
+                                ID already exists.
+                            {:else if !validId}
+                                ID can't be empty.
+                            {:else if idInput != validId}
+                                Will be created as {validId}.
+                            {:else}
+                                Valid ID :)
+                            {/if}
+                                <!--
+                                <InlineButton href="/app/auth}">
+                                    Open #{idInput}
+                                </InlineButton>
+                                -->
+                        </Text>
+                    </span>
                 {/if}
             {/await}
         </div>
         <div class="md:pl-16 pt-16 md:pt-0 pb-32">
-            {#if mode > 0}
+            {#if mode != "open"}
                 {#await currentUsername()}
                     <span class="text-[#999999]">
                         <Text small paragraph>

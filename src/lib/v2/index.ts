@@ -6,6 +6,7 @@ import MultiSwitch from "./components/input/selectables/MultiSwitch.svelte";
 import Switch from "./components/input/selectables/Switch.svelte";
 import TextField from "./components/input/text/TextField.svelte";
 import Footer from "./components/layout/Footer.svelte";
+import Header from "./components/layout/Header.svelte";
 
 export {
   Text,
@@ -16,4 +17,5 @@ export {
   Switch,
   TextField,
   Footer,
+  Header,
 };

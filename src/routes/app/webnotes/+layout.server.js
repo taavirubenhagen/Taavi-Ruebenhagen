@@ -9,8 +9,10 @@ import {
 export async function load({ params }) {
   const username = await currentUsername();
   const notes = await selectAllNotes();
+  const ids = notes?.map((n) => n.id);
   return {
-    username: username,
+    ids: ids,
     notes: notes,
+    username: username,
   };
 }

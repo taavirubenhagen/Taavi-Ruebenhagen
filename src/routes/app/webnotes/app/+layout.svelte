@@ -1,16 +1,16 @@
 <script lang='ts'>
 	import { currentUsername, logOut } from "$lib/db/supabase";
-    import { InlineButton, Text, TextButton } from "$lib/v2";
+    import { InlineButton, Text, TextButton, TextField, Header } from "$lib/v2";
+    
+    let searchExp: string;
 </script>
 
 
 <main class="relative min-h-screen">
-    <div class="fixed z-40 top-0 w-full h-32 px-8 md:px-16 pt-8 flex justify-between items-center">
-        <a href="/app/webnotes">
-            <Text medium heading>
-                wn.
-            </Text>
-        </a>
+    <Header abbreviation="wn" href="/app/webnotes" message="Notes are not yet permanent." messageHref="/app/webnotes/app/faq">
+        <div class="mx-8 w-full sm:w-1/2">
+            <TextField bind:value={searchExp} placeholder="Find by ID" action="Find"></TextField>
+        </div>
         {#await currentUsername()}
             <div></div>
         {:then username}
@@ -22,19 +22,20 @@
               }
               window.location.href = "/app/auth/login";
             }}>
-                <Text p heading>
-                    {#if username}
-                        @{username}
-                    {:else}
-                        Log In
-                    {/if}
+                <Text small paragraph>
+                    <span class="whitespace-nowrap">
+                        {#if username}
+                            @{username}
+                        {:else}
+                            Log In
+                        {/if}
+                    </span>
                 </Text>
             </InlineButton>
         {/await}
-        <TextButton href="/app/webnotes/app/faq">
+        <!--<InlineButton href="/app/webnotes/app/faq">
             Help
-        </TextButton>
-    </div>
-    <div class="h-8"></div>
+        </InlineButton>-->
+    </Header>
     <slot/>
 </main>

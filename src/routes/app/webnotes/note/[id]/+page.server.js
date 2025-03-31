@@ -8,10 +8,12 @@ import {
 
 // @ts-ignore
 export async function load({ params }) {
+  console.log("note");
   if (params.id == "undefined") {
     e(404);
   }
   const note = await selectNote(params.id);
+  console.log(note);
   if (note == null) {
     return await insertNote(params.id);
   }

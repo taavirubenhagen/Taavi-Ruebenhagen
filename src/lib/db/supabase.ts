@@ -68,6 +68,7 @@ export async function selectNote(id) {
 
 // @ts-ignore
 export async function insertNote(id) {
+  console.log("!!!");
   const newNote = {
     id: id,
     hash: null,
