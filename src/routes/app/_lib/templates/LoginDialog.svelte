@@ -10,12 +10,13 @@
   let passwordInput: string;
   
   async function login() {
-    const { success } = signup 
+    const success = signup 
     ? await signUp(usernameInput.toLowerCase(), passwordInput)
     : await logIn(usernameInput.toLowerCase(), passwordInput);
     loginError = !success;
     if (success) {
       visible = false;
+      window.location.href = "/app/webnotes"
     }
     return;
   }
@@ -28,36 +29,38 @@
 </svelte:head>
 
 
-<Dialog visible={visible}>
-    <div class="lowercase">
-        <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
-    </div>
-    <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
-    <div class="flex gap-4">
-        <TextButton expanded primary onClick={login}>
-            {signup ? "Sign up" : "Log in"}
-        </TextButton>
-        <TextButton expanded onClick={() => {
-            visible = false;
-            loginError = false;
-            usernameInput = "";
-            passwordInput = "";
-        }}>
-            Cancel
-        </TextButton>
-    </div>
-    {#if loginError}
-        <div></div>
-        <span class="text-red-500">
-            <Text medium paragraph>
-                {signup ? "Signup" : "Login"} failed.
-                <InlineButton onClick={() => {
-                  loginError = false;
-                  signup = !signup;
-                }}>
-                    {signup ? "Log in" : "Sign up"} instead
-                </InlineButton>
-            </Text>
-        </span>
-    {/if}
-</Dialog>
+<div class="relative z-50">
+    <Dialog visible={visible}>
+        <div class="lowercase">
+            <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
+        </div>
+        <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
+        <div class="flex gap-4">
+            <TextButton expanded primary onClick={login}>
+                {signup ? "Sign up" : "Log in"}
+            </TextButton>
+            <TextButton expanded onClick={() => {
+                visible = false;
+                loginError = false;
+                usernameInput = "";
+                passwordInput = "";
+            }}>
+                Cancel
+            </TextButton>
+        </div>
+        {#if loginError}
+            <div></div>
+            <span class="text-red-500">
+                <Text medium paragraph>
+                    {signup ? "Signup" : "Login"} failed.
+                    <InlineButton onClick={() => {
+                    loginError = false;
+                    signup = !signup;
+                    }}>
+                        {signup ? "Log in" : "Sign up"} instead
+                    </InlineButton>
+                </Text>
+            </span>
+        {/if}
+    </Dialog>
+</div>

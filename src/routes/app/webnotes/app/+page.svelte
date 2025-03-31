@@ -2,6 +2,7 @@
   import { page } from "$app/state";
   import { currentUsername } from "$lib/db/auth";
   import { Dialog, Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
+	import { LoginDialog } from "../../_lib";
   
   
   $: ids = page.data.ids;
@@ -14,7 +15,6 @@
   let idInput: string;
   
   let login = false;
-  let signup = false;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
@@ -28,6 +28,7 @@
 </svelte:head>
 
 
+<LoginDialog bind:visible={login}/>
 <Dialog bind:visible={create}>
     <Text p heading>
         <MultiSwitch bind:value={mode} options={["collaborative", "public", "private"]}/>
@@ -38,10 +39,7 @@
     {:then un}
         {#if mode.toLowerCase() != "collaborative" && !un}
             <div class="flex gap-4">
-                <TextButton expanded primary onClick={() => {
-                  login = true;
-                  signup = true;
-                }}>
+                <TextButton expanded primary onClick={() => login = true}>
                     Log in
                 </TextButton>
                 <TextButton expanded onClick={() => login = true}>

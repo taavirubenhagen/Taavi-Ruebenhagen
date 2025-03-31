@@ -20,7 +20,7 @@
 <div class="fixed z-30 {message ? "top-8" : "top-0"} w-full h-24 px-8 md:px-16 flex justify-between items-center gap-8">
     <a href={href}>
         <Text small heading>
-            {abbreviation}
+            {abbreviation}.
         </Text>
     </a>
     <slot/>
