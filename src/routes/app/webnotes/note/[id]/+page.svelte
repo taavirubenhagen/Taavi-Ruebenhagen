@@ -7,7 +7,7 @@
     
     $: id = page.data.id;
     $: user = page.data.user;
-    $: isPrivate = page.data.private;
+    $: access = page.data.access;
     $: dbText = page.data.text;
     
     let text = dbText;
@@ -24,20 +24,18 @@
 
 
 <main class="relative overflow-scroll w-screen h-screen">
-    <div class="cursor-pointer absolute left-8 bottom-8" use:copy={"https://rubenhagen.com/app/webnotes/" + id}>
+    <div class="cursor-pointer absolute left-8 bottom-8 capitalize" use:copy={"https://rubenhagen.com/app/webnotes/note/" + id}>
         <Text p heading>
-            View: {isPrivate ? "Private" : "Public"}
-            <br/>
-            Edit: Private
+            {access}
             <br/>
             <span class="text-[#999999]">
-                Click to Copy URL
+                {false ? "Copied!" : "Copy URL"}
             </span>
         </Text>
     </div>
-    <div class="absolute z-50 right-8 bottom-8">
-        <InlineButton onClick={() => deleteDialog = !deleteDialog}>
-            {deleteDialog ? "Cancel" : "Delete"}
+    <div class="absolute z-50 right-8 bottom-8 font-bold">
+        <InlineButton invisible onClick={() => deleteDialog = !deleteDialog}>
+            <span class="text-[#999999]">{deleteDialog ? "Close" : "View Options"}</span>
         </InlineButton>
     </div>
     {#if deleteDialog}

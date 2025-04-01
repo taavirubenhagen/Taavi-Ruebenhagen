@@ -20,9 +20,9 @@
 </svelte:head>
 
 
-<main class="w-full min-h-full p-8 md:p-16 pt-32 md:pt-40 flex flex-col items-center">
+<main class="w-full min-h-full p-8 md:p-16 flex flex-col items-center">
     <div class="lg:w-2/3 xl:w-1/2 flex flex-col text-justify">
-        <Text large heading>
+        <Text medium heading>
             How it works
         </Text>
         <div class="h-12 md:h-16"></div>

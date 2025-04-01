@@ -1,4 +1,4 @@
-import { currentUsername } from "./auth";
+import { user } from "./auth";
 import { supabase } from "./supabase";
 
 
@@ -9,13 +9,19 @@ export async function selectAllNotes() {
 
 export async function selectNote(id: string) {
   const { data } = await supabase.from("notes").select().eq("id", id);
-  return data?.at(0);
+  const note = data?.at(0);
+  return {
+    id: note.id,
+    user: note.user,
+    access: note.access,
+    text: note.text,
+  };
 }
 
-export async function insertNote(id: string, user: string, access: string) {
+export async function insertNote(id: string, access: string) {
   const newNote = {
     id: id,
-    user: user,
+    user: ( await user() ).id,
     access: access,
     text: "",
   };

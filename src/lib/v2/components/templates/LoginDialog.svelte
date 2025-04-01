@@ -16,7 +16,7 @@
     loginError = !success;
     if (success) {
       visible = false;
-      window.location.href = "/app/webnotes"
+      window.location.reload();
     }
     return;
   }
@@ -30,11 +30,13 @@
 
 
 <div class="relative z-50">
-    <Dialog visible={visible}>
+    <Dialog bind:visible={visible}>
+        <Switch bind:value={signup} trueTitle="Sign up" falseTitle="Log in"/>
+        <div/>
         <div class="lowercase">
-            <TextField bind:value={usernameInput} placeholder="Username (a-z)"/>
+            <TextField bind:value={usernameInput} placeholder="Username (a-z)" onSubmit={login}/>
         </div>
-        <TextField bind:value={passwordInput} placeholder="Password (8+ characters)"/>
+        <TextField bind:value={passwordInput} placeholder="Password (8+ characters)" onSubmit={login}/>
         <div class="flex gap-4">
             <TextButton expanded primary onClick={login}>
                 {signup ? "Sign up" : "Log in"}
@@ -54,8 +56,8 @@
                 <Text medium paragraph>
                     {signup ? "Signup" : "Login"} failed.
                     <InlineButton onClick={() => {
-                    loginError = false;
-                    signup = !signup;
+                        loginError = false;
+                        signup = !signup;
                     }}>
                         {signup ? "Log in" : "Sign up"} instead
                     </InlineButton>

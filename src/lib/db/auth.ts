@@ -1,9 +1,12 @@
 import { supabase } from "./supabase";
 
 
-export async function currentUsername() {
+export async function user() {
   const { data } = await supabase.auth.getUser();
-  return data.user?.email?.replace(RegExp("@.*"), "");
+  return {
+    id: data.user?.id,
+    name: data.user?.email?.replace(RegExp("@.*"), ""),
+  };
 }
 
 export async function signUp(username: string, password: string) {

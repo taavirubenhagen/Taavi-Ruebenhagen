@@ -22,6 +22,11 @@
             autofocus={autofocus}
             bind:value={value}
             placeholder={placeholder}
+            on:keydown={(event) => {
+                if (event.key == "Enter") {
+                    onSubmit();
+                }
+            }}
             class=
             "{active ? "border-black bg-white" : "border-transparent bg-[#F0F0F0]"} {dark ? "invert" : ""}
             border w-full h-10
@@ -29,15 +34,11 @@
             px-4 text-black"
         />
         {#if action}
-            <div class="absolute right-0 top-0 flex items-end">
+            <div class="absolute right-0 top-0 h-full pr-6 flex items-center">
                 {#if active}
-                    <div class="bg-black rounded-r-full">
-                        <TextButton unresponsive primary href={href} onClick={onSubmit}>
-                            {action}
-                        </TextButton>
-                    </div>
-                {:else}
-                    <div></div>
+                    <InlineButton invisible href={href} onClick={onSubmit}>
+                        ->
+                    </InlineButton>
                 {/if}
             </div>
         {/if}

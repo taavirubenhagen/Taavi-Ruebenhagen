@@ -1,23 +1,30 @@
 <script lang='ts'>
   import { page } from "$app/state";
-  import { currentUsername } from "$lib/db/auth";
-  import { Dialog, Footer, InlineButton, MultiSwitch, Switch, Text, TextButton, TextField } from "$lib/v2";
-	import { LoginDialog } from "../../_lib";
+  import { user } from "$lib/db/auth";
+  import { insertNote } from "$lib/db/notes";
+  import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, LoginDialog, InlineButton } from "$lib/v2";
   
   
   $: ids = page.data.ids;
   $: notes = page.data.notes;
-  $: username = currentUsername();
   $: validId = validateId(idInput);
   
   let create = false;
-  let mode = "collaborative";
+  let access: "private" | "public" | "collaborative" = "collaborative";
   let idInput: string;
   
   let login = false;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
+  }
+  
+  
+  async function openOrCreate() {
+    if (!ids.includes(validId)) {
+      await insertNote(validId, access);
+    }
+    window.location.href = "/app/webnotes/note/" + validId;
   }
 </script>
 
@@ -31,21 +38,16 @@
 <LoginDialog bind:visible={login}/>
 <Dialog bind:visible={create}>
     <Text p heading>
-        <MultiSwitch bind:value={mode} options={["collaborative", "public", "private"]}/>
+        <MultiSwitch bind:value={access} options={["private", "public", "collaborative"]}/>
     </Text>
     <div/>
-    {#await username}
+    {#await user()}
         Loading...
-    {:then un}
-        {#if mode.toLowerCase() != "collaborative" && !un}
-            <div class="flex gap-4">
-                <TextButton expanded primary onClick={() => login = true}>
-                    Log in
-                </TextButton>
-                <TextButton expanded onClick={() => login = true}>
-                    Sign Up
-                </TextButton>
-            </div>
+    {:then user}
+        {#if access != "collaborative" && !user.name}
+            <TextButton expanded primary onClick={() => login = true}>
+                Log in
+            </TextButton>
             <div/>
             <Text medium paragraph>
                 &nbsp;
@@ -54,45 +56,76 @@
             <TextField
                 bind:value={idInput}
                 placeholder="Note ID"
-                action={ids.includes(idInput) ? "Open" : "Create"}
-                href="/app/webnotes/note/{validId}/{username}/{mode}"
+                action={ids.includes(validId) ? "Open" : "Create"}
+                onSubmit={openOrCreate}
             />
             <div/>
-            <span class={
-                ids.includes(idInput) || !validId
-                ? "text-red-500"
-                : "text-green-500"
-            }>
-                <Text medium paragraph>
-                    {#if ids.includes(idInput)}
-                        ID already exists.
-                    {:else if !validId}
-                        ID can't be empty.
-                    {:else if idInput != validId}
-                        Will be created as {validId}.
-                    {:else}
-                        Valid ID :)
-                    {/if}
-                </Text>
-            </span>
+            <div class="flex justify-between">
+                <span class={
+                    ids.includes(idInput) || !validId
+                    ? "text-red-500"
+                    : "text-green-500"
+                }>
+                    <Text medium paragraph>
+                        {#if ids.includes(idInput)}
+                            ID already exists.
+                        {:else if !validId}
+                            ID can't be empty.
+                        {:else if idInput != validId}
+                            Will be created as {validId}.
+                        {:else}
+                            Valid ID :)
+                        {/if}
+                    </Text>
+                </span>
+                <InlineButton onClick={() => create = false}>
+                    Cancel
+                </InlineButton>
+            </div>
         {/if}
     {/await}
 </Dialog>
 <div class="absolute w-full md:px-[25%] bottom-32 px-8">
-    <TextButton expanded primary onClick={async () => create = true}>
+    <TextButton expanded primary onClick={() => create = true}>
         Write
     </TextButton>
 </div>
 <main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
-    {#await currentUsername()}
+    {#await user()}
         <Text medium paragraph>
             Loading...
         </Text>
-    {:then username}
-        {#if !username}
-            <TextButton onClick={() => create = true}>
-                Write a note
-            </TextButton>
+    {:then user}
+        {#if !user.name}
+            <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4">
+                <Text small heading>
+                    Welcome to Web Notes :)
+                </Text>
+                <span class="tet-[#999999]">
+                    <Text medium paragraph>
+                        You're currently an anonymous user.
+                    </Text>
+                </span>
+                <div/>
+                <TextButton onClick={() => login = true}>
+                    Log in
+                </TextButton>
+            </div>
+        {:else if !ids.length}
+                <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4">
+                    <Text small heading>
+                        No notes yet
+                    </Text>
+                    <span class="tet-[#999999]">
+                        <Text medium paragraph>
+                            Press "Write" to create one.
+                        </Text>
+                    </span>
+                    <div/>
+                    <TextButton href="app/faq">
+                        Help
+                    </TextButton>
+                </div>
         {:else}
             {#each notes as note}
                 <a

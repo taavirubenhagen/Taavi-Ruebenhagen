@@ -1,7 +1,7 @@
 <script lang='ts'>
     export let invisible = false;
     export let href: string | null = null;
-    export let onClick = () => {};
+    export let onClick = () => console.log("InlineButton should have href or onClick attribute");
 </script>
 
 
