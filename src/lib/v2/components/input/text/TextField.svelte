@@ -14,9 +14,9 @@
 
 
 <Text medium paragraph>
-    <div class="relative h-full"
+    <div class="relative w-full h-full"
         on:focusin={() => active = true}
-        on:focusout={() => setTimeout(() => active = false, 200)}>
+        on:focusout={() => setTimeout(() => active = false, 100)}>
         <!-- svelte-ignore a11y-autofocus -->
         <input
             autofocus={autofocus}
@@ -28,7 +28,8 @@
                 }
             }}
             class=
-            "{active ? "border-black bg-white" : "border-transparent bg-[#F0F0F0]"} {dark ? "invert" : ""}
+            "transition-all duration-[200ms]
+            {active ? "border-black bg-white" : "border-transparent bg-[#F0F0F0]"} {dark ? "invert" : ""}
             border w-full h-10
             outline-none rounded-full
             px-4 text-black"

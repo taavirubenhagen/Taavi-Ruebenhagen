@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
 	import { page } from "$app/state";
 	import { updateNote, deleteNote } from "$lib/db/notes";
-    import { InlineButton, Text, TextButton } from "$lib/v2";
+    import { Dialog, InlineButton, Text, TextButton } from "$lib/v2";
     
     $: id = page.data.id;
     $: user = page.data.user;
@@ -33,21 +33,21 @@
             </span>
         </Text>
     </div>
-    <div class="absolute z-50 right-8 bottom-8 font-bold">
+    <div class="absolute z-50 right-8 bottom-8">
         <InlineButton invisible onClick={() => deleteDialog = !deleteDialog}>
+            <Text p heading>
             <span class="text-[#999999]">{deleteDialog ? "Close" : "View Options"}</span>
+            </Text>
         </InlineButton>
     </div>
-    {#if deleteDialog}
-        <div class="fixed z-40 w-full h-full bg-white flex justify-center items-center">
-            <TextButton primary onClick={() => {
-              deleteNote(id);
-              window.location.href = "/app/webnotes";
-            }}>
-                Delete Note
-            </TextButton>
-        </div>
-    {/if}
+    <Dialog bind:visible={deleteDialog}>
+        <TextButton primary onClick={() => {
+            deleteNote(id);
+            window.location.href = "/app/webnotes";
+        }}>
+            Delete Note
+        </TextButton>
+    </Dialog>
     <textarea
         bind:value={text}
         on:input={() => updateNote(id, text)}

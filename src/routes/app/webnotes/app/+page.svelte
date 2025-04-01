@@ -54,6 +54,7 @@
             </Text>
         {:else}
             <TextField
+                bind:autofocus={create}
                 bind:value={idInput}
                 placeholder="Note ID"
                 action={ids.includes(validId) ? "Open" : "Create"}
@@ -90,7 +91,7 @@
         Write
     </TextButton>
 </div>
-<main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
+<main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%] text-center">
     {#await user()}
         <Text medium paragraph>
             Loading...
@@ -144,5 +145,5 @@
             {/each}
         {/if}
     {/await}
-    <Footer/>
+    <Footer center/>
 </main>

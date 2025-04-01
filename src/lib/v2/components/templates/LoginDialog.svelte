@@ -34,7 +34,7 @@
         <Switch bind:value={signup} trueTitle="Sign up" falseTitle="Log in"/>
         <div/>
         <div class="lowercase">
-            <TextField bind:value={usernameInput} placeholder="Username (a-z)" onSubmit={login}/>
+            <TextField bind:autofocus={visible} bind:value={usernameInput} placeholder="Username (a-z)" onSubmit={login}/>
         </div>
         <TextField bind:value={passwordInput} placeholder="Password (8+ characters)" onSubmit={login}/>
         <div class="flex gap-4">

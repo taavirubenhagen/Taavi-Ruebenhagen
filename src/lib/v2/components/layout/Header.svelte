@@ -8,6 +8,7 @@
     export let message: string | null = null;
     export let messageHref: string | null = null;
     export let account = false;
+    export let menusVisible = true;
     
     let login = false;
     let menu = false;
@@ -42,15 +43,20 @@
         </div>
     </a>
 {/if}
-<div class="fixed z-30 {message ? "top-8" : "top-0"} w-full h-24 px-8 md:px-16 flex justify-between items-center gap-8">
-    <a class="w-16 flex" href={href}>
+<div
+    class=
+    "fixed z-30 {message ? "top-8" : "top-0"} w-full h-24 px-8 md:px-16 flex
+    {menusVisible ? "justify-between" : "justify-center sm:justify-between"}
+    items-center gap-8"
+>
+    <a class="{menusVisible ? "" : ""} w-16" href={href}>
         <Text small heading>
             {abbreviation}.
         </Text>
     </a>
     <slot/>
     {#if account}
-        <div class="w-16 flex justify-end">
+        <div class="{menusVisible ? "" : ""} flex w-16 justify-end">
             {#await user()}
                 <div class="w-16"/>
             {:then user}
