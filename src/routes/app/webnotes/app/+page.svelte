@@ -79,51 +79,57 @@
                         {/if}
                     </Text>
                 </span>
-                <InlineButton onClick={() => create = false}>
-                    Cancel
-                </InlineButton>
+                <span>
+                    <InlineButton shortcut="X" onClick={() => create = false}>
+                        Cancel
+                    </InlineButton>
+                </span>
             </div>
         {/if}
     {/await}
 </Dialog>
 <div class="absolute w-full md:px-[25%] bottom-32 px-8">
-    <TextButton expanded primary onClick={() => create = true}>
+    <TextButton expanded primary shortcut="A" onClick={() => create = true}>
         Write
     </TextButton>
 </div>
-<main class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%] text-center">
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+    on:keydown={(event) => {
+        if (event.key == "Enter" || event.key == "a") {
+            create = true;
+        }
+    }}
+    class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]"
+>
     {#await user()}
         <Text medium paragraph>
             Loading...
         </Text>
     {:then user}
         {#if !user.name}
-            <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4">
+            <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">
                 <Text small heading>
                     Welcome to Web Notes :)
                 </Text>
-                <span class="tet-[#999999]">
-                    <Text medium paragraph>
-                        You're currently an anonymous user.
-                    </Text>
-                </span>
+                <Text medium paragraph>
+                    You're currently an anonymous user.
+                </Text>
                 <div/>
-                <TextButton onClick={() => login = true}>
+                <TextButton shortcut="L" onClick={() => login = true}>
                     Log in
                 </TextButton>
             </div>
         {:else if !ids.length}
-                <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4">
+                <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">
                     <Text small heading>
                         No notes yet
                     </Text>
-                    <span class="tet-[#999999]">
-                        <Text medium paragraph>
-                            Press "Write" to create one.
-                        </Text>
-                    </span>
+                    <Text medium paragraph>
+                        Press "Write" to create one.
+                    </Text>
                     <div/>
-                    <TextButton href="app/faq">
+                    <TextButton shortcut="H" href="app/faq">
                         Help
                     </TextButton>
                 </div>
@@ -145,5 +151,5 @@
             {/each}
         {/if}
     {/await}
-    <Footer center/>
-</main>
+    <Footer title="Help" href="app/faq"/>
+</div>

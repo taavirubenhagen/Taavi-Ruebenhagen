@@ -13,13 +13,13 @@
             &nbsp;𐄁
         </span>
     {/if}
-    <InlineButton invisible onClick={
-      () => route
-      ? window.location.href = route + "/" + v.replaceAll(" ", "")
-      : value = v
-    }>
-        <span class="{v == value ? 'text-black underline underline-offset-8' : 'text-[#999999]' } capitalize">
+    <span class="{v == value ? 'text-black' : 'text-[#999999]' } capitalize">
+        <InlineButton invisible={v != value} onClick={
+        () => route
+        ? window.location.href = route + "/" + v.replaceAll(" ", "")
+        : value = v
+        }>
             {v}
-        </span>
-    </InlineButton>
+        </InlineButton>
+    </span>
 {/each}

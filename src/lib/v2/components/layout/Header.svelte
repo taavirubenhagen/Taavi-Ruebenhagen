@@ -61,16 +61,16 @@
                 <div class="w-16"/>
             {:then user}
                 <div
-                    class="relative w-16 flex justify-end"
+                    class="relative"
                 >
                     <button
                         on:click={() => user.name ? menu = true : login = true}
-                        class="transition duration-[100ms] rounded-full h-10 aspect-square bg-[#BBBBBB] hover:bg-[#999999]"
+                        class="transition duration-[100ms] rounded-full border border-black h-10 aspect-square hover:opacity-60 flex justify-center items-center"
                     >
                         {#if user.name}
                             {user.name.at(0)}
                         {:else}
-                            >
+                            <img src="/icons/tavy-24-04/login.svg" alt="" class="h-4"/>
                         {/if}
                     </button>
                     {#if menu}
@@ -78,12 +78,13 @@
                             in:fly={{ duration: 200, y: -4 }}
                             class=
                             "absolute z-35 right-0 top-0
-                            shadow rounded-2xl rounded-tr-[calc(1.25rem+2px)] border border-black
+                            shadow rounded-2xl rounded-tr-[1.25rem] border border-black
                             bg-white bg-opacity-0 backdrop-blur-[8px] p-4 pt-14 whitespace-nowrap"
                         >
                             <button
-                                on:click={() => menu = false} class="absolute right-0 top-0 w-10 h-10 flex justify-center items-center">
-                                x
+                                on:click={() => menu = false}
+                                class="transition-all duration-[100ms] absolute right-0 top-0 w-10 h-10 hover:opacity-60 flex justify-center items-center">
+                                <img src="/icons/tavy-24-04/close.svg" alt="" class="h-4"/>
                             </button>
                             <InlineButton onClick={async () => {
                                 await logOut();

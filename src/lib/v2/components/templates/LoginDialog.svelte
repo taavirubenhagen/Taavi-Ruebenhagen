@@ -41,12 +41,16 @@
             <TextButton expanded primary onClick={login}>
                 {signup ? "Sign up" : "Log in"}
             </TextButton>
-            <TextButton expanded onClick={() => {
-                visible = false;
-                loginError = false;
-                usernameInput = "";
-                passwordInput = "";
-            }}>
+            <TextButton
+                expanded
+                shortcut="x"
+                onClick={() => {
+                    visible = false;
+                    loginError = false;
+                    usernameInput = "";
+                    passwordInput = "";
+                }
+            }>
                 Cancel
             </TextButton>
         </div>

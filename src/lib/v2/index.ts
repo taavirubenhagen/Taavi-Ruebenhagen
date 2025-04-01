@@ -1,3 +1,4 @@
+import ShortcutIndicator from './elements/ShortcutIndicator.svelte';
 import Text from './elements/Text.svelte';
 
 import InlineButton from "./components/input/buttons/InlineButton.svelte";
@@ -13,6 +14,7 @@ import Header from "./components/layout/Header.svelte";
 import LoginDialog from "./components/templates/LoginDialog.svelte";
 
 export {
+  ShortcutIndicator,
   Text,
   
   InlineButton,

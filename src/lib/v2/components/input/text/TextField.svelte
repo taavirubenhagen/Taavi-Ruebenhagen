@@ -28,17 +28,16 @@
                 }
             }}
             class=
-            "transition-all duration-[200ms]
-            {active ? "border-black bg-white" : "border-transparent bg-[#F0F0F0]"} {dark ? "invert" : ""}
-            border w-full h-10
+            "bg-[#F0F0F0] {dark ? "invert" : ""}
+            borer w-full h-10
             outline-none rounded-full
             px-4 text-black"
         />
         {#if action}
-            <div class="absolute right-0 top-0 h-full pr-6 flex items-center">
+            <div class="absolute right-0 top-0 h-full pr-5 flex items-center">
                 {#if active}
                     <InlineButton invisible href={href} onClick={onSubmit}>
-                        ->
+                        <img src="/icons/tavy-24-04/arrow-forward.svg" alt="" class="h-4 opacity-40">
                     </InlineButton>
                 {/if}
             </div>

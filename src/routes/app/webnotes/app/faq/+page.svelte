@@ -26,7 +26,7 @@
             How it works
         </Text>
         <div class="h-12 md:h-16"></div>
-        <Text small paragraph>
+        <Text medium paragraph>
             Web Notes is like if your classic Android notes app and Google Drive had a child.
             <br/>
             You can write notes and share them with your friends or across your own different devices.
@@ -34,7 +34,9 @@
         </Text>
         <div class="h-24"></div>
         <Text small heading>
-            Open, Public and Private Notes
+            <span class="text-left">
+                Open, Public and Private Notes
+            </span>
             </Text>
             <div class="h-12"></div>
         <Text small paragraph>

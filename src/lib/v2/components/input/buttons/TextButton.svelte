@@ -1,29 +1,30 @@
 <script lang='ts'>
-    import { Text } from "$lib/v2";
+    import { ShortcutIndicator, Text } from "$lib/v2";
 
     export let dark = false;
     export let expanded = false;
-    export let unresponsive = false;
     export let primary = false;
+    export let shortcut: string | null = null;
     export let href: string | null = null;
     export let onClick = () => {};
 </script>
 
 
 <button class={expanded ? "w-full" : ""} on:click={href ? () => window.location.href = href : onClick}>
-    <div
-        class=
-        "transition-all duration-[100ms]
-        border {dark ? "border-white" : "border-black"} rounded-full h-10
-        {
-          primary
-          ? ( "bg-black text-white " + ( unresponsive ? "" : "hover:bg-white hover:text-black" ) )
-          : ( "bg-white text-black " + ( unresponsive ? "" : "hover:bg-black hover:text-white" ) )
-        }
-        px-4 flex justify-center items-center capitalize"
-    >
-        <Text medium paragraph>
+    <Text medium paragraph>
+        <div
+            class=
+            "transition-all duration-[100ms] relative
+            border {dark ? "border-white" : "border-black"} rounded-full h-10
+            {primary ? "hover:bg-opacity-80 bg-black text-white" : "hover:opacity-60 bg-white text-black"}
+            px-4 flex justify-center items-center gap-2 capitalize"
+        >
             <slot/>
-        </Text>
-    </div>
+            {#if shortcut}
+                <ShortcutIndicator dark={dark || primary}>
+                    {shortcut}
+                </ShortcutIndicator>
+            {/if}
+        </div>
+    </Text>
 </button>
