@@ -1,15 +1,18 @@
 <script lang='ts'>
 	import { InlineButton, Text, TextButton } from "$lib/v2";
+	import { dialog, input } from "$state/state";
 
     export let dark = false;
-    export let autofocus = false;
+    export let inside = "";
     export let value: string;
     export let placeholder;
     export let action: string | null = null;
     export let href: string | null = null;
     export let onSubmit = () => {};
     
-    let active = autofocus;
+    let active = $dialog == inside;
+    
+    const shortcuts = false;
 </script>
 
 
@@ -19,9 +22,11 @@
         on:focusout={() => setTimeout(() => active = false, 100)}>
         <!-- svelte-ignore a11y-autofocus -->
         <input
-            autofocus={autofocus}
             bind:value={value}
-            placeholder={placeholder}
+            autofocus={$dialog == inside && false}
+            on:focusin={() => input.set(true)}
+            on:focusout={() => input.set(false)}
+            placeholder={placeholder + ( shortcuts ? " [F]" : "" )}
             on:keydown={(event) => {
                 if (event.key == "Enter") {
                     onSubmit();
@@ -29,7 +34,7 @@
             }}
             class=
             "bg-[#F0F0F0] {dark ? "invert" : ""}
-            borer w-full h-10
+            w-full h-10
             outline-none rounded-full
             px-4 text-black"
         />

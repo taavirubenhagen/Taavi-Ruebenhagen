@@ -39,7 +39,7 @@
             </span>
             </Text>
             <div class="h-12"></div>
-        <Text small paragraph>
+        <Text medium paragraph>
             Web Notes can either be open, public or private.
             This refers to the level of access that both the creator and an anonymous user with the notes ID have.
             <br/><br/>

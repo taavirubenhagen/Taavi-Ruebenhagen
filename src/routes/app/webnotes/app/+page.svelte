@@ -2,18 +2,16 @@
   import { page } from "$app/state";
   import { user } from "$lib/db/auth";
   import { insertNote } from "$lib/db/notes";
-  import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, LoginDialog, InlineButton } from "$lib/v2";
+  import { dialog } from "$state/state";
+  import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, InlineButton, ShortcutIndicator } from "$lib/v2";
   
   
   $: ids = page.data.ids;
   $: notes = page.data.notes;
   $: validId = validateId(idInput);
   
-  let create = false;
   let access: "private" | "public" | "collaborative" = "collaborative";
   let idInput: string;
-  
-  let login = false;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
@@ -35,8 +33,8 @@
 </svelte:head>
 
 
-<LoginDialog bind:visible={login}/>
-<Dialog bind:visible={create}>
+<Dialog role="login"/>
+<Dialog role="create">
     <Text p heading>
         <MultiSwitch bind:value={access} options={["private", "public", "collaborative"]}/>
     </Text>
@@ -45,7 +43,7 @@
         Loading...
     {:then user}
         {#if access != "collaborative" && !user.name}
-            <TextButton expanded primary onClick={() => login = true}>
+            <TextButton expanded primary onClick={() => dialog.set("login")}>
                 Log in
             </TextButton>
             <div/>
@@ -54,7 +52,7 @@
             </Text>
         {:else}
             <TextField
-                bind:autofocus={create}
+                inside="create"
                 bind:value={idInput}
                 placeholder="Note ID"
                 action={ids.includes(validId) ? "Open" : "Create"}
@@ -80,7 +78,7 @@
                     </Text>
                 </span>
                 <span>
-                    <InlineButton shortcut="X" onClick={() => create = false}>
+                    <InlineButton shortcut="X" onClick={() => dialog.set("")}>
                         Cancel
                     </InlineButton>
                 </span>
@@ -88,20 +86,12 @@
         {/if}
     {/await}
 </Dialog>
-<div class="absolute w-full md:px-[25%] bottom-32 px-8">
-    <TextButton expanded primary shortcut="A" onClick={() => create = true}>
+<div class="absolute z-30 w-full md:px-[25%] bottom-32 px-8">
+    <TextButton expanded primary shortcut="A" onClick={() => dialog.set("create")}>
         Write
     </TextButton>
 </div>
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<div
-    on:keydown={(event) => {
-        if (event.key == "Enter" || event.key == "a") {
-            create = true;
-        }
-    }}
-    class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]"
->
+<div class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
     {#await user()}
         <Text medium paragraph>
             Loading...
@@ -114,9 +104,15 @@
                 </Text>
                 <Text medium paragraph>
                     You're currently an anonymous user.
+                    <br/>
+                    Press
+                    <ShortcutIndicator alwaysVisible>
+                        K
+                    </ShortcutIndicator>
+                    to toggle hints for keyboard shortcuts.
                 </Text>
                 <div/>
-                <TextButton shortcut="L" onClick={() => login = true}>
+                <TextButton shortcut="L" onClick={() => dialog.set("login")}>
                     Log in
                 </TextButton>
             </div>

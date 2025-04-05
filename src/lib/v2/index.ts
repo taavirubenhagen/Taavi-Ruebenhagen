@@ -11,8 +11,6 @@ import Dialog from "./components/layout/Dialog.svelte";
 import Footer from "./components/layout/Footer.svelte";
 import Header from "./components/layout/Header.svelte";
 
-import LoginDialog from "./components/templates/LoginDialog.svelte";
-
 export {
   ShortcutIndicator,
   Text,
@@ -26,6 +24,4 @@ export {
   Dialog,
   Footer,
   Header,
-  
-  LoginDialog,
 };

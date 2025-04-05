@@ -18,26 +18,28 @@
 />
 
 
-<main class="relative min-h-screen flex flex-col justify-center items-start p-8 sm:p-16 pt-32 md:pt-48">
-    <Text large heading>
-        projects.
-    </Text>
-    <div class="h-16"></div>
-    <InlineButton href="https://hoffmanns-schuppen.com">
-        hoffmanns-schuppen.com
-        <br/><br/>
-    </InlineButton>
-    <InlineButton href="/">
-        rubenhagen.com
-        <br/><br/>
-    </InlineButton>
-    <InlineButton href="/presenter">
-        Presentation Master
-        <br/><br/>
-    </InlineButton>
-    <InlineButton href="/app/webnotes">
-        Web Notes [Unfinished]
-        <br/><br/>
-    </InlineButton>
-    <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
-</main>
+<Text medium paragraph>
+    <main class="relative min-h-screen flex flex-col justify-center items-start p-8 sm:p-16 pt-32 md:pt-48">
+        <Text large heading>
+            projects.
+        </Text>
+        <div class="h-16"></div>
+        <InlineButton href="https://hoffmanns-schuppen.com">
+            hoffmanns-schuppen.com
+            <br/><br/>
+        </InlineButton>
+        <InlineButton href="/">
+            rubenhagen.com
+            <br/><br/>
+        </InlineButton>
+        <InlineButton href="/presenter">
+            Presentation Master
+            <br/><br/>
+        </InlineButton>
+        <InlineButton href="/app/webnotes">
+            Web Notes [Unfinished]
+            <br/><br/>
+        </InlineButton>
+        <Footer title="GitHub" href="https://github.com/taavirubenhagen"/>
+    </main>
+</Text>

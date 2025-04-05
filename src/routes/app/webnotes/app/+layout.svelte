@@ -1,4 +1,5 @@
 <script lang='ts'>
+    import { dialog } from "$state/state";
 	import { TextField, Header } from "$lib/v2";
     
 	let menusVisible = true;
@@ -6,7 +7,7 @@
 </script>
 
 
-<main class="relative min-h-screen">
+<main class="cursor-default relative min-h-screen">
     <Header abbreviation="wn" href="/app/webnotes" messageHref="/app/webnotes/app/faq" account bind:menusVisible={menusVisible}>
         <div
             on:focusin={() => menusVisible = false}
