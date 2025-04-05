@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import { fade, fly } from "svelte/transition";
-    import { Text, TextButton, InlineButton, Footer } from "$lib/v2";
+    import { Text, InlineButton, Footer, Header } from "$lib/v2";
+    import { TextButton } from "./_lib";
 
     const totalHeightFactor = 3;
     const totalHeightFactorOffset = totalHeightFactor - 1;
@@ -45,13 +46,12 @@
         </div>
     {/if}
     <div class="fixed z-40 top-0 w-full h-24 px-8 flex justify-between items-center">
-        <a href="/" style="font-family: 'DM Mono';">
-            <Text medium heading>
+        <Text medium heading>
+            <a href="/" class="font-mono">
                 tr.
-            </Text>
-        </a>
+            </a>
+        </Text>
         <TextButton
-            dark
             primary={scrollY < totalHeightFactorOffset * windowHeight}
             onClick={() => downloadVisible = !downloadVisible}
         >

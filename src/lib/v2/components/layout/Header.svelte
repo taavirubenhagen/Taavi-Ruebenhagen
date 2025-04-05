@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import { logOut, user } from "$lib/db/auth";
-    import { Dialog, InlineButton, Text, TextButton } from "$lib/v2";
+    import { Dialog, Icon, InlineButton, Text, TextButton } from "$lib/v2";
 	import { dialog } from "$state/state";
 	import { fly } from "svelte/transition";
 
@@ -28,11 +28,11 @@
     {menusVisible ? "justify-between" : "justify-center sm:justify-between"}
     items-center gap-8"
 >
-    <a class="{menusVisible ? "" : ""} w-16" href={href}>
-        <Text small heading>
+    <Text small heading>
+        <a class="{menusVisible ? "" : ""} w-16 font-mono" href={href}>
             {abbreviation}.
-        </Text>
-    </a>
+        </a>
+    </Text>
     <slot/>
     {#if account}
         <div class="{menusVisible ? "" : ""} flex w-16 justify-end">
@@ -49,7 +49,7 @@
                         {#if user.name}
                             {user.name.at(0)}
                         {:else}
-                            <img src="/icons/tavy-24-04/login.svg" alt="" class="h-4"/>
+                            <Icon name="login"/>
                         {/if}
                     </button>
                     {#if $dialog == "menu"}

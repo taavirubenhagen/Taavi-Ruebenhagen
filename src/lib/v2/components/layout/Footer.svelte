@@ -27,7 +27,7 @@
                     </InlineButton>
                 </div>
                 <div class="flex justify-center">
-                    &nbsp;𐄁&nbsp;
+                    &nbsp;&nbsp;𐄁&nbsp;&nbsp;
                 </div>
             {:else}
                 <div class="flex justify-end">
@@ -36,7 +36,7 @@
                     </InlineButton>
                 </div>
                 <div class="flex justify-center">
-                    &nbsp;𐄁&nbsp;
+                    &nbsp;&nbsp;𐄁&nbsp;&nbsp;
                 </div>
             {/if}
             {#if href != null}
@@ -46,7 +46,7 @@
                     </InlineButton>
                 </div>
                 <div class="flex justify-center">
-                    &nbsp;𐄁&nbsp;
+                    &nbsp;&nbsp;𐄁&nbsp;&nbsp;
                 </div>
             {/if}
             <div class="flex">

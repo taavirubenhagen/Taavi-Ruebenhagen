@@ -10,13 +10,15 @@
   
   
   async function handleKeydown(event: KeyboardEvent) {
+    if (event.key == "Escape") {
+      input.set(false);
+      dialog.set("");
+      return;
+    }
     if ($input) {
       return;
     }
     switch (event.key) {
-      case "Escape":
-        dialog.set("");
-        return;
       case "c":
         //if (url.includes("/app/webnotes/note/")) {
           // TODO

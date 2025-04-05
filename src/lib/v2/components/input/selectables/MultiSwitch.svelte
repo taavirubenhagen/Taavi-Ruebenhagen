@@ -12,7 +12,7 @@
     {#each options as v, i}
         {#if i != 0}
             <span class="text-[#999999]">
-                &nbsp;𐄁&nbsp;
+                &nbsp;&nbsp;𐄁&nbsp;&nbsp;
             </span>
         {/if}
         <span class="{v == value ? 'text-black' : 'text-[#999999]' } capitalize">

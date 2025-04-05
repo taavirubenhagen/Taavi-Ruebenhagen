@@ -65,7 +65,7 @@
                         </TextButton>
                     </div>
                     {#if loginError}
-                        <div></div>
+                        <div/>
                         <span class="text-red-500">
                             <Text medium paragraph>
                                 {signup ? "Signup" : "Login"} failed.

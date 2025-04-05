@@ -4,6 +4,7 @@
   import { insertNote } from "$lib/db/notes";
   import { dialog, input } from "$state/state";
   import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, InlineButton, ShortcutIndicator } from "$lib/v2";
+  import { general } from "$state/context";
   
   
   $: ids = page.data.ids;
@@ -53,7 +54,7 @@
                 placeholder="Note ID"
                 onSubmit={openOrCreate}
             />
-            {#if validId}
+            {#if ids.includes(idInput) || !validId || idInput != validId}
                 <div/>
                 <div class="flex justify-between">
                     <span class={
@@ -61,15 +62,16 @@
                         ? "text-red-500"
                         : "text-green-500"
                     }>
-                            <div/>
+                        <div/>
                         {#if ids.includes(idInput)}
                             ID already exists.
                         {:else if !validId}
                             ID can't be empty.
                         {:else if idInput != validId}
-                            Will be created as {validId}.
-                        {:else}
-                            Valid ID :)
+                            Will be created as
+                            <span class={$general.headingFont}>
+                                {validId}.
+                            </span>
                         {/if}
                     </span>
                 </div>
