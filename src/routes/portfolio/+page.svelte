@@ -1,9 +1,21 @@
 <script lang='ts'>
-    import { Dialog, Footer, Icon, Text, TextButton } from "$lib/v2";
+    import { Dialog, Footer, Icon, Switch, Text, TextButton } from "$lib/v2";
 	import { dialog } from "$state/state";
 
+	const projects = [
+        ["Presentation Master", "download", "font-sans", "/presenter"],
+        ["rubenhagen.com", "settings", "font-mono", "/"],
+        ["hoffmanns-schuppen.com", "open-in-new", 'font-mono', "https://hoffmanns-schuppen.com"],
+        ["Web Notes [First Look]", "lock-open", "font-serif", "/app/webnotes"],
+    ];
+	const finishedProjects = [
+        ["Presentation Master", "download", "font-sans", "/presenter"],
+    ];
+	
     let windowHeight = 1080;
     let scrollY = 0;
+    
+    let allProjects = false;
 </script>
 
 
@@ -26,29 +38,27 @@
         </div>
     </Text>
     <div/>
+    <Switch bind:value={allProjects} trueTitle="All" falseTitle="Finished"/>
+    <div/>
     <div class="flex flex-col gap-4">
-        {#each [
-            ["Presentation Master<br/>[Monetized]", "download", "font-sans", "/presenter"],
-            ["rubenhagen.com<br/>[In Development]", "settings", "font-mono", "/"],
-            ["Web Notes [First Look]", "open-in-new", "font-serif", "/app/webnotes"],
-        ] as data}
-            <a
-                href={data[3]}
+        {#each allProjects ? projects : finishedProjects as data}
+            <button
+                on:click={() => window.location.href = data[3]}
                 class=
                 "transition-all duration-200
                 rounded-2xl border-2 border-black
                 h-16 p-4 hover:scale-[101%]
-                flex items-center gap-8"
+                flex items-center gap-8 text-left"
             >
                 <div>
                     <Icon name={data[1]} widthClass="w-6"/>
                 </div>
                 <Text medium paragraph>
                     <span class={data[2]}>
-                        {@html data[0]}
+                        {data[0]}
                     </span>
                 </Text>
-            </a>
+            </button>
         {/each}
     </div>
 </Dialog>

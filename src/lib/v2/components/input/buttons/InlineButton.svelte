@@ -8,7 +8,7 @@
 </script>
 
 
-<button on:click={href == null ? onClick : () => window.location.href = href} class="transition-all duration-[200ms] hover:opacity-60 inline-flex capitalize">
+<button on:click={href == null ? onClick : () => window.location.href = href} class="transition-all duration-[200ms] hover:opacity-60 inline-flex">
     <span class={invisible ? "" : "underline underline-offset-8"}>
         <slot/>
     </span>

@@ -1,5 +1,5 @@
 import Icon from './elements/Icon.svelte';
-import ShortcutIndicator from './elements/ShortcutIndicator.svelte';
+import Indicator from './elements/Indicator.svelte';
 import Text from './elements/Text.svelte';
 
 import IconButton from "./components/input/buttons/IconButton.svelte";
@@ -16,7 +16,8 @@ import Header from "./components/layout/Header.svelte";
 
 export {
   Icon,
-  ShortcutIndicator,
+  Indicator,
+  Indicator as ShortcutIndicator,
   Text,
   
   IconButton,

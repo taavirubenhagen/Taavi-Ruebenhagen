@@ -15,14 +15,14 @@
                 &nbsp;&nbsp;𐄁&nbsp;&nbsp;
             </span>
         {/if}
-        <span class="{v == value ? 'text-black' : 'text-[#999999]' } capitalize">
-            <InlineButton invisible={v != value} onClick={
-            () => route
-            ? window.location.href = route + "/" + v.replaceAll(" ", "")
-            : value = v
-            }>
+        <InlineButton invisible={v != value} onClick={
+        () => route
+        ? window.location.href = route + "/" + v.replaceAll(" ", "")
+        : value = v
+        }>
+            <span class="{v == value ? 'text-black' : 'text-[#999999]' } capitalize">
                 {v}
-            </InlineButton>
-        </span>
+            </span>
+        </InlineButton>
     {/each}
 </div>
