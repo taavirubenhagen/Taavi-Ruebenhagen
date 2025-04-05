@@ -3,9 +3,8 @@
     import { onMount } from "svelte";
 	import { page } from "$app/state";
 	import { updateNote, deleteNote } from "$lib/db/notes";
-    import { Dialog, InlineButton, Text, TextButton } from "$lib/v2";
+    import { Indicator, Dialog, InlineButton, Text, TextButton } from "$lib/v2";
 	import { dialog } from '$state/state';
-	import ShortcutIndicator from '$lib/v2/elements/ShortcutIndicator.svelte';
     
     $: url = page.url.href;
     $: id = page.data.id;
@@ -38,9 +37,9 @@
             <span class="opacity-50">
                 {copied ? "Copied!" : "Copy URL"}
             </span>
-            <ShortcutIndicator>
+            <Indicator>
                 c
-            </ShortcutIndicator>
+            </Indicator>
         </Text>
     </button>
     <div class="absolute z-50 right-8 bottom-8 opacity-50">
