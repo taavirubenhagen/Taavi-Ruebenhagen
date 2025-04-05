@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import { logOut, user } from "$lib/db/auth";
     import { Dialog, Icon, InlineButton, Text, TextButton } from "$lib/v2";
+	import { general } from "$state/context";
 	import { dialog } from "$state/state";
 	import { fly } from "svelte/transition";
 
@@ -29,7 +30,7 @@
     items-center gap-8"
 >
     <Text small heading>
-        <a class="{menusVisible ? "" : ""} w-16 font-mono" href={href}>
+        <a class="{menusVisible ? "" : ""} w-16 {$general.headingFont}" href={href}>
             {abbreviation}.
         </a>
     </Text>

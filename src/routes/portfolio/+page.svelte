@@ -30,7 +30,7 @@
         {#each [
             ["Presentation Master<br/>[Monetized]", "download", "font-sans", "/presenter"],
             ["rubenhagen.com<br/>[In Development]", "settings", "font-mono", "/"],
-            ["Web Notes [MVP]", "open-in-new", "font-serif", "/app/webnotes"],
+            ["Web Notes [First Look]", "open-in-new", "font-serif", "/app/webnotes"],
         ] as data}
             <a
                 href={data[3]}

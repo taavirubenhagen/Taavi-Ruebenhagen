@@ -21,14 +21,14 @@
             </InlineButton>
         {:else}
             {#if home}
-                <div class="flex justify-end">
+                <!--<div class="flex justify-end">
                     <InlineButton invisible href="/portfolio/projects/unfinished">
                         Projects
                     </InlineButton>
                 </div>
                 <div class="flex justify-center">
                     &nbsp;&nbsp;𐄁&nbsp;&nbsp;
-                </div>
+                </div>-->
             {:else}
                 <div class="flex justify-end">
                     <InlineButton invisible href="/">
