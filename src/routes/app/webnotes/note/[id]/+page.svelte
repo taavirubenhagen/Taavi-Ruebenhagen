@@ -58,13 +58,15 @@
             Delete Note
         </TextButton>
     </Dialog>
-    <textarea
-        bind:value={text}
-        on:input={() => {
-          copied = false;
-          updateNote(id, text);
-        }}
-        placeholder={id}
-        class="w-screen min-h-screen outline-none p-8 text-black"
-    />
+    <Text medium paragraph>
+        <textarea
+            bind:value={text}
+            on:input={() => {
+            copied = false;
+            updateNote(id, text);
+            }}
+            placeholder={id}
+            class="w-screen min-h-screen outline-none p-8 text-black"
+        />
+    </Text>
 </main>

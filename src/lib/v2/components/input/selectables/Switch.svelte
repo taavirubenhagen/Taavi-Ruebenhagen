@@ -1,5 +1,6 @@
 <script lang='ts'>
 	import { InlineButton } from "$lib/v2";
+	import { general } from "$state/context";
 
     export let value: boolean;
     export let trueTitle: string;
@@ -7,7 +8,7 @@
 </script>
 
 
-<div class="flex">
+<div class="flex {$general.buttonFont}">
     <InlineButton invisible onClick={() => value = false}>
         <span class="{!value ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
             {falseTitle}

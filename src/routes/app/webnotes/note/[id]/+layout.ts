@@ -4,14 +4,8 @@ import { contextButtonFontClass, contextPrimaryClass, general, headingFontClass,
 
 export async function load({ params }: any) {
   general.set({
-    buttonFont: "font-serif",
-    headingFont: "font-serif",
+    buttonFont: "font-mono",
+    headingFont: "font-mono",
     paragraphFont: "font-mono",
   });
-  
-  contextPrimaryClass.set("bg-black");
-  
-  contextButtonFontClass.set("font-serif");
-  headingFontClass.set("font-serif");
-  paragraphFontClass.set("font-mono");
 }

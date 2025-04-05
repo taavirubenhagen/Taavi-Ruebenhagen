@@ -8,12 +8,8 @@
   
   //$: url = page.url.href;
   
-  let shortcutReceiver: any;
   
-  
-  async function handleKeydown(event: KeyboardEvent & {
-    currentTarget: EventTarget & HTMLButtonElement;
-  }) {
+  async function handleKeydown(event: KeyboardEvent) {
     if ($input) {
       return;
     }
@@ -34,6 +30,7 @@
         return;
       case "l":
         if (!( await user() ).name) {
+          input.set(true);
           dialog.set("login");
           return;
         }
@@ -41,6 +38,7 @@
         window.location.reload();
         return;
       case "a":
+        input.set(true);
         dialog.set("create");
         return;
       case "x":
@@ -51,12 +49,11 @@
 </script>
 
 
-<button
-    bind:this={shortcutReceiver}
-    autofocus
-    on:focusout={() => shortcutReceiver.focus()}
-    on:keydown={handleKeydown}
+<svelte:window on:keydown={(event) => handleKeydown(event)}/>
+
+
+<main
     class="relative w-screen min-h-screen cursor-default bg-white selection:bg-black text-justify text-black selection:text-white"
 >
     <slot/>
-</button>
+</main>

@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { headingFontClass, paragraphFontClass } from "$state/context";
+	import { general } from "$state/context";
     import "../style/style.postcss";
     
     export let p = false;
@@ -13,7 +13,7 @@
 
 
 {#if paragraph}
-    <p class='{$paragraphFontClass} inline'>
+    <p class='{$general.paragraphFont} inline'>
         {#if small}
             <p class="text-[0.75rem] sm:text-[0.875rem]"><slot/></p>
         {:else if medium}
@@ -23,7 +23,7 @@
         {/if}
     {/if}
 {#if heading}
-    <p class='{$headingFontClass} font-bold tracking-wider'>
+    <p class='{$general.headingFont} font-bold tracking-wider'>
         {#if p}
             <p class="text-[0.875rem] sm:text-[1rem]"><slot/></p>
         {:else if small}

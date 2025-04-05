@@ -17,7 +17,6 @@
             <TextField
                 bind:value={searchExp}
                 placeholder="Search"
-                action="Find"
                 onSubmit={() => searchExp = ""}
             />
         </div>

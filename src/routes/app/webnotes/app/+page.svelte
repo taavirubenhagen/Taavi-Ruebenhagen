@@ -2,7 +2,7 @@
   import { page } from "$app/state";
   import { user } from "$lib/db/auth";
   import { insertNote } from "$lib/db/notes";
-  import { dialog } from "$state/state";
+  import { dialog, input } from "$state/state";
   import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, InlineButton, ShortcutIndicator } from "$lib/v2";
   
   
@@ -46,26 +46,22 @@
             <TextButton expanded primary onClick={() => dialog.set("login")}>
                 Log in
             </TextButton>
-            <div/>
-            <Text medium paragraph>
-                &nbsp;
-            </Text>
         {:else}
             <TextField
                 inside="create"
                 bind:value={idInput}
                 placeholder="Note ID"
-                action={ids.includes(validId) ? "Open" : "Create"}
                 onSubmit={openOrCreate}
             />
-            <div/>
-            <div class="flex justify-between">
-                <span class={
-                    ids.includes(idInput) || !validId
-                    ? "text-red-500"
-                    : "text-green-500"
-                }>
-                    <Text medium paragraph>
+            {#if validId}
+                <div/>
+                <div class="flex justify-between">
+                    <span class={
+                        ids.includes(idInput) || !validId
+                        ? "text-red-500"
+                        : "text-green-500"
+                    }>
+                            <div/>
                         {#if ids.includes(idInput)}
                             ID already exists.
                         {:else if !validId}
@@ -75,19 +71,17 @@
                         {:else}
                             Valid ID :)
                         {/if}
-                    </Text>
-                </span>
-                <span>
-                    <InlineButton shortcut="X" onClick={() => dialog.set("")}>
-                        Cancel
-                    </InlineButton>
-                </span>
-            </div>
+                    </span>
+                </div>
+            {/if}
         {/if}
     {/await}
 </Dialog>
 <div class="absolute z-30 w-full md:px-[25%] bottom-32 px-8">
-    <TextButton expanded primary shortcut="A" onClick={() => dialog.set("create")}>
+    <TextButton expanded primary shortcut="A" onClick={() => {
+      input.set(true);
+      dialog.set("create");
+    }}>
         Write
     </TextButton>
 </div>
@@ -112,7 +106,10 @@
                     to toggle hints for keyboard shortcuts.
                 </Text>
                 <div/>
-                <TextButton shortcut="L" onClick={() => dialog.set("login")}>
+                <TextButton shortcut="L" onClick={() => {
+                  input.set(true);
+                  dialog.set("login");
+                }}>
                     Log in
                 </TextButton>
             </div>
