@@ -15,7 +15,7 @@
 {#if paragraph}
     <p class='{$general.paragraphFont} inline'>
         {#if small}
-            <p class="text-[0.75rem] sm:text-[0.875rem]"><slot/></p>
+            <p class="text-[0.875rem] sm:text-[0.875rem]"><slot/></p>
         {:else if medium}
             <p class="text-[0.875rem] sm:text-[1rem]"><slot/></p>
         {:else if large}

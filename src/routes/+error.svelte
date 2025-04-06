@@ -9,10 +9,21 @@
 </svelte:head>
 
 
-<main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center">
-    <Text huge heading>404</Text>
-    <div class="h-4"></div>
-    <Text p heading>Page not found.</Text>
-    <div class="h-16"></div>
-    <TextButton primary onClick={() => {}} href="/">take me home</TextButton>
+<main class="min-h-screen bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center gap-4">
+    <Text huge heading>
+        <span class="font-mono">
+            404
+        </span>
+    </Text>
+    <Text p heading>
+        <span class="font-mono">
+            Page not found.
+        </span>
+    </Text>
+    <div/><div/><div/>
+    <TextButton primary onClick={() => {}} href="/">
+        <span class="font-mono">
+            take me home
+        </span>
+    </TextButton>
 </main>

@@ -1,9 +1,22 @@
 <script lang='ts'>
-    import { dialog } from "$state/state";
-	import { TextField, Header } from "$lib/v2";
-    
-	let menusVisible = true;
-    let searchExp: string;
+	import { page } from "$app/state";
+  import { TextField, Header } from "$lib/v2";
+  
+  let menusVisible = true;
+  let searchExp: string;
+  
+  $: ids = page.data.ids;
+  
+  function validateId(input: string) {
+    return input?.replaceAll(" ", "");
+  }
+  
+  function find() {
+    if (ids.includes(validateId(searchExp))) {
+      window.location.href = "/app/webnotes/note/" + validateId(searchExp);
+    }
+    searchExp = "";
+  }
 </script>
 
 
@@ -17,7 +30,7 @@
             <TextField
                 bind:value={searchExp}
                 placeholder="Search"
-                onSubmit={() => searchExp = ""}
+                onSubmit={find}
             />
         </div>
     </Header>

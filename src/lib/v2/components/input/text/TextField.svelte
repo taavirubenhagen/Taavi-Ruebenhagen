@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { InlineButton, Text, TextButton } from "$lib/v2";
+	import { Icon, InlineButton, Text, TextButton } from "$lib/v2";
 	import { dialog, input } from "$state/state";
 	
     export let dark = false;
@@ -44,10 +44,10 @@
                 }}
                 class="outline-none w-full h-full bg-transparent"
             />
-            <div class="absolute right-0 top-0 h-full pr-5 flex items-center">
+            <div class="absolute right-0 top-0 h-full opacity-40 pr-5 flex items-center">
                 {#if active}
                     <InlineButton invisible href={href} onClick={onSubmit}>
-                        <img src="/icons/tavy-24-04/arrow-forward.svg" alt="" class="h-4 opacity-40">
+                        <Icon name="arrow-forward"/>
                     </InlineButton>
                 {/if}
             </div>

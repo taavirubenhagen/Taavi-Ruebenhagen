@@ -4,6 +4,7 @@
   import { dialog } from "$state/state";
   
   export let role: string;
+  export let title: string | null = null;
   
   let signup = false;
   let loginError = false;
@@ -42,6 +43,13 @@
         >
             <button on:click={close} class="absolute w-full h-full bg-opacity-50 bg-black"></button>
             <div class="relative rounded-[2rem] w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 2xl:w-1/4 bg-white p-8 flex flex-col justify-center gap-4">
+                {#if title}
+                    <Text small heading>
+                        {title}
+                    </Text>
+                {:else}
+                    <div class="h-4"/>
+                {/if}
                 {#if role == "login"}
                     <Switch bind:value={signup} trueTitle="Sign up" falseTitle="Log in"/>
                     <div/>

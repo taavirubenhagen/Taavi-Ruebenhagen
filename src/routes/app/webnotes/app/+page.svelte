@@ -123,10 +123,10 @@
                     <Text medium paragraph>
                         Press "Write" to create one.
                     </Text>
-                    <div/>
+                    <!--<div/>
                     <TextButton shortcut="H" href="app/faq">
                         Help
-                    </TextButton>
+                    </TextButton>-->
                 </div>
         {:else}
             {#each notes as note}

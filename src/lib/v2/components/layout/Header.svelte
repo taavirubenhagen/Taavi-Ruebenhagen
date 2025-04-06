@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { logOut, user } from "$lib/db/auth";
     import { Dialog, Icon, InlineButton, Text, TextButton } from "$lib/v2";
-	import { general } from "$state/context";
+	import { general, light } from "$state/context";
 	import { dialog } from "$state/state";
 	import { fly } from "svelte/transition";
 
@@ -45,7 +45,7 @@
                 >
                     <button
                         on:click={() => dialog.set(user.name ? "menu" : "login")}
-                        class="transition duration-[100ms] rounded-full bg-black h-10 aspect-square bg-opacity-20 flex justify-center items-center"
+                        class="transition duration-[100ms] rounded-full {$light.accent} h-10 aspect-square flex justify-center items-center"
                     >
                         {#if user.name}
                             {user.name.at(0)}

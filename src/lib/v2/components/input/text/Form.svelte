@@ -37,9 +37,9 @@
     >
         {#each values as v, i}
             {#if i > 0}
-                <div class="rounded-full border border-white h-[2px]"/>
+                <div class="rounded-full bg-white h-[2px]"/>
             {/if}
-            <div class="h-12 flex items-center">
+            <div class="h-12 flex items-center px-0">
                 <!-- svelte-ignore a11y-autofocus -->
                 <input
                     bind:this={elements[i]}

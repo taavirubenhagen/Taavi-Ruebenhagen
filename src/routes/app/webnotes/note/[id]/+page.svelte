@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
 	import { page } from "$app/state";
 	import { updateNote, deleteNote } from "$lib/db/notes";
-    import { Indicator, Dialog, InlineButton, Text, TextButton } from "$lib/v2";
+    import { Indicator, Dialog, InlineButton, Text, TextButton, Icon } from "$lib/v2";
 	import { dialog } from '$state/state';
     
     $: url = page.url.href;
@@ -49,14 +49,37 @@
             </Text>
         </InlineButton>
     </div>
-    <Dialog role="deletenote">
-        <TextButton primary onClick={() => {
-            deleteNote(id);
-            window.location.href = "/app/webnotes";
-        }}>
-            Delete Note
-        </TextButton>
+    <Dialog role="deletenote" title="Options">
+        <div/>
+        <div class="flex justify-between items-center">
+            <Text large paragraph>
+                Delete Note
+            </Text>
+            <TextButton primary onClick={() => {
+                deleteNote(id);
+                window.location.href = "/app/webnotes";
+            }}>
+                Delete
+            </TextButton>
+        </div>
     </Dialog>
+    <div class="border-b border-[#E0E0E0] w-screen h-12 overflow-scroll px-8 flex items-center gap-4 whitespace-nowrap">
+        <InlineButton invisible onClick={() => dialog.set($dialog == "deletenote" ? "" : "deletenote")}>
+            <Text p heading>
+                <span class="opacity-50">
+                    Attach File
+                </span>
+            </Text>
+        </InlineButton>
+        <div/>
+        {#each ["Image.jgp", "File.pdf", "Icon.svg", "Model.blend"] as title}
+            <button class="border border-[#E0E0E0] rounded-lg hover:opacity-50 h-8 px-4 flex items-center gap-4">
+                <Text small paragraph>
+                    {title}
+                </Text>
+            </button>
+        {/each}
+    </div>
     <Text medium paragraph>
         <textarea
             bind:value={text}
@@ -65,7 +88,7 @@
             updateNote(id, text);
             }}
             placeholder={id}
-            class="w-screen min-h-screen outline-none p-8 text-black"
+            class="w-screen min-h-[calc(100vh-3rem)] outline-none p-8 text-black"
         />
     </Text>
 </main>

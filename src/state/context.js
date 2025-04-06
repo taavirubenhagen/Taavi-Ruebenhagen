@@ -15,7 +15,7 @@ export const light = writable({
 export const dark = writable({
   background: "bg-black text-white",
   primary: "bg-white text-black",
-  accent: "bg-red-700 text-white",
+  accent: "bg-blue-700 text-white",
 });
 
 export const contextPrimaryClass = writable("bg-black");

@@ -1,4 +1,3 @@
-import { selectAllNotes } from "$lib/db/notes";
 import { contextButtonFontClass, contextPrimaryClass, general, headingFontClass, paragraphFontClass } from "$state/context";
 
 

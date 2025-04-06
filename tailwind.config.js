@@ -8,6 +8,7 @@ export default {
         mono: ['DM Mono', 'mono'],
         sans: ['Lexend', 'Nunito', 'sans-serif'],
         serif: ['DM Serif Display', 'serif'],
+        hoffmanns: ['Roboto Slab', 'serif'],
       },
     }
   },
