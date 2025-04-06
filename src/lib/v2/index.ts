@@ -1,3 +1,4 @@
+import Checkbox from './elements/Checkbox.svelte';
 import Icon from './elements/Icon.svelte';
 import Indicator from './elements/Indicator.svelte';
 import Text from './elements/Text.svelte';
@@ -15,6 +16,7 @@ import Footer from "./components/layout/Footer.svelte";
 import Header from "./components/layout/Header.svelte";
 
 export {
+  Checkbox,
   Icon,
   Indicator,
   Indicator as ShortcutIndicator,

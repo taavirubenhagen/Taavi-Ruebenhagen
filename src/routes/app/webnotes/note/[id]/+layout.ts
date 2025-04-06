@@ -1,5 +1,6 @@
-import { selectAllNotes } from "$lib/db/notes";
-import { contextButtonFontClass, contextPrimaryClass, general, headingFontClass, paragraphFontClass } from "$state/context";
+import { personalNotes, selectNote } from "$lib/db/notes";
+import { general } from "$state/context";
+import { error } from "@sveltejs/kit";
 
 
 export async function load({ params }: any) {
@@ -8,4 +9,9 @@ export async function load({ params }: any) {
     headingFont: "font-mono",
     paragraphFont: "font-mono",
   });
+  
+  if (params.id == "undefined") {
+    error(404);
+  }
+  return await selectNote(params.id);
 }

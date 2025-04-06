@@ -9,7 +9,8 @@
     export let href: string | null = null;
     export let onSubmit = () => {};
     
-    let active = false;
+    let a: HTMLElement;
+    let active = $dialog == inside && inside != "";
     
     const shortcuts = false;
 </script>
@@ -32,25 +33,30 @@
                   input.set(true);
                   active = true;
                 }}
-                on:focusout={() => {
+                on:focusout={async () => {
+                  await new Promise(r => setTimeout(r, 200));
                   input.set(false);
                   active = false;
                 }}
                 placeholder={placeholder + ( shortcuts ? " [F]" : "" )}
                 on:keydown={(event) => {
-                    if (event.key == "Enter") {
-                        onSubmit();
+                  if (event.key == "Enter") {
+                    if (href) {
+                      a.click();
+                      return;
                     }
+                    onSubmit();
+                  }
                 }}
                 class="outline-none w-full h-full bg-transparent"
             />
-            <div class="absolute right-0 top-0 h-full opacity-40 pr-5 flex items-center">
+            <a bind:this={a} href={href} class="absolute right-0 top-0 h-full opacity-40 pr-5 flex items-center">
                 {#if active}
-                    <InlineButton invisible href={href} onClick={onSubmit}>
+                    <InlineButton invisible onClick={href ? undefined : onSubmit}>
                         <Icon name="arrow-forward"/>
                     </InlineButton>
                 {/if}
-            </div>
+            </a>
         </div>
     </div>
 </Text>

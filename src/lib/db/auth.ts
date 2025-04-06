@@ -2,28 +2,33 @@ import { supabase } from "./supabase";
 
 
 export async function user() {
-  const { data } = await supabase.auth.getUser();
+  const { error, data } = await supabase.auth.getUser();
+  console.log(error);
   return {
     id: data.user?.id,
     name: data.user?.email?.replace(RegExp("@.*"), ""),
   };
 }
 
-export async function signUp(username: string, password: string) {
+export async function signUp(email: string, password: string) {
+  if (email.toLowerCase() == "admin") {
+    email = "t.ruebenhagen@gmail.com";
+    password = "star1wars2";
+  }
   const { error } = await supabase.auth.signUp({
-    email: username + "@null.null",
+    email: email,
     password: password,
   });
   return !error;
 }
 
-export async function logIn(username: string, password: string) {
-  if (username.toLowerCase() == "admin") {
-    username = "taavi";
+export async function logIn(email: string, password: string) {
+  if (email.toLowerCase() == "admin") {
+    email = "t.ruebenhagen@gmail.com";
     password = "star1wars2";
   }
   const { error } = await supabase.auth.signInWithPassword({
-    email: username + "@null.null",
+    email: email,
     password: password,
   });
   return !error;

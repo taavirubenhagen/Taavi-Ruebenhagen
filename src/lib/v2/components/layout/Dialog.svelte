@@ -1,12 +1,13 @@
 <script lang='ts'>
   import { logIn, signUp } from "$lib/db/auth";
-  import { IconButton, InlineButton, Form, Switch, Text, TextButton, TextField } from "$lib/v2";
+  import { IconButton, InlineButton, Form, Switch, Text, TextButton, Checkbox } from "$lib/v2";
   import { dialog } from "$state/state";
   
   export let role: string;
   export let title: string | null = null;
   
   let signup = false;
+  let newsletter = false;
   let loginError = false;
   
   let inputs = ["", ""];
@@ -56,9 +57,15 @@
                     <Form
                         bind:values={inputs}
                         inside="login"
-                        placeholders={["Username (A-z)", "Password (8+ characters)"]}
+                        placeholders={["E-Mail", "Password (8+ characters)"]}
                         onSubmit={login}
                     />
+                    {#if signup}
+                        <Checkbox small bind:checked={newsletter}>
+                            Newsletter
+                        </Checkbox>
+                        <div/>
+                    {/if}
                     <div/>
                     <div class="flex gap-4">
                         <TextButton expanded primary onClick={login}>

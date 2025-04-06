@@ -7,23 +7,25 @@
   import { general } from "$state/context";
   
   
+  let createA: HTMLElement;
+  let access: "private" | "public" | "collaborative" = "collaborative";
+  let idInput: string;
+  
+  
   $: ids = page.data.ids;
   $: notes = page.data.notes;
   $: validId = validateId(idInput);
   
-  let access: "private" | "public" | "collaborative" = "collaborative";
-  let idInput: string;
   
   function validateId(input: string) {
     return input?.replaceAll(" ", "");
   }
   
-  
   async function openOrCreate() {
     if (!ids.includes(validId)) {
       await insertNote(validId, access);
     }
-    window.location.href = "/app/webnotes/note/" + validId;
+    createA.click();
   }
 </script>
 
@@ -34,10 +36,12 @@
 </svelte:head>
 
 
+<!-- svelte-ignore a11y-missing-content -->
+<a bind:this={createA} href ="/app/webnotes/note/{validId}" class="hidden"/>
 <Dialog role="login"/>
 <Dialog role="create">
     <Text p heading>
-        <MultiSwitch bind:value={access} options={["private", "public", "collaborative"]}/>
+        <MultiSwitch bind:value={access} options={["private", "collaborative"]}/>
     </Text>
     <div/>
     {#await user()}
@@ -89,9 +93,18 @@
 </div>
 <div class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
     {#await user()}
-        <Text medium paragraph>
-            Loading...
-        </Text>
+        <div class="h-[calc(100vh-20rem-2.5rem)] bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center gap-4">
+            <Text medium heading>
+                <span class="font-serif">
+                    Loading...
+                </span>
+            </Text>
+            <TextButton href="app/faq">
+                <span class="font-serif">
+                    Help
+                </span>
+            </TextButton>
+        </div>
     {:then user}
         {#if !user.name}
             <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">

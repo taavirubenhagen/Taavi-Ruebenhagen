@@ -1,5 +1,4 @@
 <script lang='ts'>
-	import { paragraphFontClass } from "$state/context";
 	import { shortcuts } from "$state/preferences";
 
 	export let alwaysVisible = false;

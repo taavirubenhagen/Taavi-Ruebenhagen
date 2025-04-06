@@ -30,9 +30,12 @@
             <TextField
                 bind:value={searchExp}
                 placeholder="Search"
+                href="/app/webnotes/note/{validateId(searchExp)}"
                 onSubmit={find}
             />
         </div>
     </Header>
-    <slot/>
+    <div class={menusVisible ? "opacity-100" : "opacity-0 sm:opacity-100"}>
+        <slot/>
+    </div>
 </main>
