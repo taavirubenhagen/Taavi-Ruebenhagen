@@ -1,10 +1,15 @@
 <script lang='ts'>
-	import { InlineButton } from "$lib/v2";
-	import { general } from "$state/context";
+import { InlineButton } from "$lib/v2";
+import { general } from "$state/context";
 
-	export let value: string;
-	export let route: string | null = null;
-    export let options: string[];
+export let value: string;
+export let route: string | null = null;
+  export let options: string[];
+  
+  
+  async function handleKeydown(event: KeyboardEvent) {
+    // TODO
+  }
 </script>
 
 
@@ -16,9 +21,9 @@
             </span>
         {/if}
         <InlineButton invisible={v != value} onClick={
-        () => route
-        ? window.location.href = route + "/" + v.replaceAll(" ", "")
-        : value = v
+          () => route
+          ? window.location.href = route + "/" + v.replaceAll(" ", "")
+          : value = v
         }>
             <span class="{v == value ? 'text-black' : 'text-[#999999]' } capitalize">
                 {v}

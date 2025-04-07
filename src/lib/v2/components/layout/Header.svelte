@@ -2,7 +2,7 @@
 	import { logOut, user } from "$lib/db/auth";
     import { Dialog, Icon, InlineButton, Text, TextButton } from "$lib/v2";
 	import { general, light } from "$state/context";
-	import { dialog } from "$state/state";
+	import { dialog, input } from "$state/state";
 	import { fly } from "svelte/transition";
 
     export let abbreviation = "tr";
@@ -25,7 +25,7 @@
 {/if}
 <div
     class=
-    "fixed z-30 {message ? "top-8" : "top-0"} w-full h-24 px-8 md:px-16 flex
+    "fixed {message ? "top-8" : "top-0"} w-full h-24 px-8 md:px-16 flex
     {menusVisible ? "justify-between" : "justify-center sm:justify-between"}
     items-center gap-8"
 >
@@ -36,45 +36,23 @@
     </Text>
     <slot/>
     {#if account}
-        <div class="{menusVisible ? "" : ""} flex w-16 justify-end">
+        <div class="{menusVisible ? "" : ""} flex w-16 justify-end {$general.headingFont}">
             {#await user()}
                 <div class="w-16"/>
-            {:then user}
-                <div
-                    class="relative"
+            {:then u}
+                <button
+                    on:click={() => {
+                      input.set(true);
+                      dialog.set(u.id ? "menu" : "login");
+                    }}
+                    class="transition duration-[100ms] rounded-full h-10 aspect-square flex justify-center items-center"
                 >
-                    <button
-                        on:click={() => dialog.set(user.name ? "menu" : "login")}
-                        class="transition duration-[100ms] rounded-full {$light.accent} h-10 aspect-square flex justify-center items-center"
-                    >
-                        {#if user.name}
-                            {user.name.at(0)}
-                        {:else}
-                            <Icon name="login"/>
-                        {/if}
-                    </button>
-                    {#if $dialog == "menu"}
-                        <div
-                            in:fly={{ duration: 200, y: -4 }}
-                            class=
-                            "absolute z-35 right-0 top-0
-                            shadow rounded-2xl rounded-tr-[1.25rem] border border-black
-                            bg-white bg-opacity-0 backdrop-blur-[8px] p-4 pt-14 whitespace-nowrap"
-                        >
-                            <button
-                                on:click={() => dialog.set("")}
-                                class="transition-all duration-[100ms] absolute right-0 top-0 w-10 h-10 hover:opacity-60 flex justify-center items-center">
-                                <img src="/icons/tavy-24-04/close.svg" alt="" class="h-4"/>
-                            </button>
-                            <InlineButton onClick={async () => {
-                                await logOut();
-                                window.location.reload();
-                            }}>
-                                Log out
-                            </InlineButton>
-                        </div>
+                    {#if u.id}
+                        <Icon name="menu" widthClass="w-5"/>
+                    {:else}
+                        <Icon name="login" widthClass="w-5"/>
                     {/if}
-                </div>
+                </button>
             {/await}
         </div>
     {/if}

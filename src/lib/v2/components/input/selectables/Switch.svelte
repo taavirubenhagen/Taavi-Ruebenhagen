@@ -12,7 +12,7 @@
 <Text p heading>
     <div class="flex {$general.buttonFont}">
         <InlineButton invisible onClick={() => value = false}>
-            <span class="{!value ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
+            <span class="{!value ? 'text-black underline underline-offset-8' : 'text-[#999999]' } capitalize">
                 {falseTitle}
             </span>
         </InlineButton>
@@ -20,7 +20,7 @@
             &nbsp;&nbsp;𐄁&nbsp;&nbsp;
         </span>
         <InlineButton invisible onClick={() => value = true}>
-            <span class="{value ? 'text-black underline underline-offset-8' : 'text-[#999999]' }">
+            <span class="{value ? 'text-black underline underline-offset-8' : 'text-[#999999]' } capitalize">
                 {trueTitle}
             </span>
         </InlineButton>

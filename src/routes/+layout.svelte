@@ -31,7 +31,7 @@
         shortcuts.set(!$shortcuts);
         return;
       case "l":
-        if (!( await user() ).name) {
+        if (!( await user() ).id) {
           input.set(true);
           dialog.set("login");
           return;

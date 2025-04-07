@@ -2,13 +2,11 @@ import { user } from "./auth";
 import { supabase } from "./supabase";
 
 
-export async function personalNotes() {
-  const { data } = await supabase.from("notes").select().eq("user", ( await user() ).id);
-  return data;
-}
+export const allNotes = async () => ( await supabase.from("notes").select() ).data;
+export const personalNotes = async () => ( await supabase.from("notes").select().eq("user", ( await user() ).id) ).data;
 
 export async function selectNote(id: string) {
-  const { data } = await supabase.from("notes").select().eq("id", id).or('access.eq.collaborative,user.eq.' + ( await user() ).id);
+  const { data } = await supabase.from("notes").select().eq("id", id);
   const note = data?.at(0);
   return {
     id: note.id,

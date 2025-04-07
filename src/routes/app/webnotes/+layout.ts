@@ -1,5 +1,6 @@
-import { personalNotes } from "$lib/db/notes";
-import { contextButtonFontClass, contextPrimaryClass, general, headingFontClass, paragraphFontClass } from "$state/context";
+import { allNotes, personalNotes } from "$lib/db/notes";
+import { user } from "$lib/db/auth";
+import { general } from "$state/context";
 
 
 export async function load({ params }: any) {
@@ -9,10 +10,11 @@ export async function load({ params }: any) {
     paragraphFont: "font-mono",
   });
   
-  const notes = await personalNotes();
-  const ids = notes?.map((n) => n.id);
+  const aNotes = await allNotes();
+  const pNotes = await personalNotes();
   return {
-    ids: ids,
-    notes: notes,
+    allIds: aNotes?.map((n) => n.id),
+    personalIds: pNotes?.map((n) => n.id),
+    notes: pNotes,
   };
 }

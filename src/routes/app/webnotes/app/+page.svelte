@@ -3,18 +3,20 @@
   import { user } from "$lib/db/auth";
   import { insertNote } from "$lib/db/notes";
   import { dialog, input } from "$state/state";
-  import { Dialog, Footer, MultiSwitch, Text, TextButton, TextField, InlineButton, ShortcutIndicator } from "$lib/v2";
+  import { Dialog, MultiSwitch, Text, TextButton, TextField, InlineButton, ShortcutIndicator, Switch } from "$lib/v2";
   import { general } from "$state/context";
   
   
   let createA: HTMLElement;
-  let access: "private" | "public" | "collaborative" = "collaborative";
+  let anonymous = true;
   let idInput: string;
   
   
-  $: ids = page.data.ids;
+  $: personalIds = page.data.personalIds;
   $: notes = page.data.notes;
   $: validId = validateId(idInput);
+  $: idError = ( personalIds?.includes(idInput) || !validId || idInput != validId ) && $dialog == "create";
+  $: showIdError = !!idInput;
   
   
   function validateId(input: string) {
@@ -22,8 +24,12 @@
   }
   
   async function openOrCreate() {
-    if (!ids.includes(validId)) {
-      await insertNote(validId, access);
+    if (idError) {
+      return;
+    }
+    dialog.set("");
+    if (!personalIds.includes(validId)) {
+      await insertNote(validId, anonymous ? "collaborative" : "private");
     }
     createA.click();
   }
@@ -41,13 +47,19 @@
 <Dialog role="login"/>
 <Dialog role="create">
     <Text p heading>
-        <MultiSwitch bind:value={access} options={["private", "collaborative"]}/>
+        <Switch bind:value={anonymous} falseTitle="normal" trueTitle="anonymous"/>
     </Text>
+    {#if anonymous}
+        <div/>
+        <Text p heading>
+            Anonymous notes can be viewed and edited by anyone with the link.
+        </Text>
+    {/if}
     <div/>
     {#await user()}
         Loading...
     {:then user}
-        {#if access != "collaborative" && !user.name}
+        {#if !anonymous && !user.id}
             <TextButton expanded primary onClick={() => dialog.set("login")}>
                 Log in
             </TextButton>
@@ -58,16 +70,15 @@
                 placeholder="Note ID"
                 onSubmit={openOrCreate}
             />
-            {#if ids.includes(idInput) || !validId || idInput != validId}
-                <div/>
+            {#if showIdError && idError}
                 <div class="flex justify-between">
                     <span class={
-                        ids.includes(idInput) || !validId
+                        personalIds.includes(idInput) || !validId
                         ? "text-red-500"
                         : "text-green-500"
                     }>
                         <div/>
-                        {#if ids.includes(idInput)}
+                        {#if personalIds.includes(validId)}
                             ID already exists.
                         {:else if !validId}
                             ID can't be empty.
@@ -83,17 +94,23 @@
         {/if}
     {/await}
 </Dialog>
-<div class="absolute z-30 w-full md:px-[25%] bottom-32 px-8">
-    <TextButton expanded primary shortcut="A" onClick={() => {
-      input.set(true);
-      dialog.set("create");
-    }}>
-        Write
-    </TextButton>
-</div>
+{#await user()}
+    <div class="absolute"/>
+{:then u}
+    {#if u.id}
+        <div class="absolute z-30 w-full md:px-[25%] bottom-16 px-8">
+            <TextButton expanded primary shortcut="A" onClick={() => {
+            input.set(true);
+            dialog.set("create");
+            }}>
+                Write
+            </TextButton>
+        </div>
+    {/if}
+{/await}
 <div class="min-h-[calc(100vh-4rem-4rem)] p-8 md:px-[25%]">
     {#await user()}
-        <div class="h-[calc(100vh-20rem-2.5rem)] bg-white text-black p-8 md:p-16 flex flex-col justify-center items-center gap-4">
+        <div class="h-[calc(100vh-16rem)] text-black p-8 md:p-16 flex flex-col justify-center items-center gap-4">
             <Text medium heading>
                 <span class="font-serif">
                     Loading...
@@ -106,8 +123,8 @@
             </TextButton>
         </div>
     {:then user}
-        {#if !user.name}
-            <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">
+        {#if !user.id}
+            <div class="h-[calc(100vh-16rem)] flex flex-col justify-center items-center gap-4 text-center">
                 <Text small heading>
                     Welcome to Web Notes :)
                 </Text>
@@ -128,36 +145,40 @@
                     Log in
                 </TextButton>
             </div>
-        {:else if !ids.length}
-                <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">
-                    <Text small heading>
-                        No notes yet
-                    </Text>
-                    <Text medium paragraph>
-                        Press "Write" to create one.
-                    </Text>
-                    <!--<div/>
-                    <TextButton shortcut="H" href="app/faq">
-                        Help
-                    </TextButton>-->
-                </div>
+        {:else if !personalIds.length}
+            <div class="h-[calc(100vh-20rem-2.5rem)] flex flex-col justify-center items-center gap-4 text-center">
+                <Text small heading>
+                    No notes yet
+                </Text>
+                <Text medium paragraph>
+                    Press "Write" to create one.
+                </Text>
+                <!--<div/>
+                <TextButton shortcut="H" href="app/faq">
+                    Help
+                </TextButton>-->
+            </div>
         {:else}
-            {#each notes as note}
+            {#each notes as note, i}
                 <a
                     href="/app/webnotes/note/{note.id}"
-                    class="mb-4 rounded-lg border border-[#999999] hover:border-black overflow-hidden max-w-full p-4 flex flex-col gap-4 text-wrap"
+                    class=
+                    "transition-all duration-[200ms]
+                    {i == 0 ? "boder-t" : "borer-t-[0.5px]"} border-b
+                    border-[#999999] hover:border-black
+                    overflow-hidden w-full h-16 p-4
+                    flex items-center fex-col ap-4 text-wrap"
                 >
                     <Text p heading>
                         {note.id}
                     </Text>
-                    <span class="text-[#999999]">
+                    <!--<span class="text-[#999999]">
                         <Text medium paragraph>
                             {note.text}
                         </Text>
-                    </span>
+                    </span>-->
                 </a>
             {/each}
         {/if}
     {/await}
-    <Footer title="Help" href="app/faq"/>
 </div>
