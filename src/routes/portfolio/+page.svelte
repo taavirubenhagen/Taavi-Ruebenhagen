@@ -64,7 +64,7 @@
         taavi ruebenhagen.
     </Text>
     <div class="w-full flex justify-start gap-4">
-        <TextButton onClick={() => dialog.set("projects")}>
+        <TextButton href="/redirect/source/portfolio" onClick={() => dialog.set("projects")}>
             Explore
         </TextButton>
         <TextButton href="mailto:t.ruebenhagen@gmail.com">
