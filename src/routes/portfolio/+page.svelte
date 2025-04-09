@@ -6,7 +6,8 @@
         ["Presentation Master 2", "/presenter/square_icon.png", "font-sans", "/presenter"],
         ["hoffmanns-schuppen.com", "hoffmanns/Logo.jpg", 'font-hoffmanns', "https://hoffmanns-schuppen.com"],
         ["rubenhagen.com", "/Logo.png", "font-mono font-bold", "/"],
-        ["Web Notes [First Look]", "/webnotes/Transparent Logo.png", "font-serif", "/app/webnotes"],
+        //["Web Notes [First Look]", "/webnotes/Transparent Logo.png", "font-serif", "/app/webnotes"],
+        //["Ultraminimalist UI Icons", "/icons/settings.svg", "font-sans", "/coming-soon"],
     ];
 	const finishedProjects = [
         ["Presentation Master 2", "/presenter/square_icon.png", "font-sans", "/presenter"],
@@ -58,6 +59,7 @@
     </div>
 </Dialog>
 <main class="overflow-hidden min-h-screen p-8 sm:p-16 flex flex-col justify-center gap-8">
+    <!--<img src="/rubenhagen/portrait.png" alt="" class="w-16 h-16">-->
     <Text large heading>
         taavi ruebenhagen.
     </Text>
