@@ -1,0 +1,1 @@
+<meta http-equiv="Refresh" content="0; url='https://apps.apple.com/us/app/presentation-master-2/id6739542508'" />

@@ -34,10 +34,10 @@
             in:fade={{duration: 400}} out:fade={{duration: 400}}
             on:click={() => downloadVisible = !downloadVisible}
         >
-            <a href="https://play.google.com/store/apps/details?id=tavy.presenter.presentation_master_2">
+            <a href="/redirect/source/presenter/download/android">
                 <img class="w-32" src="/presenter/icons/temp/android.svg" alt="Download for Android">
             </a>
-            <a href="https://apps.apple.com/us/app/presentation-master-2/id6739542508">
+            <a href="/redirect/source/presenter/download/apple">
                 <img class="w-32" src="/presenter/icons/temp/ios.svg" alt="Download for iOS">
             </a>
             <a href="/presenter/download">
